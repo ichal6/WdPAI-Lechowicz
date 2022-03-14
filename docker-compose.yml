@@ -1,0 +1,20 @@
+version: '3' # version of Docker
+
+services:
+  web: # proper name
+    build:
+      context: . # where we can read a path
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app/
+    links:
+      - php
+
+  php: #proper name
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
