@@ -215,4 +215,70 @@ aside button{
 
 section{
     float: right;
+    position: relative;
+    right: 15em;
+    top: 8em;
+    width: 30rem;
+}
+
+section h1{
+    color: #4B486E;
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 36px;
+    letter-spacing: 0px;
+    margin-bottom: 0;
+}
+
+section form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    border: none;
+    font-family: "Poppins Regular";
+    font-size: 14px;
+    color: #525252;
+
+    margin-left: 5px;
+}
+
+.input{
+    border:none;
+    border-bottom: solid 1px #707070;
+    margin-top: 30px;
+    display: flex;
+}
+
+.input > *{
+    margin-bottom: 5px;
+}
+
+
+.forgot{
+    text-align: right;
+    font-family: "Poppins Bold";
+    font-size: 14px;
+    color: #F37944;
+}
+
+#ready-button{
+    width: 162px;
+    height: 50px;
+
+    font-family: "Poppins Regular";
+    font-size: 14px;
+    color: #FFFFFF;
+
+    background: #F37944 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#ready-button:hover{
+    background-color: #fa8652;
+    transition: all 0.5s;
+    font-size: 17px;
 }
