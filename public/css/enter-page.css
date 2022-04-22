@@ -136,3 +136,20 @@ nav{
 #main-icon{
     cursor: pointer;
 }
+
+#nav-sign-up{
+    width: 114px;
+    height: 49px;
+    background: #FFFFFF00 0% 0% no-repeat padding-box;
+    border: 3px solid #4B486E;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+
+#nav-sign-up:hover{
+    background-color: #4B486E;
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all .4s ease-out;
+}
