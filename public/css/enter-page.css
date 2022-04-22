@@ -132,3 +132,7 @@ nav{
 .menu-item:last-child{
     top: 50px; 
 }
+
+#main-icon{
+    cursor: pointer;
+}
