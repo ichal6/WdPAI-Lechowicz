@@ -211,6 +211,14 @@ aside button{
     background: #0BD1B8 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 19px;
+    transition: all 0.5s;
+}
+
+#aside-sign-up:hover{
+    background-color: #12dcc3;
+    transition: all 0.5s;
+    font-size: 17px;
+    cursor: pointer;
 }
 
 section{
