@@ -78,3 +78,17 @@ body {
     left: 583px;
     transform: rotate(90deg);
 }
+
+#left-menu{
+    display: flex;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+#right-menu{
+    float: right;
+}
+
