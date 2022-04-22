@@ -1,17 +1,17 @@
 @font-face {
     font-family: "Poppins Medium";
     src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
-  }
-  
-  @font-face {
-    font-family: "Poppins Semibold";
-    src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
-  }
-  
-  @font-face {
-    font-family: "Poppins Bold";
-    src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
-  }
+}
+
+@font-face {
+font-family: "Poppins Semibold";
+src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+font-family: "Poppins Bold";
+src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
+}
 
 body {
     background-image: url("../assets/login-page/background-image-WEB.svg");
@@ -152,4 +152,25 @@ nav{
     font-size: 17px;
     cursor: pointer;
     transition: all .4s ease-out;
+}
+
+#nav-log-in{
+    font-family: Poppins, sans-serif;
+    color: #FFFFFF;
+    width: 114px;
+    height: 49px;
+    background: #0BD1B8 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+
+#nav-log-in:hover{
+    background-color: transparent;
+    color: #0BD1B8;
+    font-size: 17px;
+    cursor: pointer;
+    border: 3px solid #0BD1B8;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
