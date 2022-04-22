@@ -2,3 +2,23 @@ body {
     background-image: url("../assets/login-page/background-image-WEB.svg");
     background-repeat: no-repeat;
 }
+
+.background-component{
+    float: left;
+}
+
+.green-point:first-child {
+    position: relative;
+    top: 166px;
+    left: 308px;
+    width: 10px;
+    height: 10px;
+}
+
+.green-point:nth-child(2){
+    position: relative;
+    top: 742px;
+    left: 495px;
+    width: 10px;
+    height: 10px;
+}
