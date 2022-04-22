@@ -1,6 +1,7 @@
 body {
     background-image: url("../assets/login-page/background-image-WEB.svg");
     background-repeat: no-repeat;
+    background-size: 1080px;
 }
 
 .background-component{
@@ -8,7 +9,7 @@ body {
 }
 
 .green-point:first-child {
-    position: relative;
+    position: absolute;
     top: 166px;
     left: 308px;
     width: 10px;
@@ -16,9 +17,64 @@ body {
 }
 
 .green-point:nth-child(2){
-    position: relative;
+    position: absolute;
     top: 742px;
     left: 495px;
     width: 10px;
     height: 10px;
+}
+
+.orange-x:nth-child(3){
+    position: absolute;
+    top: 733px;
+    left: 69px;
+    width: 19px;
+    height: 19px;
+}
+
+.orange-x:nth-child(4){
+    position: absolute;
+    top: 621px;
+    left: 583px;
+    width: 19px;
+    height: 19px;
+}
+
+.red-cross:nth-child(5){
+    position: absolute;
+    top: 19px;
+    left: 801px;
+    width: 30px;
+    height: 30px;
+}
+
+.red-cross:nth-child(6){
+    position: absolute;
+    top: 919px;
+    left: 519px;
+    width: 30px;
+    height: 30px;
+}
+
+#small-brackets{
+    position: absolute;
+    top: 307px;
+    left: 44px;
+    width: 15px;
+    height: 9px;
+}
+
+#medium-brackets{
+    position: absolute;
+    top: 900px;
+    left: 108px;
+    width: 25px;
+    height: 14px;
+}
+
+#vertical-brackets{
+    position: absolute;
+    top: 171px;
+    left: 583px;
+    transform: rotate(90deg);
 }
