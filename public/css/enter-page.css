@@ -437,6 +437,14 @@ input{
         background-size: 100vw;
     }
 
+    section{
+        width: 80vw;
+    }
+
+    aside{
+        width: 99vw;
+    }
+
     #mobile-icon{
         transition: all 0.5s;
         margin-left: 10px;
