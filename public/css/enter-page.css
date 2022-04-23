@@ -26,6 +26,11 @@ body {
 
 .background-component{
     float: left;
+    z-index: -1;
+}
+
+#mobile-icon{
+    display: none;
 }
 
 .green-point:first-child {
@@ -138,7 +143,7 @@ nav{
     top: 50px; 
 }
 
-#main-icon{
+#main-icon, #mobile-icon{
     cursor: pointer;
 }
 
@@ -290,3 +295,160 @@ input{
     transition: all 0.5s;
     font-size: 17px;
 }
+
+@media (max-width: 1700px) {
+    section{
+        right: 5em;
+    }
+}
+
+/* Tablet view */
+
+@media (max-width: 1550px){
+    body {
+        background-image: url("../assets/login-page/background-image-Mobile.svg");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 98vh;
+        align-items: center;
+    }
+
+    nav{
+        display: block;
+        order: -1;
+        width: 100vw;
+    }
+
+    #right-menu{
+        display: none;
+    }
+
+    #left-menu{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-item{
+        margin: 5px;
+    }
+
+    .menu-item:first-child{
+        top: 0;
+    }
+
+    .menu-item:nth-child(2){
+        top: 0;
+    }
+    
+    .menu-item:last-child{
+        top: 0; 
+    }
+    
+    .green-point:nth-child(2){
+        position: absolute;
+        top: 300px;
+        left: 600px;
+    }
+    
+    .orange-x:nth-child(3){
+        position: absolute;
+        top: 500px;
+        left: 69px;
+    }
+    
+    .orange-x:nth-child(4){
+        position: absolute;
+        top: 550px;
+        left: 800px;
+    }
+    
+    .red-cross:nth-child(6){
+        position: absolute;
+        top: 100px;
+        left: 519px;
+    }
+
+    #medium-brackets{
+       display: none;
+    }
+    
+    aside{
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        width: 520px;
+        align-items: center
+    }
+
+    aside p:nth-child(2){
+        display: none;
+    }
+
+     #mobile-icon{
+        display:block;
+        width: 120px;
+        height: 150px;
+    }
+
+    #main-icon{
+        display: none;
+    }
+
+    #menu-items{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    section{
+        top: 0em;
+        right: 0vw;
+        padding: .5em;
+        background-color: #f7f7f79a;
+        border-radius: 20px;
+    }
+
+    section h1{
+        text-align: center;
+        margin-top: 0;
+    }
+
+    section form{
+        align-items: center;
+    }
+}
+
+@media (max-width: 1050px) {
+    /* body{
+        background-image: none; 
+        background-repeat: no-repeat;
+        background-size: auto 750px;
+        height: 98vh;
+    } */
+
+    .orange-x:nth-child(4){
+        display: none;
+    }
+    
+    .red-cross:nth-child(5){
+        display: none;
+    }
+
+    aside p{
+        display: none;
+    }
+    
+}
+
+/* 
+@media (max-width: 1550px) {
+    body {
+        background-image: url("../assets/login-page/background-image-Mobile.svg");
+        background-repeat: no-repeat;
+        background-size: 1080px;
+    }
+} */
