@@ -43,8 +43,8 @@ body {
 
 .green-point:nth-child(2){
     position: absolute;
-    top: 742px;
-    left: 495px;
+    top: 45vh;
+    left: 30vw;
     width: 10px;
     height: 10px;
 }
@@ -256,6 +256,7 @@ input{
     font-family: "Poppins Regular";
     font-size: 14px;
     color: #525252;
+    background-color: transparent;
 
     margin-left: 5px;
 }
@@ -486,3 +487,15 @@ input{
     }
 
 }
+
+.repeat-password:nth-child(2){
+    position: relative;
+    left: -16px;
+    bottom: -5px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+
