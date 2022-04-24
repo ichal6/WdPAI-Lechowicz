@@ -43,8 +43,8 @@ body {
 
 .green-point:nth-child(2){
     position: absolute;
-    top: 742px;
-    left: 495px;
+    top: 45vh;
+    left: 30vw;
     width: 10px;
     height: 10px;
 }
@@ -223,7 +223,7 @@ aside button{
     transition: all 0.5s;
 }
 
-#aside-sign-up:hover{
+#aside-sign-up:hover, #aside-log-in:hover{
     background-color: #12dcc3;
     transition: all 0.5s;
     font-size: 17px;
@@ -256,6 +256,7 @@ input{
     font-family: "Poppins Regular";
     font-size: 14px;
     color: #525252;
+    background-color: transparent;
 
     margin-left: 5px;
 }
@@ -305,6 +306,22 @@ input{
         right: 5em;
     }
 }
+
+.repeat-password:nth-child(2){
+    position: relative;
+    left: -16px;
+    bottom: -5px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+.repeat-password-input{
+    position: relative;
+    left: -20px;
+}
+
 
 /* Tablet view */
 
@@ -401,7 +418,14 @@ input{
     section form{
         align-items: center;
     }
+
+    .repeat-password-input{
+        position: relative;
+        left: -12px;
+    }
 }
+
+/* Mobile view */
 
 @media (max-width: 1050px) {
     /* body{
@@ -477,7 +501,7 @@ input{
         border-radius: 20px;
     }
 
-    #aside-sign-up{
+    #aside-sign-up, #aside-log-in{
         display: none;
     }
 
