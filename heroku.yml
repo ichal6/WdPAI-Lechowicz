@@ -1,5 +1,5 @@
 build:
     docker:
-        web: docker/php/Dockerfile
+        web: docker/nginx/Dockerfile
         worker: docker/nginx/Dockerfile
         
