@@ -5,8 +5,6 @@ class AppController {
         $filenamePath = 'public/views/'.$filename.'.html';
         $output = 'File not found';
 
-        echo $filename;
-
         if(file_exists($filenamePath)){
             extract($variables);
 

@@ -24,7 +24,6 @@ class Router {
         $object = new $controller;
         $action = $action ?: 'index';
         $id = $urlParts[1] ?? ''; // ?? czy wartośc istnieje czy nie, jesli nie wstaw znak pusty
-        echo $id;
 
         $object->$action($id);
 
