@@ -1,6 +1,6 @@
 # Project Name
 > Application for controlling shopping. Make a list of product or service.
-<!-- > Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://shoptherapy.herokuapp.com/).
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -36,9 +36,8 @@ List the ready features here:
 - Application can display a hello message
 
 
-<!-- ## Screenshots
-![It's not ready yet](./img/screenshot.png)
-If you have screenshots you'd like to share, include them here. -->
+## Screenshots
+![Login page](./img/login-page.png)
 
 
 ## Setup
@@ -51,6 +50,11 @@ docker-compose up
 
 3. Please wait a moment (program need a time for initialize) and insert in your web browser **http://localhost:8080/**
 
+* To Push on Heroku use this comment on branch *deploy-on-Heroku*:
+```
+git push heroku dev-ops/deploy-on-Heroku:master
+```
+**If you have authority for that**
 
 <!-- What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
