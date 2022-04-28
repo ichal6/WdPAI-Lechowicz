@@ -33,7 +33,9 @@
 
 ## Features
 List the ready features here:
-- Application can display a hello message
+- Application can display a login and register pages
+- Routing is working
+- Available view for Mobile, Tablet and PC screens
 
 
 ## Screenshots
