@@ -1,4 +1,4 @@
-# Project Name
+# ShopTherapy
 > Application for controlling shopping. Make a list of product or service.
 > Live demo [_here_](https://shoptherapy.herokuapp.com/).
 
