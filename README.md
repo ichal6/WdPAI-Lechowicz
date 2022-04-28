@@ -1,7 +1,3 @@
----
-permalink: /index.php
----
-
 # Project Name
 > Application for controlling shopping. Make a list of product or service.
 <!-- > Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here. -->
