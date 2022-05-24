@@ -50,14 +50,14 @@
 
     <section>
         <h1>Log in</h1>
-        <form>
+        <form action="login" method="POST">
             <dev class="input">
                 <img src="public/assets/login-page/email-icon.svg" alt="email-icon">
-                <input type="email" id="email-input" placeholder="Your email" required>
+                <input name="email" type="email" id="email-input" placeholder="Your email" required>
             </dev>
             <dev class="input">
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon">
-                <input type="password" id="password-input" placeholder="Your password" required>
+                <input name="password" type="password" id="password-input" placeholder="Your password" required>
             </dev>
             <p class="forgot">forgot your password?</p>
             <button type="submit" id="ready-button">Ready to go!</button>

@@ -19,6 +19,8 @@
         <div id="name">
             <a href="/account">                <?php if(isset($message)){
                     echo $message;
+                } else{
+                echo "Jan Przykładowy";
                 }
 
                 ?><img src="public/assets/account-icon.svg" alt="account icon"></a>
