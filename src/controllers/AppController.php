@@ -2,7 +2,7 @@
 
 class AppController {
     protected function render(string $filename = null, array $variables = []){
-        $filenamePath = 'public/views/'.$filename.'.html';
+        $filenamePath = 'public/views/'.$filename.'.php';
         $output = 'File not found';
 
         if(file_exists($filenamePath)){

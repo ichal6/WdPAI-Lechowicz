@@ -17,7 +17,11 @@
             <input placeholder="Type here for search">
         </div>
         <div id="name">
-            <a href="/account">Jan Przykładowy<img src="public/assets/account-icon.svg" alt="account icon"></a>
+            <a href="/account">                <?php if(isset($message)){
+                    echo $message;
+                }
+
+                ?><img src="public/assets/account-icon.svg" alt="account icon"></a>
         </div>
         <div id="log-out">
             <a href="/index">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
