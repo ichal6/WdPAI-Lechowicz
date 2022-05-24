@@ -76,6 +76,24 @@
                 <a href="lists" class="button" id="remove-list-button">Delete list</a>
                 <a href="lists" class="button" id="share-list-button">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></a>
             </div>
+            <div id="Create-list">
+                <form>
+                    <h2>Add new List:</h2>
+                    <input id="list-name" placeholder="Name">
+                    <input id="type" placeholder="Type">
+                    <input type="text" id="category" placeholder="Category">
+                    <input type="text" id="subcategory" placeholder="Subcategory">
+                    <button type="submit">Add new</button>
+                </form>
+                <form>
+                    <h2>Add product to this list:</h2>
+                    <input type="text" id="product-name" placeholder="Name">
+                    <input type="text" id="product-price" placeholder="Price">
+                    <button type="submit">Add new</button>
+                    <a href="/products" id="go-to-products">Go to products section</a>
+                </form>
+
+            </div>
         </div>
     </section>
 </body>
