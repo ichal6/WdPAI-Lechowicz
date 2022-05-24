@@ -59,6 +59,13 @@
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon">
                 <input name="password" type="password" id="password-input" placeholder="Your password" required>
             </dev>
+            <?php
+            if(isset($messages)){
+                foreach($messages as $message) {
+                    echo $message;
+                }
+            }
+            ?>
             <p class="forgot">forgot your password?</p>
             <button type="submit" id="ready-button">Ready to go!</button>
         </form>
