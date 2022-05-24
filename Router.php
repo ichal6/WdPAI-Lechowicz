@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/LoginController.php';
 require_once 'src/controllers/RegisterController.php';
+require_once 'src/controllers/ListController.php';
 
 class Router {
     public static $routes;

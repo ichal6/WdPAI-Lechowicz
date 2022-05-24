@@ -10,5 +10,7 @@ Router::get('', 'DefaultController');
 Router::get('index', 'DefaultController');
 Router::get('login', 'LoginController');
 Router::get('register', 'RegisterController');
+Router::get('dashboard', 'DefaultController');
+Router::get('lists', 'ListController');
 
 Router::run($path);
