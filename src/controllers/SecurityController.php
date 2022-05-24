@@ -8,10 +8,10 @@ class SecurityController extends AppController
     public function login(){
         $user = new User('snow@pk.edu.pl', 'admin', "John", "Snow");
 
-//        if (!$this->isPost()) {
-//            return $this->render('login');
-//        }
-                $email = $_POST['email'];
+        if (!$this->isPost()) {
+            return $this->render("enter-page/login");
+        }
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
         if ($user->getEmail() !== $email) {
