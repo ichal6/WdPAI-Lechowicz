@@ -1,0 +1,12 @@
+<svg id="More" xmlns="http://www.w3.org/2000/svg" width="43" height="44" viewBox="0 0 43 44">
+    <g id="Button_LogIn_Right" data-name="Button LogIn Right">
+        <g id="Button_LogIn_Right-2" data-name="Button LogIn Right" fill="none" stroke="#0bd1b8" stroke-width="5">
+            <rect width="43" height="44" rx="12" stroke="none"/>
+            <rect x="2.5" y="2.5" width="38" height="39" rx="9.5" fill="none"/>
+        </g>
+    </g>
+    <g id="Icon_feather-arrow-down-right" data-name="Icon feather-arrow-down-right" transform="translate(3.5 3.5)">
+        <path id="Path_33" data-name="Path 33" d="M10.5,10.5l15,15" fill="none" stroke="#0bd1b8" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <path id="Path_34" data-name="Path 34" d="M25.5,10.5v15h-15" fill="none" stroke="#0bd1b8" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+</svg>
