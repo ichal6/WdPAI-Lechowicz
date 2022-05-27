@@ -41,14 +41,16 @@ class UserRepository extends Repository
         ]);
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO ST.users (email, password, id_user_details)
-            VALUES (?, ?, ?)
+            INSERT INTO ST.users (email, password, id_user_details, created_at)
+            VALUES (?, ?, ?, ?)
         ');
 
+        $date = new DateTime();
         $stmt->execute([
             $user->getEmail(),
             $user->getPassword(),
-            $this->getUserDetailsId($user)
+            $this->getUserDetailsId($user),
+            $date->format("Y-m-d")
         ]);
     }
 
