@@ -26,7 +26,7 @@
                 ?><img src="public/assets/account-icon.svg" alt="account icon"></a>
         </div>
         <div id="log-out">
-            <a href="/index">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
+            <a href="/logout">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
         </div>
     </header>
 

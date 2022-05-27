@@ -8,6 +8,13 @@ require_once 'src/controllers/SecurityController.php';
 
 class Router {
     public static $routes;
+    public static $publicURL = array();
+
+    public static function addUnSecurePage($url): void
+    {
+        array_push(self::$publicURL, $url);
+    }
+
 
     public static function get($url, $controller){
         self::$routes[$url] = $controller;
@@ -18,8 +25,17 @@ class Router {
     }
 
     public static function run($url) {
+        session_start();
+
         $urlParts = explode('/', $url);
         $action = $urlParts[0];
+
+        if(!in_array($action, self::$publicURL)){
+            if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                header("location: login");
+                exit;
+            }
+        }
 
         if(!array_key_exists($action, self::$routes)) {
             header("Location: index");

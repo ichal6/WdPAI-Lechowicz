@@ -37,6 +37,13 @@ class SecurityController extends AppController
             return $this->render('enter-page/login', ['messages' => ['Wrong password!']]);
         }
 
+//        // Password is correct, so start a new session
+//        session_start();
+
+        // Store data in session variables
+        $_SESSION["loggedin"] = true;
+        $_SESSION["email"] = $email;
+
         $url = "http://$_SERVER[HTTP_HOST]";
 
         header("Location: {$url}/dashboard");
@@ -64,5 +71,17 @@ class SecurityController extends AppController
         $this->userRepository->addUser($user);
 
         return $this->render('enter-page/login', ['messages' => ['You\'ve been succesfully registrated!']]);
+    }
+
+    public function logout(): void
+    {
+        // Unset all the session variables
+        $_SESSION = array();
+
+        // Destroy the session.
+        session_destroy();
+
+        header("Location: index");
+        die();
     }
 }
