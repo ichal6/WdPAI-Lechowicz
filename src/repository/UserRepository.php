@@ -57,8 +57,10 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM ST.users_details WHERE name = :name AND surname = :surname
         ');
-        $stmt->bindParam(':name', $user->getName(), PDO::PARAM_STR);
-        $stmt->bindParam(':surname', $user->getSurname(), PDO::PARAM_STR);
+        $name = $user->getName();
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $surname = $user->getSurname();
+        $stmt->bindParam(':surname', $surname, PDO::PARAM_STR);
         $stmt->execute();
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
