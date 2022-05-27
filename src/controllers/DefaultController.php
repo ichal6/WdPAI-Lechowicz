@@ -4,10 +4,10 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController{
     public function index(){
-        header("location: dashboard");
+        $this->render('portal/lists', ['messages' => [$_SESSION['user_name']]]);
     }
 
     public function dashboard(){
-        $this->render('portal/lists');
+        $this->render('portal/lists', ['messages' => [$_SESSION['user_name']]]);
     }
 }

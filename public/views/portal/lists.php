@@ -17,8 +17,10 @@
             <input placeholder="Type here for search">
         </div>
         <div id="name">
-            <a href="/account">                <?php if(isset($message)){
-                    echo $message;
+            <a href="/account">                <?php if(isset($messages)){
+                    foreach ($messages as $message){
+                        echo $message;
+                    }
                 } else{
                 echo "Jan Przykładowy";
                 }

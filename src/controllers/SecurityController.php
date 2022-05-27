@@ -37,16 +37,15 @@ class SecurityController extends AppController
             return $this->render('enter-page/login', ['messages' => ['Wrong password!']]);
         }
 
-//        // Password is correct, so start a new session
-//        session_start();
-
         // Store data in session variables
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
+        $_SESSION['user_name'] = $user->getName().' '.$user->getSurname();
 
         $url = "http://$_SERVER[HTTP_HOST]";
 
-        header("Location: {$url}/dashboard");
+//        header("Location: {$url}/dashboard");
+        $this->render('portal/lists', ['messages' => [$_SESSION['user_name']]]);
     }
 
     public function register()
