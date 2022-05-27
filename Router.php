@@ -35,6 +35,11 @@ class Router {
                 header("location: login");
                 exit;
             }
+        } else{
+            if(isset($_SESSION["loggedin"])){
+                header("location: dashboard");
+                exit;
+            }
         }
 
         if(!array_key_exists($action, self::$routes)) {

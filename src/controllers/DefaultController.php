@@ -4,7 +4,7 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController{
     public function index(){
-        $this->render('enter-page/login'); 
+        header("location: dashboard");
     }
 
     public function dashboard(){
