@@ -50,24 +50,35 @@
 
     <section>
         <h1>Sign up:</h1>
-        <form>
+        <form action="register" method="POST">
             <dev class="input">
                 <img src="public/assets/register-page/person-icon.svg" alt="person-icon">
-                <input type="text" id="email-input" placeholder="Your name" required>
+                <input name="name" type="text" id="name-input" placeholder="Your name" required>
+            </dev>
+            <dev class="input">
+                <img src="public/assets/register-page/person-icon.svg" alt="person-icon">
+                <input name="surname" type="text" id="surname-input" placeholder="Your surname" required>
             </dev>
             <dev class="input">
                 <img src="public/assets/login-page/email-icon.svg" alt="email-icon">
-                <input type="email" id="email-input" placeholder="Your email (use as login)" required>
+                <input name="email" type="email" id="email-input" placeholder="Your email (use as login)" required>
             </dev>
             <dev class="input">
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon">
-                <input type="password" id="password-input" placeholder="Your password" required>
+                <input name="password" type="password" id="password-input" placeholder="Your password" required>
             </dev>
             <dev class="input">
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon" class="repeat-password">
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon" class="repeat-password">
-                <input type="password" id="password-input" class="repeat-password-input" placeholder="Repeat password" required>
+                <input name="confirm-password" type="password" id="password-input" class="repeat-password-input" placeholder="Repeat password" required>
             </dev>
+            <?php
+            if(isset($messages)){
+                foreach($messages as $message) {
+                    echo $message;
+                }
+            }
+            ?>
             <button type="submit" id="ready-button">Ready to go!</button>
         </form>
     </section>

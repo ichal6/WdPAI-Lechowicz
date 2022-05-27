@@ -17,8 +17,10 @@
             <input placeholder="Type here for search">
         </div>
         <div id="name">
-            <a href="/account">                <?php if(isset($message)){
-                    echo $message;
+            <a href="/account">                <?php if(isset($messages)){
+                    foreach ($messages as $message){
+                        echo $message;
+                    }
                 } else{
                 echo "Jan Przykładowy";
                 }
@@ -26,7 +28,7 @@
                 ?><img src="public/assets/account-icon.svg" alt="account icon"></a>
         </div>
         <div id="log-out">
-            <a href="/index">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
+            <a href="/logout">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
         </div>
     </header>
 
