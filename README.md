@@ -58,6 +58,14 @@ git push heroku dev-ops/deploy-on-Heroku:master
 ```
 **If you have authority for that**
 
+4. You have to set environments in file .env in main catalog with credentials for a database with this schema:
+```
+SHOPTHERAPY_USERNAME=yourUserNameInDatabaseSystem
+SHOPTHERAPY_PASSWORD=passwordForYourDatabase
+SHOPTHERAPY_HOST=hostWhereIsYourDataBase
+SHOPTHERAPY_DATABASE=databaseName
+```
+all name without qutoes (" or ')!!!
 <!-- What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
 Proceed to describe how to install / setup one's local environment / get started with the project.
