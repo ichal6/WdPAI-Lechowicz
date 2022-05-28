@@ -25,5 +25,5 @@ Standard:
 24. *BAZA DANYCH ZRZUCONA DO PLIKU .SQL-> IN PROGRESS*
 
 Ekstra:
-1. Deploy on Heroku
-2. Set enviroment in PHP/Docker
+1. Deploy on Heroku -> DONE
+2. Set enviroment in PHP/Docker -> DONE
