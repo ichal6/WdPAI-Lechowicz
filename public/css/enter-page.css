@@ -340,7 +340,7 @@ form button {
     nav{
         display: block;
         order: -1;
-        width: 100vw;
+        width: 98vw;
     }
 
     #right-menu{
@@ -459,6 +459,7 @@ form button {
         background-image: url("../assets/login-page/background-image-Mobile.svg");
         background-repeat: no-repeat;
         background-size: 100vw;
+        margin: 0;
     }
 
     section{
@@ -495,18 +496,20 @@ form button {
 
     aside h2{
         display: block;
-        order: 4;
+        cursor: pointer;
         padding: .5em;
         background-color: #0bd1b79a;
         border-radius: 20px;
     }
 
-    #aside-sign-up, #aside-log-in{
+    #aside-log-in{
         display: none;
     }
 
-    section h1{
-        display: none;
+    #aside-sign-up{
+        border: 3px solid #4B486E;
+        background-color: #FFFFFF;
+        color: #4B486E;
+        width: 150px;
     }
-
 }
