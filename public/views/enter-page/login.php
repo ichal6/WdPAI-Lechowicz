@@ -46,6 +46,7 @@
         <p>You don’t have an account?</p>
 
         <button onclick="window.location.href='register';" id="aside-sign-up">Sign up. It'free</button>
+<!--        <button onclick="window.location.href='login';" id="log-in-mobile">Login</button>-->
     </aside>
 
     <section>
