@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+//require_once 'config.php';
 class Database
 {
     private $username;
@@ -10,10 +10,10 @@ class Database
 
     public function __construct()
     {
-        $this->username = USERNAME;
-        $this->password = PASSWORD;
-        $this->host = HOST;
-        $this->database = DATABASE;
+        $this->username = getenv('SHOPTHERAPY_USERNAME');
+        $this->password = getenv('SHOPTHERAPY_PASSWORD');
+        $this->host = getenv('SHOPTHERAPY_HOST');
+        $this->database = getenv('SHOPTHERAPY_DATABASE');
     }
 
     public function connect(){
