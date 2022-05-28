@@ -469,10 +469,6 @@ form button {
         width: 80vw;
     }
 
-    aside{
-        width: 99vw;
-    }
-
     #mobile-icon{
         transition: all 0.5s;
         margin-left: 10px;
@@ -491,6 +487,7 @@ form button {
     aside{
         position: relative;
         top: -8vh;
+        width: 40vw;
     }
 
     aside h1{
