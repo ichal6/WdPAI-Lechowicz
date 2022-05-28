@@ -40,6 +40,7 @@ List the ready features here:
 
 ## Screenshots
 ![Login page](./img/login-page.png)
+![Login page mobile](./img/login-page-mobile.png)
 
 
 ## Setup
