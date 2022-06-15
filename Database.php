@@ -32,17 +32,4 @@ class Database
             die("Connection failed: ".$ex->getMessage());
         }
     }
-
-    public function executeSQLFile(String $filename, PDO $conn): void{
-        $query = file_get_contents($filename);
-
-        $queries = explode(";", $query);
-        foreach($queries as $query){
-            if(strlen(trim($query)) == 0){
-                continue;
-            }
-            $stmt = $conn->prepare($query);
-            $stmt->execute();
-        }
-    }
 }

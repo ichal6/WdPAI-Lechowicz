@@ -26,9 +26,6 @@ class Router {
 
     public static function run($url) {
         session_start();
-        if(!isset($_SESSION['first_run'])) {
-            $_SESSION['first_run'] = 1;
-        }
 
         $urlParts = explode('/', $url);
         $action = $urlParts[0];

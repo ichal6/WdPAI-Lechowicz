@@ -20,12 +20,3 @@ services:
       - .:/app/
     env_file:
       - .env
-
-  php-script:
-    build:
-      context: .
-      dockerfile: docker/php/Dockerfile
-    volumes:
-      - .:/initial-DV.php
-    env_file:
-      - .env

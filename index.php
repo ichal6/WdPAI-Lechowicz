@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Router.php';
-//require_once 'initial-DB.php';
+
 $path = trim($_SERVER['REQUEST_URI'], '/');
 
 $path = parse_url($path, PHP_URL_PATH);
