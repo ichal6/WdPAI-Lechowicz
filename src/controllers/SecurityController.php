@@ -66,8 +66,11 @@ class SecurityController extends AppController
 
         $user = new User($email, password_hash($password, PASSWORD_BCRYPT), $name, $surname);
 
-        $this->userRepository->addUser($user);
-
+        try{
+            $this->userRepository->addUser($user);
+        } catch (PDOException){
+            return $this->render('enter-page/register', ['messages' => ['Email: '.$email.' exist in database']]);
+        }
         return $this->render('enter-page/login', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
 
