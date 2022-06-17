@@ -233,7 +233,7 @@ alter table products
 
 INSERT INTO roles VALUES(1, 'user');
 
-CREATE OR REPLACE FUNCTION trigger_function()
+CREATE OR REPLACE FUNCTION trigger_function_delete_user_details()
     RETURNS TRIGGER
     LANGUAGE PLPGSQL
 AS $$
@@ -245,7 +245,7 @@ $$
 ;
 
 CREATE OR REPLACE TRIGGER delete_user_trigger AFTER DELETE ON users FOR EACH ROW
-EXECUTE PROCEDURE trigger_function()
+EXECUTE PROCEDURE trigger_function_delete_user_details()
 
 	
 	
