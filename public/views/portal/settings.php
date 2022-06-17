@@ -20,11 +20,12 @@
         ?>
         <form>
             <label>Update data for your account:</label>
-            <input placeholder="name">
-            <input placeholder="surname">
-            <input placeholder="old password">
-            <input placeholder="password">
-            <input placeholder="email">
+            <input name="name" placeholder="name">
+            <input name="surname" placeholder="surname">
+            <input name="old-password" placeholder="Please provide your old password">
+            <input name="new-password" placeholder="Please provide your new password">
+            <input name="new-password-repeat" placeholder="Please repeat your new password">
+            <input name="email" placeholder="email">
             <button type="submit" id="update-button">Update</button>
         </form>
         <button id="disable">Disable account</button>
