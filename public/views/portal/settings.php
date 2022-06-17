@@ -18,6 +18,16 @@
         <?php
             include_once('commons/left-menu.php');
         ?>
+        <form>
+            <label>Update data for your account:</label>
+            <input placeholder="name">
+            <input placeholder="surname">
+            <input placeholder="old password">
+            <input placeholder="password">
+            <input placeholder="email">
+            <button type="submit" id="update-button">Update</button>
+        </form>
+        <button id="disable">Disable account</button>
     </div>
 </body>
 </html>
