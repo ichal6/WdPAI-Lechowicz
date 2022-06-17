@@ -34,7 +34,7 @@ create table IF NOT EXISTS users
     password        VARCHAR(255)      not null,
     enabled         bool default true not null,
     created_at      date              not null,
-    roles_id        int               not null
+    roles_id        int default 1     not null
 );
 
 create unique index IF NOT EXISTS users_email_uindex
@@ -231,6 +231,7 @@ alter table products
             on update cascade on delete cascade;
 
 
+INSERT INTO roles VALUES(1, 'user');
 
 
 	
