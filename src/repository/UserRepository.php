@@ -94,10 +94,6 @@ class UserRepository extends Repository
                 WHERE id=:id
             ');
 
-            print $oldUser['name'].
-                $oldUser['surname'].
-                $oldUser['id_user_details'];
-
             $stmt->execute([
                 $updateUser->getName(),
                 $updateUser->getSurname(),
@@ -123,6 +119,26 @@ class UserRepository extends Repository
 
     public function removeUser(string $email){
 
+    }
+
+    public function disableUser(string $email){
+        $pdo = $this->database->connect();
+        try {
+            $pdo->beginTransaction();
+
+            $stmt = $this->database->connect()->prepare('
+                                UPDATE users SET
+                enabled = false
+                WHERE email=:email
+            ');
+            $stmt->execute([
+                $email
+            ]);
+            $pdo->commit();
+        } catch (PDOException $ex){
+            $pdo->rollBack();
+            throw $ex;
+        }
     }
 
     private function getUserDetailsID(string $email): int
