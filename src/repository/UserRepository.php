@@ -174,17 +174,4 @@ class UserRepository extends Repository
             throw $ex;
         }
     }
-
-    private function getUserDetailsID(string $email): int
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT id_user_details FROM users WHERE email = :email
-        ');
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $user['id'];
-    }
 }
