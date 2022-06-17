@@ -118,7 +118,21 @@ class UserRepository extends Repository
     }
 
     public function removeUser(string $email){
+        $pdo = $this->database->connect();
+        try {
+            $pdo->beginTransaction();
 
+            $stmt = $this->database->connect()->prepare('
+                DELETE FROM users WHERE email=:email
+            ');
+            $stmt->execute([
+                $email
+            ]);
+            $pdo->commit();
+        } catch (PDOException $ex){
+            $pdo->rollBack();
+            throw $ex;
+        }
     }
 
     public function disableUser(string $email){
