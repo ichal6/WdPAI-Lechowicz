@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="public/css/portal.css">
     <link rel="stylesheet" type="text/css" href="public/css/lists.css">
+    <script defer src="public/js/navigator.js"></script>
     <title>Lists</title>
 </head>
 <body>
