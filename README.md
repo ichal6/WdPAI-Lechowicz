@@ -36,10 +36,14 @@ List the ready features here:
 - Application can display a login and register pages
 - Routing is working
 - Available view for Mobile, Tablet and PC screens
+- Login work
+- Database attach
+- Session work
 
 
 ## Screenshots
 ![Login page](./img/login-page.png)
+![Login page mobile](./img/login-page-mobile.png)
 
 
 ## Setup
