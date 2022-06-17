@@ -15,9 +15,9 @@
     ?>
 
     <div id="main-part">
-        <nav id="left-menu">
-            <a href="/lists"><img src="public/assets/lists-select.svg">Lists</a>
-        </nav>
+    <?php
+        include_once('commons/left-menu.php');
+    ?>
 
         <section>
             <div id="lists-container">
