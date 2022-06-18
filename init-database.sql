@@ -248,8 +248,8 @@ CREATE OR REPLACE TRIGGER delete_user_trigger AFTER DELETE ON users FOR EACH ROW
 EXECUTE PROCEDURE trigger_function_delete_user_details();
 
 
-INSERT INTO user_details (id, name, surname) VALUES (1, 'Jan', 'Przykładowy');
-INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', 2022-06-17);
+INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
+INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
 
 	
 	
