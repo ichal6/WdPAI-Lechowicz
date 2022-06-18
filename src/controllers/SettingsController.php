@@ -21,6 +21,7 @@ class SettingsController extends AppController
             "email" => $_SESSION['email'],
             "name" => $user->getName(),
             "surname" => $user->getSurname(),
+            'user' => $user,
             'username' => $_SESSION['user_name']
         ];
 
