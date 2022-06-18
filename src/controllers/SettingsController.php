@@ -17,6 +17,7 @@ class SettingsController extends AppController
 
     public function account(){
         $user = $this->userRepository->getUser($_SESSION["email"]);
+        $_SESSION['user'] = $user;
         $returnArray = [
             "email" => $_SESSION['email'],
             "name" => $user->getName(),
@@ -26,6 +27,48 @@ class SettingsController extends AppController
         ];
 
         $this->render('portal/settings', ['messages' => $returnArray]);
+    }
+
+    public function updateAccount(){
+        if (!$this->isPost()) {
+            return $this->render('portal/dashboard',
+                ['messages' => [
+                    'user' => $_SESSION['user']
+                ]]);
+        }
+
+        $email = $_POST['email'];
+        $oldPassword = $_POST['old-password'];
+        $newPassword = $_POST['new-password'];
+        $confirmedNewPassword = $_POST['new-password-confirm'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+
+        if ($newPassword !== $confirmedNewPassword) {
+            return $this->render('portal/settings', ['messages' => [
+                'error' => 'Your new Passwords is not the same',
+                'user' => $_SESSION['user']
+            ]]);
+        }
+
+        $updateUser = new User($email, password_hash($newPassword, PASSWORD_BCRYPT), $name, $surname);
+
+        if (!password_verify($oldPassword, $_SESSION["user"]->getPassword()) ) {
+            return $this->render('portal/settings', ['messages' => [
+                'error' => 'Wrong password!',
+                'user' => $_SESSION['user']
+            ]]);
+        }
+
+        try{
+            $this->userRepository->editUser($_SESSION['user']->getEmail(), $updateUser);
+        } catch (PDOException){
+            return $this->render('portal/settings', ['messages' => [
+                'error' => 'Email: '.$email.' exist in database',
+                'user' => $_SESSION['user']
+            ]]);
+        }
+        header("Location: logout");
     }
 
 //    public function register()

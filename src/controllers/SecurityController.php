@@ -41,11 +41,15 @@ class SecurityController extends AppController
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
         $_SESSION['user_name'] = $user->getName().' '.$user->getSurname();
+        $_SESSION['user'] = $user;
 
         $url = "http://$_SERVER[HTTP_HOST]";
 
 //        header("Location: {$url}/dashboard");
-        $this->render('portal/lists', ['messages' => [$_SESSION['user_name']]]);
+        $this->render('portal/lists', ['messages' => [
+            'username' => $_SESSION['user_name'],
+            'user' => $_SESSION['user']
+        ]]);
     }
 
     public function register()

@@ -19,7 +19,7 @@
         <?php
             include_once('commons/left-menu.php');
         ?>
-        <form>
+        <form action="updateAccount" method="POST">
             <?php
                 if(isset($messages)){
                     $user = $messages['user'];
@@ -32,7 +32,7 @@
             <input name="surname" placeholder="give a new surname" value="<?=$user->getSurname() ?>">
             <input name="old-password" placeholder="Please provide your old password">
             <input name="new-password" placeholder="Please provide your new password">
-            <input name="new-password-repeat" placeholder="Please repeat your new password">
+            <input name="new-password-confirm" placeholder="Please repeat your new password">
             <button type="submit" id="update-button">Update account</button>
             <input type="button" value="Discard changes" onclick="reloadPage()">
         </form>

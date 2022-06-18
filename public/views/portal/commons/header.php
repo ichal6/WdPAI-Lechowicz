@@ -8,7 +8,7 @@ echo    '<header>
         <div id="name">
             <a href="/account">';
          if(isset($messages)){
-                    echo $messages['username'];
+                    echo $messages['user']->getUsername();
                 } else{
                     echo "Unknown user";
                 }
