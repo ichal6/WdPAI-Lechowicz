@@ -23,6 +23,7 @@
         if(isset($messages)){
             $user = $messages['user'];
             $categories = $messages['categories'];
+            $types = $messages['types'];
         } else{
             die('Problem with session.');
     } ?>
@@ -43,9 +44,10 @@
                     </select>
 
                     <select name="Types" class="select">
-                        <option selected="selected" value="normal">Types:</option>
-                        <option value="normal">Normal</option>
-                        <option value="cyclic">Cyclic</option>
+                        <option selected="selected" value="all">All types</option>
+                        <?php foreach ($types as $type) {?>
+                            <option value="<?=$type->getName()?>"><?=$type->getName()?></option>
+                        <?php }?>
                     </select>
                 </div>
                 <div id="list-body">

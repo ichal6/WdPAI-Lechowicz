@@ -44,11 +44,11 @@ class SecurityController extends AppController
 
         $url = "http://$_SERVER[HTTP_HOST]";
 
-//        header("Location: {$url}/dashboard");
-        $this->render('portal/lists', ['messages' => [
-            'username' => $_SESSION['user_name'],
-            'user' => $_SESSION['user']
-        ]]);
+        header("Location: dashboard");
+//        $this->render('portal/lists', ['messages' => [
+//            'username' => $_SESSION['user_name'],
+//            'user' => $_SESSION['user']
+//        ]]);
     }
 
     public function register()

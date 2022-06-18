@@ -230,6 +230,17 @@ alter table products
         foreign key (list_id) references lists
             on update cascade on delete cascade;
 
+create table IF NOT EXISTS types
+(
+    id      serial
+        constraint types_pk
+            primary key,
+    user_id integer      not null,
+    name    varchar(255) not null
+);
+
+create unique index IF NOT EXISTS types_id_uindex
+    on types (id);
 
 INSERT INTO roles VALUES(1, 'user');
 
@@ -257,3 +268,7 @@ INSERT INTO categories (id, user_id, name) VALUES (3, 1, 'Presents');
 INSERT INTO categories (id, user_id, name) VALUES (4, 1, 'For bathroom');
 INSERT INTO categories (id, user_id, name) VALUES (5, 1, 'Vegetables');
 INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
+
+INSERT INTO types (id, user_id, name) VALUES (1, 1, 'Cyclic');
+INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
+
