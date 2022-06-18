@@ -50,7 +50,7 @@ section{
     background: #FFFFFF 0% 0% no-repeat padding-box;
 }
 
-#list-info>p{
+.list-info>p{
     background: #F6F6F6 0% 0% no-repeat padding-box;
     color: #7B7B7B;
     font-size: 20px;

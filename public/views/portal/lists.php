@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/portal.css">
     <link rel="stylesheet" type="text/css" href="public/css/lists.css">
     <script defer src="public/js/navigator.js"></script>
+    <script defer src="public/js/lists.js"></script>
     <title>Lists</title>
 </head>
 <body>
@@ -53,33 +54,38 @@
                     </select>
                 </div>
                 <div id="list-body">
-                    <div id="list-info">
+                    <div class="list-info">
+                        <input class="title-list-btn" type="button" value="Chemists-cyclic" onclick="displayList('list-1')">
                         <p>Type: Cyclic | Category: chemiczne | Owner: Alicja | Priorytet: High  </p>
-                        <div class="product">
-                            <strong>Płyn do prania Biały Jeleń</strong>
-                            <p>Last price: <strong class="price">20 zł</strong></p>
-                            <p>Status: available</p>
-                            <p>Quantity for buy: 1 piece</p>
-                            <div class="more"><p>More</p><img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></div>
-                        </div>
-                        <div class="product">
-                            <strong>Mydło szare</strong>
-                            <p>Last price: <strong class="price">1,5 zł</strong></p>
-                            <p>Status: zakupione</p>
-                            <p>Quantity for buy: 1 piece</p>
-                            <p>Category: chemiczne</p>
-                            <p>Subcategory: do łazienki</p>
-                            <p>Available: high</p>
-                            <p>Priority: high</p>
-                            <p>Locations: Pomieszczenie gospodarcze</p>
-                            <div class="remove"><p>Remove</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
-                            <div class="edit"><p>Edit</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
-                            <div class="less"><p>Less</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></div>
+                        <div class="list-content" id="list-1">
+                            <div class="product">
+                                <strong>Płyn do prania Biały Jeleń</strong>
+                                <p>Last price: <strong class="price">20 zł</strong></p>
+                                <p>Status: available</p>
+                                <p>Quantity for buy: 1 piece</p>
+                                <div class="more"><p>More</p><img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></div>
+                            </div>
+                            <div class="product">
+                                <strong>Mydło szare</strong>
+                                <p>Last price: <strong class="price">1,5 zł</strong></p>
+                                <p>Status: zakupione</p>
+                                <p>Quantity for buy: 1 piece</p>
+                                <p>Category: chemiczne</p>
+                                <p>Subcategory: do łazienki</p>
+                                <p>Available: high</p>
+                                <p>Priority: high</p>
+                                <p>Locations: Pomieszczenie gospodarcze</p>
+                                <div class="remove"><p>Remove</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
+                                <div class="edit"><p>Edit</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
+                                <div class="less"><p>Less</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></div>
+                            </div>
+                            <div class="modify-list">
+                                <a href="lists" class="button" id="edit-list-button">Edit list</a>
+                                <a href="lists" class="button" id="remove-list-button">Delete list</a>
+                                <a href="lists" class="button" id="share-list-button">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></a>
+                            </div>
                         </div>
                     </div>
-                    <a href="lists" class="button" id="edit-list-button">Edit list</a>
-                    <a href="lists" class="button" id="remove-list-button">Delete list</a>
-                    <a href="lists" class="button" id="share-list-button">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></a>
                 </div>
 
             </div>
