@@ -69,7 +69,7 @@ create table IF NOT EXISTS categories
         constraint categories___fk_user
             references users
             on update cascade on delete cascade,
-    name    int not null
+    name    VARCHAR(255) not null
 );
 
 create unique index IF NOT EXISTS categories_id_uindex
@@ -251,5 +251,9 @@ EXECUTE PROCEDURE trigger_function_delete_user_details();
 INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
 INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
 
-	
-	
+INSERT INTO categories (id, user_id, name) VALUES (1, 1, 'Grosery');
+INSERT INTO categories (id, user_id, name) VALUES (2, 1, 'Chemists');
+INSERT INTO categories (id, user_id, name) VALUES (3, 1, 'Presents');
+INSERT INTO categories (id, user_id, name) VALUES (4, 1, 'For bathroom');
+INSERT INTO categories (id, user_id, name) VALUES (5, 1, 'Vegetables');
+INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
