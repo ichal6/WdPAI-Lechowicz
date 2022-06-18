@@ -17,6 +17,7 @@ Router::post('register', 'SecurityController');
 Router::get('logout', 'SecurityController');
 Router::get('account', 'SettingsController');
 Router::post('updateAccount', 'SettingsController');
+Router::get('search', 'ListController');
 
 Router::addUnSecurePage('login');
 Router::addUnSecurePage('register');

@@ -89,7 +89,7 @@ create table IF NOT EXISTS lists
             references categories (id)
             on update cascade on delete cascade,
     priority_id int,
-    title       int
+    title       VARCHAR(255) not null
 );
 
 create unique index IF NOT EXISTS lists_id_uindex
