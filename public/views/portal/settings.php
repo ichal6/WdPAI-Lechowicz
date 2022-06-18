@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="public/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/portal.css">
 <!--    <link rel="stylesheet" type="text/css" href="public/css/lists.css">-->
     <title>Account settings</title>
@@ -33,7 +34,7 @@
             <input name="new-password" placeholder="Please provide your new password">
             <input name="new-password-repeat" placeholder="Please repeat your new password">
             <button type="submit" id="update-button">Update account</button>
-            <input type="button" value="Discard changes">
+            <input type="button" value="Discard changes" onclick="reloadPage()">
         </form>
         <button id="disable">Disable account</button>
     </div>
