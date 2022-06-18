@@ -19,7 +19,13 @@
     <?php
         include_once('commons/left-menu.php');
     ?>
-
+    <?php
+        if(isset($messages)){
+            $user = $messages['user'];
+            $categories = $messages['categories'];
+        } else{
+            die('Problem with session.');
+    } ?>
         <section>
             <div id="lists-container">
                 <div id="lists-container-header">
@@ -30,9 +36,10 @@
                     </select>
 
                     <select name="categories" class="select">
-                        <option selected="selected" value="daily">Category:</option>
-                        <option value="daily">Codzienne</option>
-                        <option value="present">Prezent</option>
+                        <option selected="selected" value="all">All categories</option>
+                        <?php foreach ($categories as $category) {?>
+                            <option value="<?=$category->getName()?>"><?=$category->getName()?></option>
+                        <?php }?>
                     </select>
 
                     <select name="Types" class="select">
