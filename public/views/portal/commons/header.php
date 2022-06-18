@@ -8,11 +8,9 @@ echo    '<header>
         <div id="name">
             <a href="/account">';
          if(isset($messages)){
-                    foreach ($messages as $message){
-                        echo $message;
-                    }
+                    echo $messages['username'];
                 } else{
-                echo "Jan Przykładowy";
+                    echo "Unknown user";
                 }
     
 echo    '<img src="public/assets/account-icon.svg" alt="account icon"></a>

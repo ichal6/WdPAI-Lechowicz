@@ -16,7 +16,15 @@ class SettingsController extends AppController
     }
 
     public function account(){
-        $this->render('portal/settings', ['messages' => [$_SESSION['user_name']]]);
+        $user = $this->userRepository->getUser($_SESSION["email"]);
+        $returnArray = [
+            "email" => $_SESSION['email'],
+            "name" => $user->getName(),
+            "surname" => $user->getSurname(),
+            'username' => $_SESSION['user_name']
+        ];
+
+        $this->render('portal/settings', ['messages' => $returnArray]);
     }
 
 //    public function register()
