@@ -95,6 +95,14 @@ create table IF NOT EXISTS lists
 create unique index IF NOT EXISTS lists_id_uindex
     on lists (id);
 
+alter table lists
+    add type_id int not null;
+
+alter table lists
+    add constraint lists___fk_type_id
+        foreign key (type_id) references types
+            on update cascade on delete cascade;
+
 create table IF NOT EXISTS user_lists
 (
     id_user int not null

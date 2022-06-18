@@ -35,18 +35,18 @@ function createList(list) {
     const template = document.querySelector("#list-template");
 
     const clone = template.content.cloneNode(true);
-    const div = clone.querySelector("div");
-    div.id = list.id;
-    const image = clone.querySelector("img");
-    image.src = `/public/uploads/${list.image}`;
-    const title = clone.querySelector("h2");
-    title.innerHTML = list.title;
-    const description = clone.querySelector("p");
-    description.innerHTML = list.description;
-    const like = clone.querySelector(".fa-heart");
-    like.innerText = list.like;
-    const dislike = clone.querySelector(".fa-minus-square");
-    dislike.innerText = list.dislike;
+    // const div = clone.querySelector("div");
+    // div.id = list.id;
+    // const image = clone.querySelector("img");
+    // image.src = `/public/uploads/${list.image}`;
+    // const title = clone.querySelector("h2");
+    // title.innerHTML = list.title;
+    // const description = clone.querySelector("p");
+    // description.innerHTML = list.description;
+    // const like = clone.querySelector(".fa-heart");
+    // like.innerText = list.like;
+    // const dislike = clone.querySelector(".fa-minus-square");
+    // dislike.innerText = list.dislike;
 
     listContainer.appendChild(clone);
 }

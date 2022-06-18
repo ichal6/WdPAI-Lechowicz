@@ -9,7 +9,7 @@ class ListRepository extends Repository
         $searchString = '%' . strtolower($searchString) . '%';
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM lists WHERE LOWER(title) LIKE :search
+            SELECT * FROM lists JOIN types ON lists.type_id = types.id WHERE LOWER(title) LIKE :search
         ');
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
