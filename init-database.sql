@@ -272,3 +272,6 @@ INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
 INSERT INTO types (id, user_id, name) VALUES (1, 1, 'Cyclic');
 INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
 
+INSERT INTO priorities (id, name) VALUES (1, 'Low');
+INSERT INTO priorities (id, name) VALUES (2, 'Medium');
+INSERT INTO priorities (id, name) VALUES (3, 'High');

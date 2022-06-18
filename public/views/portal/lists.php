@@ -24,16 +24,18 @@
             $user = $messages['user'];
             $categories = $messages['categories'];
             $types = $messages['types'];
+            $priorities = $messages['priorities'];
         } else{
             die('Problem with session.');
     } ?>
         <section>
             <div id="lists-container">
                 <div id="lists-container-header">
-                    <select name="lists" class="select">
-                        <option selected="selected" value="spożywcze">Lists:</option>
-                        <option value="spożywcze">Spożywcze</option>
-                        <option value="chemiczne">Chemiczne</option>
+                    <select name="priorities" class="select">
+                        <option selected="selected" value="all">All priorities</option>
+                        <?php foreach ($priorities as $priority) {?>
+                            <option value="<?=$priority->getName()?>"><?=$priority->getName()?></option>
+                        <?php }?>
                     </select>
 
                     <select name="categories" class="select">
