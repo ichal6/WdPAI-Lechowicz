@@ -58,19 +58,10 @@ function createList(list) {
     listContainer.appendChild(clone);
 }
 
-const expandListButton = document.querySelector('.title-list-btn');
-const productsContainer = document.getElementsByClassName('list-content');
+function firstLoadLists(){
+    const data = {search: ''};
 
-console.log(expandListButton);
-
-expandListButton.addEventListener("onclick", function (event) {
-    event.preventDefault();
-
-    const data = {list: this.value};
-
-    console.log(data);
-
-    fetch("/list", {
+    fetch("/search", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -79,8 +70,9 @@ expandListButton.addEventListener("onclick", function (event) {
     }).then(function (response) {
         return response.json();
     }).then(function (lists) {
-        productsContainer.innerHTML = "";
-        // loadLists(lists)
+        listContainer.innerHTML = "";
+        loadLists(lists)
     });
-});
+}
 
+firstLoadLists();
