@@ -6,12 +6,14 @@ require_once __DIR__.'/../repository/CategoryRepository.php';
 require_once __DIR__.'/../repository/TypeRepository.php';
 require_once __DIR__.'/../repository/PriorityRepository.php';
 require_once __DIR__.'/../repository/ListRepository.php';
+require_once __DIR__.'/../repository/ProductsRepository.php';
 
 class ListController extends AppController{
     private CategoryRepository $categoryRepository;
     private TypeRepository $typeRepository;
     private PriorityRepository $priorityRepository;
     private ListRepository $listRepository;
+    private ProductsRepository $productRepository;
 
     public function __construct()
     {
@@ -20,6 +22,7 @@ class ListController extends AppController{
         $this->typeRepository = new TypeRepository();
         $this->priorityRepository = new PriorityRepository();
         $this->listRepository = new ListRepository();
+        $this->productRepository = new ProductsRepository();
     }
 
     public function lists(){
@@ -44,6 +47,20 @@ class ListController extends AppController{
             http_response_code(200);
 
             echo json_encode($this->listRepository->getListsByTitle($decoded['search']));
+        }
+    }
+
+    public function list(){
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->productRepository->getProductsByListId(intval($decoded['list'])));
         }
     }
 }

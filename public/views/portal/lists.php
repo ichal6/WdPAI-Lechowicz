@@ -117,27 +117,6 @@
         <input class="title-list-btn" type="button">
         <p class="label-list"></p>
         <div class="list-content" id="">
-            <div class="product">
-                <strong>Płyn do prania Biały Jeleń</strong>
-                <p>Last price: <strong class="price">20 zł</strong></p>
-                <p>Status: available</p>
-                <p>Quantity for buy: 1 piece</p>
-                <div class="more"><p>More</p><img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></div>
-            </div>
-            <div class="product">
-                <strong>Mydło szare</strong>
-                <p>Last price: <strong class="price">1,5 zł</strong></p>
-                <p>Status: zakupione</p>
-                <p>Quantity for buy: 1 piece</p>
-                <p>Category: chemiczne</p>
-                <p>Subcategory: do łazienki</p>
-                <p>Available: high</p>
-                <p>Priority: high</p>
-                <p>Locations: Pomieszczenie gospodarcze</p>
-                <div class="remove"><p>Remove</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
-                <div class="edit"><p>Edit</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
-                <div class="less"><p>Less</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></div>
-            </div>
             <div class="modify-list">
                 <a href="lists" class="button" id="edit-list-button">Edit list</a>
                 <a href="lists" class="button" id="remove-list-button">Delete list</a>
@@ -145,6 +124,23 @@
             </div>
         </div>
     </div>
-</template>
 
+</template>
+<template id="product-template">
+    <div class="product">
+        <strong class="product-name">Mydło szare</strong>
+        <p class="last-price">Last price: <strong class="price">1,5 zł</strong></p>
+        <p class="status">Status: zakupione</p>
+        <p class="quantity">Quantity for buy: 1 piece</p>
+        <div class="more-content" id="">
+            <p class="category">Category: chemiczne</p>
+            <p class="available">Available on market: high</p>
+            <p class="priority">Priority: high</p>
+            <p class="location">Locations: Pomieszczenie gospodarcze</p>
+            <div class="remove"><p>Remove</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
+            <div class="edit"><p>Edit</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
+            <div class="less"><p>Less</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></div>
+        </div>
+    </div>
+</template>
 </html>
