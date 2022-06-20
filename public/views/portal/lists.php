@@ -114,9 +114,9 @@
 
 <template id="list-template">
     <div class="list-info">
-        <input class="title-list-btn" type="button" value="Chemists-cyclic" onclick="displayList('list-1')">
+        <input class="title-list-btn" type="button" value="Chemists-cyclic">
         <p>Type: Cyclic | Category: chemiczne | Owner: Alicja | Priorytet: High  </p>
-        <div class="list-content" id="list-1">
+        <div class="list-content" id="">
             <div class="product">
                 <strong>Płyn do prania Biały Jeleń</strong>
                 <p>Last price: <strong class="price">20 zł</strong></p>

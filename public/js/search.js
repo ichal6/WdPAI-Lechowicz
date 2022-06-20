@@ -33,10 +33,12 @@ function loadLists(lists) {
 
 function createList(list) {
     const template = document.querySelector("#list-template");
-
     const clone = template.content.cloneNode(true);
-    // const div = clone.querySelector("div");
-    // div.id = list.id;
+    const hideButton = clone.querySelector('input');
+    hideButton.addEventListener('click', () => displayList('list-'+list.id));
+
+    const div = clone.querySelector('.list-content');
+    div.id = 'list-'+list.id;
     // const image = clone.querySelector("img");
     // image.src = `/public/uploads/${list.image}`;
     // const title = clone.querySelector("h2");
