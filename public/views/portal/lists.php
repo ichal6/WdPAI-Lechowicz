@@ -115,7 +115,7 @@
 <template id="list-template">
     <div class="list-info">
         <input class="title-list-btn" type="button" value="Chemists-cyclic">
-        <p>Type: Cyclic | Category: chemiczne | Owner: Alicja | Priorytet: High  </p>
+        <p class="label-list"></p>
         <div class="list-content" id="">
             <div class="product">
                 <strong>Płyn do prania Biały Jeleń</strong>

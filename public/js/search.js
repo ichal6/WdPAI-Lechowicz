@@ -39,6 +39,10 @@ function createList(list) {
 
     const div = clone.querySelector('.list-content');
     div.id = 'list-'+list.id;
+
+    const labelList = clone.querySelector('.label-list');
+    labelList.innerText = 'Type: ' + list.type_name +
+        ' | Category: ' + list.category + ' | Owner: ' + list.owner + ' | Priorytet: ' + list.priority;
     // const image = clone.querySelector("img");
     // image.src = `/public/uploads/${list.image}`;
     // const title = clone.querySelector("h2");
