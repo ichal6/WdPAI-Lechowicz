@@ -250,6 +250,20 @@ create table IF NOT EXISTS types
 create unique index IF NOT EXISTS types_id_uindex
     on types (id);
 
+alter table products
+    rename column available to available_on_market_id;
+
+alter table products
+    alter column available_on_market_id type integer using available_on_market_id::integer;
+
+alter table products
+    alter column available_on_market_id set not null;
+
+alter table products
+    add constraint products___fk_available_market
+        foreign key (available_on_market_id) references priorities
+            on update cascade on delete cascade;
+
 INSERT INTO roles VALUES(1, 'user');
 
 CREATE OR REPLACE FUNCTION trigger_function_delete_user_details()
@@ -283,3 +297,22 @@ INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
 INSERT INTO priorities (id, name) VALUES (1, 'Low');
 INSERT INTO priorities (id, name) VALUES (2, 'Medium');
 INSERT INTO priorities (id, name) VALUES (3, 'High');
+
+INSERT INTO statuses (id, name) VALUES (1, 'to buy');
+INSERT INTO statuses (id, name) VALUES (2, 'bought');
+
+INSERT INTO units (id, name) VALUES (1, 'Kg');
+INSERT INTO units (id, name) VALUES (2, 'piece');
+INSERT INTO units (id, name) VALUES (3, 'g');
+INSERT INTO units (id, name) VALUES (4, 'cube');
+
+INSERT INTO lists (id, title, owner_id, type_id) VALUES (1, 'Chemist', 1, 2);
+INSERT INTO lists (id, title, owner_id, type_id) VALUES (2, 'Foods', 1, 1);
+
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (1, 'soap', 1, 2, 1, 1, 2);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (2, 'washing liquid', 2, 1, 1, 2, 1);
+
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
+
+
