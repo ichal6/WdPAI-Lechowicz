@@ -114,7 +114,7 @@
 
 <template id="list-template">
     <div class="list-info">
-        <input class="title-list-btn" type="button" value="Chemists-cyclic">
+        <input class="title-list-btn" type="button">
         <p class="label-list"></p>
         <div class="list-content" id="">
             <div class="product">

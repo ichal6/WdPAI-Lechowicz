@@ -35,6 +35,7 @@ function createList(list) {
     const template = document.querySelector("#list-template");
     const clone = template.content.cloneNode(true);
     const hideButton = clone.querySelector('input');
+    hideButton.value = list.title;
     hideButton.addEventListener('click', () => displayList('list-'+list.id));
 
     const div = clone.querySelector('.list-content');
