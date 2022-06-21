@@ -51,6 +51,9 @@ function createProduct(product, id_list) {
     const quantity = clone.querySelector('.quantity');
     quantity.innerText = 'Quantity for buy: ' + product.quantity;
 
+    const moreContent = clone.querySelector('.more-content');
+    moreContent.id = 'product-' + product.id;
+
     productsContainer.appendChild(clone);
 }
 
