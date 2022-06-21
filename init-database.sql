@@ -308,9 +308,9 @@ INSERT INTO units (id, name) VALUES (4, 'cube');
 
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (1, 'Chemist', 1, 2);
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (2, 'Foods', 1, 1);
-INSERT INTO lists (id, title, owner_id, type_id, priority_id) VALUES (3, 'New RTV', 1, 1, 1);
-INSERT INTO lists (id, title, owner_id, type_id, priority_id) VALUES (4, 'New AGD', 1, 1, 2);
-INSERT INTO lists (id, title, owner_id, type_id, priority_id) VALUES (5, 'Repair Websites', 1, 1, 3);
+INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (3, 'New RTV', 1, 1, 1, 2);
+INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (4, 'New AGD', 1, 1, 2, 4);
+INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (5, 'Repair Websites', 1, 1, 3, 1);
 
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (1, 'soap', 1, 2, 1, 1, 2);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (2, 'washing liquid', 2, 1, 1, 2, 1);

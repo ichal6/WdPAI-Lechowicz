@@ -28,54 +28,58 @@ prioritiesSelect.addEventListener("change", function (event) {
         listContainer.innerHTML = "";
         loadLists(lists)
     });
-
 });
 
-categoriesSelect.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
+categoriesSelect.addEventListener("change", function (event) {
+    event.preventDefault();
 
-        const data = {search: this.value};
-
-        console.log(data);
-
-        fetch("/search", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (lists) {
-            listContainer.innerHTML = "";
-            loadLists(lists)
-        });
+    if(this.value === 'all'){
+        firstLoadLists();
+        return;
     }
+
+    const data = {category_id: this.value};
+
+    console.log(data);
+
+    fetch("/filter_category", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (lists) {
+        listContainer.innerHTML = "";
+        loadLists(lists)
+    });
 });
 
+typesSelect.addEventListener("change", function (event) {
+    event.preventDefault();
 
-typesSelect.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-
-        const data = {search: this.value};
-
-        console.log(data);
-
-        fetch("/search", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (lists) {
-            listContainer.innerHTML = "";
-            loadLists(lists)
-        });
+    if(this.value === 'all'){
+        firstLoadLists();
+        return;
     }
+
+    const data = {type_id: this.value};
+
+    console.log(data);
+
+    fetch("/filter_type", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (lists) {
+        listContainer.innerHTML = "";
+        loadLists(lists)
+    });
 });
 
 search.addEventListener("keyup", function (event) {

@@ -20,6 +20,8 @@ Router::post('updateAccount', 'SettingsController');
 Router::get('search', 'ListController');
 Router::get('list', 'ListController');
 Router::get('filter_priority', 'ListController');
+Router::get('filter_category', 'ListController');
+Router::get('filter_type', 'ListController');
 
 Router::addUnSecurePage('login');
 Router::addUnSecurePage('register');
