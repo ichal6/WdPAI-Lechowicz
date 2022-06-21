@@ -101,15 +101,17 @@
         <p class="last-price">Last price: <strong class="price"></strong></p>
         <p class="status"></p>
         <p class="quantity">Quantity for buy: 1 piece</p>
+        <button class="more" id=''><p>More options</p><img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></button>
         <div class="more-content" id="">
             <p class="category">Category: chemiczne</p>
             <p class="available">Available on market: high</p>
             <p class="priority">Priority: high</p>
             <p class="location">Locations: Pomieszczenie gospodarcze</p>
-            <div class="remove"><p>Remove</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
-            <div class="edit"><p>Edit</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
-            <div class="less"><p>Less</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></div>
+            <div class="remove"><p>Remove product</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
+            <div class="edit"><p>Edit product</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
+            <button class="less" id=''><p>Less options</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
         </div>
     </div>
 </template>
+
 </html>

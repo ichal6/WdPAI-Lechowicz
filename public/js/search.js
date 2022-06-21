@@ -40,6 +40,7 @@ function createList(list) {
 
     const div = clone.querySelector('.list-content');
     div.id = 'list-'+list.id;
+    div.style.display = 'none';
 
     const labelList = clone.querySelector('.label-list');
     labelList.innerText = 'Type: ' + list.type_name +

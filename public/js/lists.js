@@ -8,6 +8,15 @@ function displayList(id){
     }
 }
 
+function displayMoreContent(id){
+    const targetDiv = document.getElementById(id);
+    if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+    } else {
+        targetDiv.style.display = "block";
+    }
+}
+
 function showProduct(id_list){
     id_list = id_list.slice(5);
     const data = {list: id_list};
@@ -53,6 +62,13 @@ function createProduct(product, id_list) {
 
     const moreContent = clone.querySelector('.more-content');
     moreContent.id = 'product-' + product.id;
+
+    // const moreButton = clone.querySelector('.more');
+    // moreButton.id = 'product-' + product.id;
+
+    // const hideButton = clone.querySelector('input');
+    // hideButton.value = list.title;
+    // hideButton.addEventListener('click', () => displayList('list-'+list.id));
 
     productsContainer.appendChild(clone);
 }
