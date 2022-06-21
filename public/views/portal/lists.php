@@ -36,21 +36,21 @@
                     <select name="priorities" class="select">
                         <option selected="selected" value="all">All priorities</option>
                         <?php foreach ($priorities as $priority) {?>
-                            <option value="<?=$priority->getName()?>"><?=$priority->getName()?></option>
+                            <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
                         <?php }?>
                     </select>
 
                     <select name="categories" class="select">
                         <option selected="selected" value="all">All categories</option>
                         <?php foreach ($categories as $category) {?>
-                            <option value="<?=$category->getName()?>"><?=$category->getName()?></option>
+                            <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="Types" class="select">
+                    <select name="types" class="select">
                         <option selected="selected" value="all">All types</option>
                         <?php foreach ($types as $type) {?>
-                            <option value="<?=$type->getName()?>"><?=$type->getName()?></option>
+                            <option value="<?=$type->getId()?>"><?=$type->getName()?></option>
                         <?php }?>
                     </select>
                 </div>

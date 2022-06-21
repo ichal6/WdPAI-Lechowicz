@@ -16,4 +16,15 @@ class ListRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getListsByPriority(int $priority_id)
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT lists.id, title, types.name as type_name, p.id as priority_id FROM lists JOIN types ON lists.type_id = types.id JOIN priorities p on lists.priority_id = p.id WHERE priority_id=:id
+        ');
+        $stmt->bindParam(':id', $priority_id, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

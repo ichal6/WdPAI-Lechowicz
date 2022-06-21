@@ -19,6 +19,7 @@ Router::get('account', 'SettingsController');
 Router::post('updateAccount', 'SettingsController');
 Router::get('search', 'ListController');
 Router::get('list', 'ListController');
+Router::get('filter_priority', 'ListController');
 
 Router::addUnSecurePage('login');
 Router::addUnSecurePage('register');
