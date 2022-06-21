@@ -65,6 +65,19 @@ function createProduct(product, id_list) {
     const quantity = clone.querySelector('.quantity');
     quantity.innerText = 'Quantity for buy: ' + product.quantity;
 
+    const category = clone.querySelector('.category');
+    category.innerText = 'Category: ' + product.category;
+
+    const available = clone.querySelector('.available');
+    available.innerText = 'Available on market: ' + product.available;
+
+    const priority = clone.querySelector('.priority');
+    priority.innerText = 'Priority: ' + product.priority;
+
+    const location = clone.querySelector('.location');
+    location.innerText = 'Location: ' + product.location;
+
+
     const moreContent = clone.querySelector('.more-content');
     moreContent.id = 'product-' + product.id;
     moreContent.style.display = 'none';

@@ -100,13 +100,13 @@
         <strong class="product-name"></strong>
         <p class="last-price">Last price: <strong class="price"></strong></p>
         <p class="status"></p>
-        <p class="quantity">Quantity for buy: 1 piece</p>
+        <p class="quantity"></p>
         <button class="more" id=''>More options<img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></button>
         <div class="more-content" id="">
-            <p class="category">Category: chemiczne</p>
-            <p class="available">Available on market: high</p>
-            <p class="priority">Priority: high</p>
-            <p class="location">Locations: Pomieszczenie gospodarcze</p>
+            <p class="category"></p>
+            <p class="available"></p>
+            <p class="priority"></p>
+            <p class="location"></p>
             <div class="remove"><p>Remove product</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
             <div class="edit"><p>Edit product</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
             <button class="less" id=''><p>Less options</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
