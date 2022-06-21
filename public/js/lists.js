@@ -13,7 +13,6 @@ function showProduct(id_list){
     const data = {list: id_list};
 
     console.log(data);
-    console.log('test');
 
     fetch("/list", {
         method: "POST",
@@ -23,23 +22,22 @@ function showProduct(id_list){
         body: JSON.stringify(data)
     }).then(function (response) {
         return response.json();
-    }).then(function (lists) {
-        productsContainer.innerHTML = "";
-        loadProducts(lists);
+    }).then(function (products) {
+        loadProducts(products, id_list);
     });
 }
 
-function loadProducts(lists){
-    lists.forEach(list => {
-        console.log(list);
-        createProduct(list);
+function loadProducts(products, id_list){
+    products.forEach(product => {
+        console.log(product);
+        createProduct(product, id_list);
     });
 }
 
-function createProduct(product) {
-    const productsContainer = document.querySelector('.list-content');
+function createProduct(product, id_list) {
     const template = document.querySelector("#product-template");
     const clone = template.content.cloneNode(true);
+    const productsContainer = document.getElementById('list-' + id_list);
 
     const productName = clone.querySelector('.product-name');
     productName.innerText = product.name;
