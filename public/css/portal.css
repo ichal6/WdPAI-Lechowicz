@@ -70,7 +70,7 @@ nav{
 }
 
 nav a{
-    color: #0BD1B8;
+    color: black;
     font-family: Poppins, sans-serif;
     font-size: 32px;
     text-decoration: none;
@@ -79,5 +79,5 @@ nav a{
 
 nav img{
     align-self:center;
-    margin-right: 15px
+    margin-right: 15px;
 }
