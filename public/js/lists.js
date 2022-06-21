@@ -8,12 +8,15 @@ function displayList(id){
     }
 }
 
-function displayMoreContent(id){
-    const targetDiv = document.getElementById(id);
+function displayMoreContent(contentId, buttonId){
+    const targetDiv = document.getElementById(contentId);
+    const button = document.getElementById(buttonId);
     if (targetDiv.style.display !== "none") {
         targetDiv.style.display = "none";
+        button.style.display = 'block';
     } else {
         targetDiv.style.display = "block";
+        button.style.display = 'none';
     }
 }
 
@@ -62,13 +65,15 @@ function createProduct(product, id_list) {
 
     const moreContent = clone.querySelector('.more-content');
     moreContent.id = 'product-' + product.id;
+    moreContent.style.display = 'none';
 
-    // const moreButton = clone.querySelector('.more');
-    // moreButton.id = 'product-' + product.id;
+    const moreButton = clone.querySelector('.more');
+    moreButton.id = 'button-product-more-' + product.id;
+    moreButton.addEventListener('click', () => displayMoreContent(moreContent.id, moreButton.id));
 
-    // const hideButton = clone.querySelector('input');
-    // hideButton.value = list.title;
-    // hideButton.addEventListener('click', () => displayList('list-'+list.id));
+    const lessButton = clone.querySelector('.less');
+    lessButton.id = 'button-product-less-' + product.id;
+    lessButton.addEventListener('click', () => displayMoreContent(moreContent.id, moreButton.id));
 
     productsContainer.appendChild(clone);
 }
