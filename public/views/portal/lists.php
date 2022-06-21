@@ -97,9 +97,9 @@
 </template>
 <template id="product-template">
     <div class="product">
-        <strong class="product-name">Mydło szare</strong>
-        <p class="last-price">Last price: <strong class="price">1,5 zł</strong></p>
-        <p class="status">Status: zakupione</p>
+        <strong class="product-name"></strong>
+        <p class="last-price">Last price: <strong class="price"></strong></p>
+        <p class="status"></p>
         <p class="quantity">Quantity for buy: 1 piece</p>
         <div class="more-content" id="">
             <p class="category">Category: chemiczne</p>
