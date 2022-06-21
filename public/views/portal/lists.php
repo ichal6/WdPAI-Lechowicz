@@ -107,9 +107,9 @@
             <p class="available"></p>
             <p class="priority"></p>
             <p class="location"></p>
-            <div class="remove"><p>Remove product</p><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></div>
-            <div class="edit"><p>Edit product</p><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></div>
-            <button class="less" id=''><p>Less options</p><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+            <button class="remove">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
+            <button class="edit">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+            <button class="less" id=''>Less options<img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
         </div>
     </div>
 </template>
