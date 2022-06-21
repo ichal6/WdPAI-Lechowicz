@@ -59,5 +59,9 @@ class User
         $this->surname = $surname;
     }
 
+    public function getUsername(): string{
+        return $this->getName().' '.$this->getSurname();
+    }
+
 
 }

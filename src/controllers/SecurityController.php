@@ -3,7 +3,6 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
-require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
@@ -41,11 +40,15 @@ class SecurityController extends AppController
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
         $_SESSION['user_name'] = $user->getName().' '.$user->getSurname();
+        $_SESSION['user'] = $user;
 
         $url = "http://$_SERVER[HTTP_HOST]";
 
-//        header("Location: {$url}/dashboard");
-        $this->render('portal/lists', ['messages' => [$_SESSION['user_name']]]);
+        header("Location: dashboard");
+//        $this->render('portal/lists', ['messages' => [
+//            'username' => $_SESSION['user_name'],
+//            'user' => $_SESSION['user']
+//        ]]);
     }
 
     public function register()

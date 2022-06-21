@@ -69,7 +69,7 @@ create table IF NOT EXISTS categories
         constraint categories___fk_user
             references users
             on update cascade on delete cascade,
-    name    int not null
+    name    VARCHAR(255) not null
 );
 
 create unique index IF NOT EXISTS categories_id_uindex
@@ -89,11 +89,19 @@ create table IF NOT EXISTS lists
             references categories (id)
             on update cascade on delete cascade,
     priority_id int,
-    title       int
+    title       VARCHAR(255) not null
 );
 
 create unique index IF NOT EXISTS lists_id_uindex
     on lists (id);
+
+alter table lists
+    add type_id int not null;
+
+alter table lists
+    add constraint lists___fk_type_id
+        foreign key (type_id) references types
+            on update cascade on delete cascade;
 
 create table IF NOT EXISTS user_lists
 (
@@ -230,6 +238,31 @@ alter table products
         foreign key (list_id) references lists
             on update cascade on delete cascade;
 
+create table IF NOT EXISTS types
+(
+    id      serial
+        constraint types_pk
+            primary key,
+    user_id integer      not null,
+    name    varchar(255) not null
+);
+
+create unique index IF NOT EXISTS types_id_uindex
+    on types (id);
+
+alter table products
+    rename column available to available_on_market_id;
+
+alter table products
+    alter column available_on_market_id type integer using available_on_market_id::integer;
+
+alter table products
+    alter column available_on_market_id set not null;
+
+alter table products
+    add constraint products___fk_available_market
+        foreign key (available_on_market_id) references priorities
+            on update cascade on delete cascade;
 
 INSERT INTO roles VALUES(1, 'user');
 
@@ -245,7 +278,41 @@ $$
 ;
 
 CREATE OR REPLACE TRIGGER delete_user_trigger AFTER DELETE ON users FOR EACH ROW
-EXECUTE PROCEDURE trigger_function_delete_user_details()
+EXECUTE PROCEDURE trigger_function_delete_user_details();
 
-	
-	
+
+INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
+INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
+
+INSERT INTO categories (id, user_id, name) VALUES (1, 1, 'Grosery');
+INSERT INTO categories (id, user_id, name) VALUES (2, 1, 'Chemists');
+INSERT INTO categories (id, user_id, name) VALUES (3, 1, 'Presents');
+INSERT INTO categories (id, user_id, name) VALUES (4, 1, 'For bathroom');
+INSERT INTO categories (id, user_id, name) VALUES (5, 1, 'Vegetables');
+INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
+
+INSERT INTO types (id, user_id, name) VALUES (1, 1, 'Cyclic');
+INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
+
+INSERT INTO priorities (id, name) VALUES (1, 'Low');
+INSERT INTO priorities (id, name) VALUES (2, 'Medium');
+INSERT INTO priorities (id, name) VALUES (3, 'High');
+
+INSERT INTO statuses (id, name) VALUES (1, 'to buy');
+INSERT INTO statuses (id, name) VALUES (2, 'bought');
+
+INSERT INTO units (id, name) VALUES (1, 'Kg');
+INSERT INTO units (id, name) VALUES (2, 'piece');
+INSERT INTO units (id, name) VALUES (3, 'g');
+INSERT INTO units (id, name) VALUES (4, 'cube');
+
+INSERT INTO lists (id, title, owner_id, type_id) VALUES (1, 'Chemist', 1, 2);
+INSERT INTO lists (id, title, owner_id, type_id) VALUES (2, 'Foods', 1, 1);
+
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (1, 'soap', 1, 2, 1, 1, 2);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (2, 'washing liquid', 2, 1, 1, 2, 1);
+
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
+
+
