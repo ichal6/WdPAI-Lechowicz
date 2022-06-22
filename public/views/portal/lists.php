@@ -62,16 +62,18 @@
             <div id="Create-list">
                 <form>
                     <h2>Add new List:</h2>
-                    <input id="list-name" placeholder="Name">
-                    <input id="type" placeholder="Type">
-                    <input type="text" id="category" placeholder="Category">
-                    <input type="text" id="subcategory" placeholder="Subcategory">
+                    <input name="name" id="list-name" placeholder="Name">
+                    <input name="type" id="type" placeholder="Type">
+                    <input name="category" type="text" id="category" placeholder="Category">
+                    <input name='priority' type="text" id="priority" placeholder="Priority">
                     <button type="submit">Add new</button>
                 </form>
                 <form>
                     <h2>Add product to this list:</h2>
-                    <input type="text" id="product-name" placeholder="Name">
-                    <input type="text" id="product-price" placeholder="Price">
+                    <input name="name" type="text" id="product-name" placeholder="Name">
+                    <input name="price" type="text" id="product-price" placeholder="Price (optional)">
+                    <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
+                    <input name="unit" type="text" id="product-unit" placeholder="Unit">
                     <button type="submit">Add new</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
@@ -109,6 +111,7 @@
             <p class="location"></p>
             <button class="remove" id="">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
             <button class="edit" id="">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+            <button class="set-buy" id="">Set as bought<img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
             <button class="less" id=''>Less options<img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
         </div>
     </div>
