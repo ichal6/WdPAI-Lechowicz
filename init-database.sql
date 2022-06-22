@@ -280,6 +280,14 @@ $$
 CREATE OR REPLACE TRIGGER delete_user_trigger AFTER DELETE ON users FOR EACH ROW
 EXECUTE PROCEDURE trigger_function_delete_user_details();
 
+CREATE OR REPLACE VIEW get_lists AS
+SELECT lists.id, category_id, type_id, priority_id, title, types.name as type_name, c.name as category, p.name as priority, ud.name as owner
+FROM lists
+         JOIN types ON lists.type_id = types.id
+         JOIN users u ON lists.owner_id = u.id
+         JOIN user_details ud ON u.id_user_details = ud.id
+         LEFT OUTER JOIN categories c on lists.category_id = c.id
+         LEFT OUTER JOIN priorities p on lists.priority_id = p.id;
 
 INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
 INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
