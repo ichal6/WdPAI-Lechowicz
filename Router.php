@@ -6,6 +6,7 @@ require_once 'src/controllers/RegisterController.php';
 require_once 'src/controllers/ListController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/SettingsController.php';
+require_once 'src/controllers/ProductController.php';
 
 class Router {
     public static $routes;
@@ -22,6 +23,10 @@ class Router {
     }
 
     public static function post($url, $controller){
+        self::$routes[$url] = $controller;
+    }
+
+    public static function delete($url, $controller){
         self::$routes[$url] = $controller;
     }
 

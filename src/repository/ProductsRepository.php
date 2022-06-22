@@ -16,4 +16,14 @@ class ProductsRepository  extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function removeProduct(int $id){
+        $stmt = $this->database->connect()->prepare('
+          DELETE FROM products WHERE id=:id   
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

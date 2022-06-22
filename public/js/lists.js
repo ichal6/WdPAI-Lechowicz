@@ -90,6 +90,30 @@ function createProduct(product, id_list) {
     lessButton.id = 'button-product-less-' + product.id;
     lessButton.addEventListener('click', () => displayMoreContent(moreContent.id, moreButton.id));
 
+    const removeButton = clone.querySelector('.remove');
+    console.log(removeButton);
+    removeButton.id = 'button-product-remove-' + product.id;
+    removeButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_product = this.id.slice(22);
+
+        const data = {id: id_product};
+
+        console.log(data);
+
+        fetch("/remove_product", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function (lists) {
+            firstLoadLists();
+        });
+    });
+
     productsContainer.appendChild(clone);
 }
 
