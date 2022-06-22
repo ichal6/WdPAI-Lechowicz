@@ -128,8 +128,37 @@ function createList(list) {
         ' | Category: ' + list.category + ' | Owner: ' + list.owner + ' | Priorytet: ' + list.priority;
 
     const modifyList = clone.querySelector('.modify-list');
-    console.log('modyfikowana lista = ' + modifyList);
     modifyList.id = 'modify-list-' + list.id;
+
+    const removeList = clone.querySelector('.remove-list');
+    removeList.id = 'remove-list-' + list.id;
+
+    removeList.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_list = this.id.slice(12);
+
+        const data = {list_id: id_list};
+
+        console.log(data);
+
+        fetch("/remove_list", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function () {
+            firstLoadLists();
+        });
+    });
+
+    const editList = clone.querySelector('.edit-list');
+    editList.id = 'edit-list-' + list.id;
+
+    const shareList = clone.querySelector('.share-list');
+    shareList.id = 'share-list-' + list.id;
 
     listContainer.appendChild(clone);
 }

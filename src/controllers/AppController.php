@@ -18,6 +18,11 @@ class AppController {
         return $this->request === "GET";
     }
 
+    protected function isDelete() : bool
+    {
+        return $this->request === "DELETE";
+    }
+
     protected function render(string $filename = null, array $variables = []){
         $filenamePath = 'public/views/'.$filename.'.php';
         $output = 'File not found';

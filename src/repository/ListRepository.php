@@ -51,4 +51,14 @@ class ListRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function removeList(int $list_id){
+        $stmt = $this->database->connect()->prepare('
+          DELETE FROM lists WHERE id=:id   
+        ');
+        $stmt->bindParam(':id', $list_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

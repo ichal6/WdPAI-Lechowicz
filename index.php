@@ -23,6 +23,7 @@ Router::get('filter_priority', 'ListController');
 Router::get('filter_category', 'ListController');
 Router::get('filter_type', 'ListController');
 Router::get('filter_type', 'ListController');
+Router::delete('remove_list', 'ListController');
 Router::delete('remove_product', 'ProductController');
 
 Router::addUnSecurePage('login');

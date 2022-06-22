@@ -87,9 +87,9 @@
         <p class="label-list"></p>
         <div class="list-content" id="">
             <div class="modify-list" id="">
-                <a href="lists" class="button" id="edit-list-button">Edit list</a>
-                <a href="lists" class="button" id="remove-list-button">Delete list</a>
-                <a href="lists" class="button" id="share-list-button">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></a>
+                <button class="edit-list" id="">Edit List</button>
+                <button class="remove-list" id="">Delete list</button>
+                <button class="share-list" id="">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
             </div>
         </div>
     </div>
