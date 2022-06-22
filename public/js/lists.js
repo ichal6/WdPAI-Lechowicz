@@ -40,12 +40,15 @@ function showProduct(id_list){
 }
 
 function loadProducts(products, id_list){
-    const productsContainer = document.getElementById('list-' + id_list);
+    const productsContainer = document.getElementById('list-' + id_list).cloneNode(true);
+    const modifyList = document.getElementById('modify-list-'+id_list);
+    // const removeList = document.getElementById('');
     productsContainer.innerHTML = '';
     products.forEach(product => {
         console.log(product);
         createProduct(product, id_list);
     });
+    productsContainer.innerHTML = productsContainer.innerHTML + modifyList
 }
 
 function createProduct(product, id_list) {
@@ -89,6 +92,52 @@ function createProduct(product, id_list) {
     const lessButton = clone.querySelector('.less');
     lessButton.id = 'button-product-less-' + product.id;
     lessButton.addEventListener('click', () => displayMoreContent(moreContent.id, moreButton.id));
+
+    const removeButton = clone.querySelector('.remove');
+    removeButton.id = 'button-product-remove-' + product.id;
+    removeButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_product = this.id.slice(22);
+
+        const data = {id: id_product};
+
+        console.log(data);
+
+        fetch("/remove_product", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function (lists) {
+            firstLoadLists();
+        });
+    });
+
+    const boughtButton = clone.querySelector('.bought');
+    boughtButton.id = 'button-product-bought-' + product.id;
+    boughtButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_product = this.id.slice(22);
+
+        const data = {id: id_product};
+
+        console.log(data);
+
+        fetch("/bought_product", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function () {
+            firstLoadLists();
+        });
+    });
 
     productsContainer.appendChild(clone);
 }

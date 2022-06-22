@@ -17,8 +17,15 @@ Router::post('register', 'SecurityController');
 Router::get('logout', 'SecurityController');
 Router::get('account', 'SettingsController');
 Router::post('updateAccount', 'SettingsController');
+Router::post('bought_product', 'ProductController');
 Router::get('search', 'ListController');
 Router::get('list', 'ListController');
+Router::get('filter_priority', 'ListController');
+Router::get('filter_category', 'ListController');
+Router::get('filter_type', 'ListController');
+Router::get('filter_type', 'ListController');
+Router::delete('remove_list', 'ListController');
+Router::delete('remove_product', 'ProductController');
 
 Router::addUnSecurePage('login');
 Router::addUnSecurePage('register');
