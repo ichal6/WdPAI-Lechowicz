@@ -40,12 +40,14 @@ function showProduct(id_list){
 }
 
 function loadProducts(products, id_list){
-    const productsContainer = document.getElementById('list-' + id_list);
+    const productsContainer = document.getElementById('list-' + id_list).cloneNode(true);
+    const modifyList = document.getElementById('modify-list-'+id_list);
     productsContainer.innerHTML = '';
     products.forEach(product => {
         console.log(product);
         createProduct(product, id_list);
     });
+    productsContainer.innerHTML = productsContainer.innerHTML + modifyList
 }
 
 function createProduct(product, id_list) {

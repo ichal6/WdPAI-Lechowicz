@@ -127,6 +127,10 @@ function createList(list) {
     labelList.innerText = 'Type: ' + list.type_name +
         ' | Category: ' + list.category + ' | Owner: ' + list.owner + ' | Priorytet: ' + list.priority;
 
+    const modifyList = clone.querySelector('.modify-list');
+    console.log('modyfikowana lista = ' + modifyList);
+    modifyList.id = 'modify-list-' + list.id;
+
     listContainer.appendChild(clone);
 }
 
