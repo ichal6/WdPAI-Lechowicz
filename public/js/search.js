@@ -1,5 +1,86 @@
 const search = document.querySelector('input[placeholder="Type here for search"]');
 const listContainer = document.getElementById("list-body");
+const prioritiesSelect = document.getElementsByName('priorities')[0];
+const categoriesSelect = document.getElementsByName('categories')[0];
+const typesSelect = document.getElementsByName('types')[0];
+
+prioritiesSelect.addEventListener("change", function (event) {
+    event.preventDefault();
+
+    if(this.value === 'all'){
+        firstLoadLists();
+        return;
+    }
+
+    const data = {priority_id: this.value};
+
+    console.log(data);
+
+    fetch("/filter_priority", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (lists) {
+        listContainer.innerHTML = "";
+        loadLists(lists)
+    });
+});
+
+categoriesSelect.addEventListener("change", function (event) {
+    event.preventDefault();
+
+    if(this.value === 'all'){
+        firstLoadLists();
+        return;
+    }
+
+    const data = {category_id: this.value};
+
+    console.log(data);
+
+    fetch("/filter_category", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (lists) {
+        listContainer.innerHTML = "";
+        loadLists(lists)
+    });
+});
+
+typesSelect.addEventListener("change", function (event) {
+    event.preventDefault();
+
+    if(this.value === 'all'){
+        firstLoadLists();
+        return;
+    }
+
+    const data = {type_id: this.value};
+
+    console.log(data);
+
+    fetch("/filter_type", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (lists) {
+        listContainer.innerHTML = "";
+        loadLists(lists)
+    });
+});
 
 search.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
@@ -45,16 +126,39 @@ function createList(list) {
     const labelList = clone.querySelector('.label-list');
     labelList.innerText = 'Type: ' + list.type_name +
         ' | Category: ' + list.category + ' | Owner: ' + list.owner + ' | Priorytet: ' + list.priority;
-    // const image = clone.querySelector("img");
-    // image.src = `/public/uploads/${list.image}`;
-    // const title = clone.querySelector("h2");
-    // title.innerHTML = list.title;
-    // const description = clone.querySelector("p");
-    // description.innerHTML = list.description;
-    // const like = clone.querySelector(".fa-heart");
-    // like.innerText = list.like;
-    // const dislike = clone.querySelector(".fa-minus-square");
-    // dislike.innerText = list.dislike;
+
+    const modifyList = clone.querySelector('.modify-list');
+    modifyList.id = 'modify-list-' + list.id;
+
+    const removeList = clone.querySelector('.remove-list');
+    removeList.id = 'remove-list-' + list.id;
+
+    removeList.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_list = this.id.slice(12);
+
+        const data = {list_id: id_list};
+
+        console.log(data);
+
+        fetch("/remove_list", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function () {
+            firstLoadLists();
+        });
+    });
+
+    const editList = clone.querySelector('.edit-list');
+    editList.id = 'edit-list-' + list.id;
+
+    const shareList = clone.querySelector('.share-list');
+    shareList.id = 'share-list-' + list.id;
 
     listContainer.appendChild(clone);
 }

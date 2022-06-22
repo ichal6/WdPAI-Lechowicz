@@ -36,21 +36,21 @@
                     <select name="priorities" class="select">
                         <option selected="selected" value="all">All priorities</option>
                         <?php foreach ($priorities as $priority) {?>
-                            <option value="<?=$priority->getName()?>"><?=$priority->getName()?></option>
+                            <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
                         <?php }?>
                     </select>
 
                     <select name="categories" class="select">
                         <option selected="selected" value="all">All categories</option>
                         <?php foreach ($categories as $category) {?>
-                            <option value="<?=$category->getName()?>"><?=$category->getName()?></option>
+                            <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="Types" class="select">
+                    <select name="types" class="select">
                         <option selected="selected" value="all">All types</option>
                         <?php foreach ($types as $type) {?>
-                            <option value="<?=$type->getName()?>"><?=$type->getName()?></option>
+                            <option value="<?=$type->getId()?>"><?=$type->getName()?></option>
                         <?php }?>
                     </select>
                 </div>
@@ -62,16 +62,18 @@
             <div id="Create-list">
                 <form>
                     <h2>Add new List:</h2>
-                    <input id="list-name" placeholder="Name">
-                    <input id="type" placeholder="Type">
-                    <input type="text" id="category" placeholder="Category">
-                    <input type="text" id="subcategory" placeholder="Subcategory">
+                    <input name="name" id="list-name" placeholder="Name">
+                    <input name="type" id="type" placeholder="Type">
+                    <input name="category" type="text" id="category" placeholder="Category">
+                    <input name='priority' type="text" id="priority" placeholder="Priority">
                     <button type="submit">Add new</button>
                 </form>
                 <form>
                     <h2>Add product to this list:</h2>
-                    <input type="text" id="product-name" placeholder="Name">
-                    <input type="text" id="product-price" placeholder="Price">
+                    <input name="name" type="text" id="product-name" placeholder="Name">
+                    <input name="price" type="text" id="product-price" placeholder="Price (optional)">
+                    <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
+                    <input name="unit" type="text" id="product-unit" placeholder="Unit">
                     <button type="submit">Add new</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
@@ -86,10 +88,10 @@
         <input class="title-list-btn" type="button">
         <p class="label-list"></p>
         <div class="list-content" id="">
-            <div class="modify-list">
-                <a href="lists" class="button" id="edit-list-button">Edit list</a>
-                <a href="lists" class="button" id="remove-list-button">Delete list</a>
-                <a href="lists" class="button" id="share-list-button">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></a>
+            <div class="modify-list" id="">
+                <button class="edit-list" id="">Edit List</button>
+                <button class="remove-list" id="">Delete list</button>
+                <button class="share-list" id="">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
             </div>
         </div>
     </div>
@@ -107,8 +109,9 @@
             <p class="available"></p>
             <p class="priority"></p>
             <p class="location"></p>
-            <button class="remove">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
-            <button class="edit">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+            <button class="remove" id="">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
+            <button class="edit" id="">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+            <button class="bought" id="">Set as bought<img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
             <button class="less" id=''>Less options<img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
         </div>
     </div>
