@@ -17,6 +17,7 @@ Router::post('register', 'SecurityController');
 Router::get('logout', 'SecurityController');
 Router::get('account', 'SettingsController');
 Router::post('updateAccount', 'SettingsController');
+Router::post('bought_product', 'ProductController');
 Router::get('search', 'ListController');
 Router::get('list', 'ListController');
 Router::get('filter_priority', 'ListController');

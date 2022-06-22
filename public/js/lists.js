@@ -94,7 +94,6 @@ function createProduct(product, id_list) {
     lessButton.addEventListener('click', () => displayMoreContent(moreContent.id, moreButton.id));
 
     const removeButton = clone.querySelector('.remove');
-    console.log(removeButton);
     removeButton.id = 'button-product-remove-' + product.id;
     removeButton.addEventListener("click", function (event) {
         event.preventDefault();
@@ -113,6 +112,29 @@ function createProduct(product, id_list) {
         }).then(function (response) {
             return response.json();
         }).then(function (lists) {
+            firstLoadLists();
+        });
+    });
+
+    const boughtButton = clone.querySelector('.bought');
+    boughtButton.id = 'button-product-bought-' + product.id;
+    boughtButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        const id_product = this.id.slice(22);
+
+        const data = {id: id_product};
+
+        console.log(data);
+
+        fetch("/bought_product", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json();
+        }).then(function () {
             firstLoadLists();
         });
     });
