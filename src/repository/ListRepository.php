@@ -9,11 +9,7 @@ class ListRepository extends Repository
         $searchString = '%' . strtolower($searchString) . '%';
 
         $stmt = $this->database->connect()->prepare('
-            SELECT lists.id, title, types.name as type_name, c.name as category, p.name as priority FROM lists 
-                JOIN types ON lists.type_id = types.id 
-                LEFT OUTER JOIN categories c on lists.category_id = c.id
-                LEFT OUTER JOIN priorities p on lists.priority_id = p.id
-                                                            WHERE LOWER(title) LIKE :search
+            SELECT * FROM get_lists WHERE LOWER(title) LIKE :search
         ');
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
@@ -24,10 +20,7 @@ class ListRepository extends Repository
     public function getListsByPriority(int $priority_id)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT lists.id, title, types.name as type_name, c.name as category, p.name as priority FROM lists 
-                JOIN types ON lists.type_id = types.id 
-                LEFT OUTER JOIN categories c on lists.category_id = c.id
-                LEFT OUTER JOIN priorities p on lists.priority_id = p.id
+            SELECT * FROM get_lists
             WHERE priority_id=:id
         ');
         $stmt->bindParam(':id', $priority_id, PDO::PARAM_STR);
@@ -39,11 +32,7 @@ class ListRepository extends Repository
     public function getListsByType(int $type_id)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT lists.id, title, types.name as type_name, c.name as category, p.name as priority FROM lists 
-                JOIN types ON lists.type_id = types.id 
-                LEFT OUTER JOIN categories c on lists.category_id = c.id
-                LEFT OUTER JOIN priorities p on lists.priority_id = p.id
-                                                                     WHERE type_id=:id
+            SELECT * FROM get_lists WHERE type_id=:id
         ');
         $stmt->bindParam(':id', $type_id, PDO::PARAM_STR);
         $stmt->execute();
@@ -54,10 +43,7 @@ class ListRepository extends Repository
     public function getListsByCategory(int $category_id)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT lists.id, title, types.name as type_name, c.name as category, p.name as priority FROM lists 
-                JOIN types ON lists.type_id = types.id 
-                LEFT OUTER JOIN categories c on lists.category_id = c.id
-                LEFT OUTER JOIN priorities p on lists.priority_id = p.id
+            SELECT id, title, type_name, category, priority, owner FROM get_lists
                                                       WHERE category_id=:id
         ');
         $stmt->bindParam(':id', $category_id, PDO::PARAM_STR);
