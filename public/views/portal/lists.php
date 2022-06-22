@@ -60,15 +60,15 @@
 
             </div>
             <div id="Create-list">
-                <form>
+                <form action="add_list" method="POST">
                     <h2>Add new List:</h2>
                     <input name="name" id="list-name" placeholder="Name">
                     <input name="type" id="type" placeholder="Type">
-                    <input name="category" type="text" id="category" placeholder="Category">
-                    <input name='priority' type="text" id="priority" placeholder="Priority">
+                    <input name="category" type="text" id="category" placeholder="Category (optional)">
+                    <input name='priority' type="text" id="priority" placeholder="Priority (optional)">
                     <button type="submit">Add new</button>
                 </form>
-                <form>
+                <form action="add_product" method="POST">
                     <h2>Add product to this list:</h2>
                     <input name="name" type="text" id="product-name" placeholder="Name">
                     <input name="price" type="text" id="product-price" placeholder="Price (optional)">
