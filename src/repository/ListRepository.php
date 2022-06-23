@@ -61,4 +61,65 @@ class ListRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function addList(ListShop $shopList){
+        $pdo = $this->database->connect();
+        $lastInsertCategoryId = null;
+        $lastInsertPriorityId = null;
+        try {
+            if($shopList?->getCategory()){
+                $stmt = $pdo->prepare('
+                INSERT INTO categories (user_id, name)
+                VALUES (?, ?)
+            ');
+
+                $stmt->execute([
+                    $shopList->getOwnerId(),
+                    $shopList->getCategory()->getName()
+                ]);
+                $lastInsertCategoryId = $pdo->lastInsertId();
+            }
+
+            if($shopList?->getPriority()){
+                $stmt = $pdo->prepare('
+                INSERT INTO priorities (name)
+                VALUES (?)
+            ');
+
+                $stmt->execute([
+                    $shopList->getPriority()->getName()
+                ]);
+                $lastInsertPriorityId = $pdo->lastInsertId();
+            }
+
+            $IdType = $shopList->getType()->getId();
+
+            var_dump($IdType);
+
+            $date = new DateTime();
+
+            $pdo->beginTransaction();
+            $stmt = $this->database->connect()->prepare('
+                INSERT INTO lists (owner_id, category_id, priority_id, title, type_id)
+                VALUES (?, ?, ?, ?, ?)
+            ');
+
+            $date = new DateTime();
+
+            $stmt->execute([
+                $shopList->getOwnerId(),
+                $lastInsertCategoryId,
+                $lastInsertPriorityId,
+                $shopList->getTitle(),
+                $IdType
+            ]);
+            $pdo->commit();
+        } catch (PDOException $ex){
+            die($ex->getMessage());
+            $pdo->rollBack();
+            // TODO
+            // Remove category
+            throw $ex;
+        }
+    }
 }
