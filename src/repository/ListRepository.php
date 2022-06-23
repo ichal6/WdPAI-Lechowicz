@@ -67,16 +67,29 @@ class ListRepository extends Repository
         $lastInsertCategoryId = null;
         try {
             if($shopList?->getCategory()){
-                $stmt = $pdo->prepare('
-                INSERT INTO categories (user_id, name)
-                VALUES (?, ?)
-            ');
+                $category_name = $shopList->getCategory()->getName();
+                $stmt = $this->database->connect()->prepare('
+                SELECT categories.id as c_id, user_id FROM categories INNER JOIN users u on categories.user_id = u.id
+                                                          WHERE categories.name =:name
+                ');
+                $stmt->bindParam(':name', $category_name, PDO::PARAM_STR);
+                $stmt->execute();
 
-                $stmt->execute([
-                    $shopList->getOwnerId(),
-                    $shopList->getCategory()->getName()
-                ]);
-                $lastInsertCategoryId = $pdo->lastInsertId();
+                $return = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($return){
+                    $lastInsertCategoryId = $return['c_id'];
+                } else{
+                    $stmt = $pdo->prepare('
+                    INSERT INTO categories (user_id, name)
+                    VALUES (?, ?)
+                    ');
+
+                    $stmt->execute([
+                        $shopList->getOwnerId(),
+                        $shopList->getCategory()->getName()
+                    ]);
+                    $lastInsertCategoryId = $pdo->lastInsertId();
+                }
             }
 
             $IdType = $shopList->getType()->getId();

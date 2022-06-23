@@ -71,7 +71,7 @@
                     <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)">
                     <datalist id="list-category">
                         <?php foreach ($categories as $category) {?>
-                            <option value="<?=$category->getName()?>">
+                            <option value="<?=$category->getName()?>"></option>
                         <?php }?>
                     </datalist>
                     <select name="priority" id="list-priority">
