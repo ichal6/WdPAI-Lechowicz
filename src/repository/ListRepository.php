@@ -81,12 +81,10 @@ class ListRepository extends Repository
 
             $IdType = $shopList->getType()->getId();
 
-            $date = new DateTime();
-
             $pdo->beginTransaction();
             $stmt = $this->database->connect()->prepare('
-                INSERT INTO lists (owner_id, category_id, priority_id, title, type_id)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO lists (owner_id, category_id, priority_id, title, type_id, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
             ');
 
             $date = new DateTime();
@@ -96,7 +94,8 @@ class ListRepository extends Repository
                 $lastInsertCategoryId,
                 $shopList?->getPriority()?->getId(),
                 $shopList->getTitle(),
-                $IdType
+                $IdType,
+                $date->format("Y-m-d")
             ]);
             $pdo->commit();
         } catch (PDOException $ex){

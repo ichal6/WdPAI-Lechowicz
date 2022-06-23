@@ -334,3 +334,6 @@ INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
 SELECT setval('public.products_id_seq', 5);
 
+alter table lists
+    add created_at date;
+
