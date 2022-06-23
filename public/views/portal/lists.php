@@ -77,7 +77,7 @@
                     <select name="priority" id="list-priority">
                         <option selected="selected" value="">Priority (optional)</option>
                         <?php foreach ($priorities as $priority) {?>
-                            <option value="<?=$priority->getName()?>"><?=$priority->getName()?></option>
+                            <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
                         <?php }?>
                     </select>
 

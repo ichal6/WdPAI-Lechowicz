@@ -146,7 +146,7 @@ class ListController extends AppController{
         }
 
         if($priority != ''){
-            $priority = new Priority($priority, null);
+            $priority = new Priority(intval($priority), '');
             $list->setPriority($priority);
         }
 
@@ -159,9 +159,6 @@ class ListController extends AppController{
                 'user' => $_SESSION['user']
             ]]);
         }
-        return $this->render('portal/lists', ['messages' => [
-            'message' => 'List: '.$list->getTitle().' was created',
-            'user' => $_SESSION['user']
-        ]]);
+        header("Location: lists");
     }
 }
