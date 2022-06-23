@@ -2,6 +2,9 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Category.php';
+require_once __DIR__.'/../models/Type.php';
+require_once __DIR__.'/../models/ListShop.php';
+require_once __DIR__.'/../models/Priority.php';
 require_once __DIR__.'/../repository/CategoryRepository.php';
 require_once __DIR__.'/../repository/TypeRepository.php';
 require_once __DIR__.'/../repository/PriorityRepository.php';
@@ -121,5 +124,41 @@ class ListController extends AppController{
 
             echo json_encode($this->listRepository->removeList(intval($decoded['list_id'])));
         }
+    }
+
+    public function add_list(){
+        if (!$this->isPost()) {
+            return $this->render('portal/dashboard');
+        }
+
+        $title = $_POST['title'];
+        $type = $_POST['type'];
+        $category = $_POST['category'];
+        $priority = $_POST['priority'];
+
+        $type = new Type($type, null);
+
+        $list = new ListShop($_SESSION['user']->getId(), $title, $type);
+
+        if($category != ''){
+            $category = new Category( 0 ,$category);
+            $list->setCategory($category);
+        }
+
+        if($priority != ''){
+            $priority = new Priority(intval($priority), '');
+            $list->setPriority($priority);
+        }
+
+        try{
+//            var_dump($list);
+            $this->listRepository->addList($list);
+        } catch (PDOException){
+            return $this->render('portal/lists', ['messages' => [
+                'error' => 'List: '.$list->getTitle().' exist in database',
+                'user' => $_SESSION['user']
+            ]]);
+        }
+        header("Location: lists");
     }
 }

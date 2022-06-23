@@ -3,9 +3,9 @@
 class Type
 {
     private int $id;
-    private string $name;
+    private ?string $name;
 
-    public function __construct(int $id, string $name)
+    public function __construct(int $id, ?string $name)
     {
         $this->id = $id;
         $this->name = $name;
@@ -16,7 +16,7 @@ class Type
         return $this->id;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

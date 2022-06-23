@@ -290,6 +290,7 @@ FROM lists
          LEFT OUTER JOIN priorities p on lists.priority_id = p.id;
 
 INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
+SELECT setval('public.user_details_id_seq', 2);
 INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
 
 INSERT INTO categories (id, user_id, name) VALUES (1, 1, 'Grosery');
@@ -298,32 +299,41 @@ INSERT INTO categories (id, user_id, name) VALUES (3, 1, 'Presents');
 INSERT INTO categories (id, user_id, name) VALUES (4, 1, 'For bathroom');
 INSERT INTO categories (id, user_id, name) VALUES (5, 1, 'Vegetables');
 INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
+SELECT setval('public.categories_id_seq', 7);
 
 INSERT INTO types (id, user_id, name) VALUES (1, 1, 'Cyclic');
 INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
+SELECT setval('public.types_id_seq', 3);
 
 INSERT INTO priorities (id, name) VALUES (1, 'Low');
 INSERT INTO priorities (id, name) VALUES (2, 'Medium');
 INSERT INTO priorities (id, name) VALUES (3, 'High');
+SELECT setval('public.priorities_id_seq', 4);
 
 INSERT INTO statuses (id, name) VALUES (1, 'to buy');
 INSERT INTO statuses (id, name) VALUES (2, 'bought');
+SELECT setval('public.statuses_id_seq', 3);
 
 INSERT INTO units (id, name) VALUES (1, 'Kg');
 INSERT INTO units (id, name) VALUES (2, 'piece');
 INSERT INTO units (id, name) VALUES (3, 'g');
 INSERT INTO units (id, name) VALUES (4, 'cube');
+SELECT setval('public.units_id_seq', 5);
 
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (1, 'Chemist', 1, 2);
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (2, 'Foods', 1, 1);
 INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (3, 'New RTV', 1, 1, 1, 2);
 INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (4, 'New AGD', 1, 1, 2, 4);
 INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (5, 'Repair Websites', 1, 1, 3, 1);
+SELECT setval('public.lists_id_seq', 6);
 
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (1, 'soap', 1, 2, 1, 1, 2);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (2, 'washing liquid', 2, 1, 1, 2, 1);
 
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
+SELECT setval('public.products_id_seq', 5);
 
+alter table lists
+    add created_at date;
 
