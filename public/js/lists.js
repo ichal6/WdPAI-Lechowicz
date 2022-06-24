@@ -59,14 +59,14 @@ function createProduct(product, id_list) {
     const productName = clone.querySelector('.product-name');
     productName.innerText = product.name;
 
-    const price = clone.querySelector('.price');
+    const price = clone.querySelector('.last-price');
     price.innerText = product.price;
 
     const status = clone.querySelector('.status');
     status.innerText = 'Status: ' + product.status_name;
 
     const quantity = clone.querySelector('.quantity');
-    quantity.innerText = 'Quantity for buy: ' + product.quantity;
+    quantity.innerText = 'Quantity for buy: ' + product.quantity + " " + product.unit_name;
 
     const category = clone.querySelector('.category');
     category.innerText = 'Category: ' + product.category;
