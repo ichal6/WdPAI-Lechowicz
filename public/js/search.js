@@ -3,6 +3,7 @@ const listContainer = document.getElementById("list-body");
 const prioritiesSelect = document.getElementsByName('priorities')[0];
 const categoriesSelect = document.getElementsByName('categories')[0];
 const typesSelect = document.getElementsByName('types')[0];
+const disableButton = document.getElementById('disable-add-product');
 
 function displayAddForm(id){
     const targetDiv = document.getElementById(id);
@@ -12,6 +13,10 @@ function displayAddForm(id){
         targetDiv.style.display = "block";
     }
 }
+
+disableButton.addEventListener('click', function (event) {
+    displayAddForm('add-product-to-list-form')
+});
 
 prioritiesSelect.addEventListener("change", function (event) {
     event.preventDefault();
