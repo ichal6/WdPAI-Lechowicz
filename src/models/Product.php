@@ -2,14 +2,15 @@
 
 class Product
 {
-    private int $id;
+    private ?int $id = null;
     private string $name;
-    private string $available;
-    private string $status;
-    private int $quantity;
-    private string $unit;
+    private ?string $available = null;
+    private Status $status;
+    private float $quantity;
+    private Unit $unit;
+    private ?Price $price = null;
 
-    public function __construct(int $id, string $name, string $available, string $status, int $quantity, string $unit)
+    public function __construct(?int $id, string $name, ?string $available, Status $status, float $quantity, Unit $unit)
     {
         $this->id = $id;
         $this->name = $name;
@@ -19,7 +20,7 @@ class Product
         $this->unit = $unit;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -29,23 +30,35 @@ class Product
         return $this->name;
     }
 
-    public function getAvailable(): string
+    public function getAvailable(): ?string
     {
         return $this->available;
     }
 
-    public function getStatus(): string
+    public function getStatus(): Status
     {
         return $this->status;
     }
 
-    public function getQuantity(): int
+    public function getQuantity(): float
     {
         return $this->quantity;
     }
 
-    public function getUnit(): string
+    public function getUnit(): Unit
     {
         return $this->unit;
     }
+
+    public function getPrice(): ?Price
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?Price $price): void
+    {
+        $this->price = $price;
+    }
+
+
 }
