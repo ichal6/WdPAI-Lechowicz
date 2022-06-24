@@ -111,3 +111,7 @@ input:invalid:required {
     cursor: pointer;
 }
 
+#add-form-list-id{
+    display: none;
+}
+
