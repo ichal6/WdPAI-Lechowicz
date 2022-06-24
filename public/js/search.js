@@ -178,6 +178,11 @@ function createList(list) {
         const listId = document.getElementById('add-form-list-id');
         listId.value = list.id;
     });
+    const disableButton = document.getElementById('disable-add-product');
+    disableButton.addEventListener('click', function (event) {
+        displayAddForm('add-product-to-list-form');
+    });
+
     listContainer.appendChild(clone);
 }
 

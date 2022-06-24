@@ -89,6 +89,7 @@
             </div>
             <div id="add-product-to-list-form">
                 <form action="add_product_to_list" method="POST" id="add-product">
+                    <button id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
                     <h2>Add product to this list:</h2>
                     <input name="list-id" value="" type="text" id="add-form-list-id" required>
                     <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
