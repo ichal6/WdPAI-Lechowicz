@@ -29,7 +29,7 @@
             $priorities = $messages['priorities'];
             $currencies = $messages['currencies'];
             $units = $messages['units'];
-            $error = $messages['error'];
+            $error = in_array('error', $messages) ? $messages['error'] : null;
         } else{
             die('Problem with session.');
     } ?>
@@ -65,13 +65,13 @@
             <div id="Create-list">
                 <form action="add_list" method="POST">
                     <h2>Add new List:</h2>
-                    <input name="title" id="title-input" placeholder="Title">
+                    <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
                     <select name="type" id="type-input">
                         <?php foreach ($types as $type) {?>
                             <option selected="selected" value="<?=$type->getId()?>"><?=$type->getName()?></option>
                         <?php }?>
                     </select>
-                    <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)">
+                    <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)" minlength="3" maxlength="255">
                     <datalist id="list-category">
                         <?php foreach ($categories as $category) {?>
                             <option value="<?=$category->getName()?>"></option>
@@ -88,21 +88,21 @@
                 </form>
                 <form action="add_product_to_list" method="POST" id="add-product">
                     <h2>Add product to this list:</h2>
-                    <input name="list-id" value="" type="text" id="add-form-list-id">
-                    <input name="name" type="text" id="product-name" placeholder="Name">
-                    <input name="price" type="text" id="product-price" placeholder="Price (optional)">
+                    <input name="list-id" value="" type="text" id="add-form-list-id" required>
+                    <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
+                    <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
                     <select name="currency_id" id="list-currency">
                         <?php foreach ($currencies as $currency) {?>
                             <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
                         <?php }?>
                     </select>
-                    <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
+                    <input name="quantity" type="number" id="product-quantity" placeholder="Quantity" required min="1" max='100000000'>
                     <select name="unit" id="product-unit">
                         <?php foreach ($units as $unit) {?>
                             <option selected="selected" value="<?=$unit->getId()?>"><?=$unit->getName()?></option>
                         <?php }?>
                     </select>
-                    <button type="submit">Add new</button>
+                    <button id="add-product-button" type="submit">Add new product</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
 
