@@ -4,6 +4,8 @@ require_once 'AppController.php';
 require_once __DIR__.'/../repository/ProductsRepository.php';
 require_once __DIR__.'/../repository/StatusRepository.php';
 require_once __DIR__.'/../repository/UnitRepository.php';
+require_once __DIR__.'/../repository/CurrencyRepository.php';
+require_once __DIR__.'/../repository/LastPriceRepository.php';
 require_once __DIR__.'/../models/Product.php';
 require_once __DIR__.'/../models/Price.php';
 require_once __DIR__.'/../models/Status.php';
@@ -15,6 +17,8 @@ class ProductController extends AppController
     private ProductsRepository $productRepository;
     private StatusRepository $statusRepository;
     private UnitRepository $unitRepository;
+    private CurrencyRepository $currencyRepository;
+    private LastPriceRepository $lastPriceRepository;
 
     public function __construct()
     {
@@ -22,6 +26,8 @@ class ProductController extends AppController
         $this->productRepository = new ProductsRepository();
         $this->statusRepository = new StatusRepository();
         $this->unitRepository = new UnitRepository();
+        $this->currencyRepository = new CurrencyRepository();
+        $this->lastPriceRepository = new LastPriceRepository();
     }
 
     public function remove_product(){
@@ -62,6 +68,7 @@ class ProductController extends AppController
         $quantity = $_POST['quantity'];
         $unitName = $_POST['unit'];
         $id_list = $_POST['list-id'];
+        $currency_id = $_POST['currency_id'];
 
         $unit = $this->unitRepository->getUnit($unitName);
 
@@ -75,18 +82,21 @@ class ProductController extends AppController
         $product = new Product(null, $name, null, $status, doubleval($quantity), $unit);
 
         if($price != ''){
-            $priceArray = explode(" ", $price);
-            if(count($priceArray)) {
-                $price = new Price( null, $priceArray[0], $priceArray[1]);
+            $currency = $this->currencyRepository->getCurrencyById($currency_id);
+            if($currency){
+                $idPrice = $this->lastPriceRepository->addPrice(doubleval($price), $currency_id);
+                $price = $this->lastPriceRepository->getPriceById($idPrice);
                 $product->setPrice($price);
+            } else{
+                throw new PDOException('Wrong Currency');
             }
         }
 
         try{
-            $this->productRepository->addProduct($id_list, $product);
-        } catch (PDOException){
+            $this->productRepository->addProduct(intval($id_list), $product);
+        } catch (PDOException $ex){
             return $this->render('portal/lists', ['messages' => [
-                'error' => 'Product: '.$product->getName().' exist in database',
+                'error' => 'Error insert to DB'.$ex->getMessage(),
                 'user' => $_SESSION['user']
             ]]);
         }

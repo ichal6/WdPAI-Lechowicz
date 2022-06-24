@@ -59,8 +59,15 @@ function createProduct(product, id_list) {
     const productName = clone.querySelector('.product-name');
     productName.innerText = product.name;
 
-    const price = clone.querySelector('.last-price');
-    price.innerText = product.price;
+    if(product.price){
+        const price = clone.querySelector('.price');
+        price.innerText = product.price + " " + product.currency;
+    } else{
+        const lastPrice = clone.querySelector('.last-price');
+        lastPrice.innerText = '';
+    }
+
+
 
     const status = clone.querySelector('.status');
     status.innerText = 'Status: ' + product.status_name;

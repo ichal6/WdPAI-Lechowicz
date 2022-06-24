@@ -3,13 +3,13 @@
 class Price
 {
     private ?int $id;
-    private string $name;
-    private string $currency;
+    private float $value;
+    private Currency $currency;
 
-    public function __construct(?int $id, string $name, string $currency)
+    public function __construct(?int $id, float $value, Currency $currency)
     {
         $this->id = $id;
-        $this->name = $name;
+        $this->value = $value;
         $this->currency = $currency;
     }
 
@@ -18,12 +18,12 @@ class Price
         return $this->id;
     }
 
-    public function getName(): string
+    public function getValue(): float
     {
-        return $this->name;
+        return $this->value;
     }
 
-    public function getCurrency(): string
+    public function getCurrency(): Currency
     {
         return $this->currency;
     }

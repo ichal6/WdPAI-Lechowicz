@@ -227,9 +227,6 @@ create table IF NOT EXISTS products
 
 create unique index IF NOT EXISTS products_id_uindex
     on products (id);
-
-create unique index IF NOT EXISTS products_name_uindex
-    on products (name);
 	
 ALTER TABLE products DROP CONSTRAINT IF EXISTS products___fk_lists;
 
@@ -336,6 +333,11 @@ INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
 SELECT setval('public.products_id_seq', 5);
+
+INSERT INTO currencies(id, name) VALUES (1, 'PLN');
+INSERT INTO currencies(id, name) VALUES (2, 'USD');
+INSERT INTO currencies(id, name) VALUES (3, 'EUR');
+SELECT setval('public.currencies_id_seq', 4);
 
 alter table lists
     add created_at date;

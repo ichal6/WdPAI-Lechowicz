@@ -10,6 +10,7 @@ require_once __DIR__.'/../repository/TypeRepository.php';
 require_once __DIR__.'/../repository/PriorityRepository.php';
 require_once __DIR__.'/../repository/ListRepository.php';
 require_once __DIR__.'/../repository/ProductsRepository.php';
+require_once __DIR__.'/../repository/CurrencyRepository.php';
 
 class ListController extends AppController{
     private CategoryRepository $categoryRepository;
@@ -17,6 +18,7 @@ class ListController extends AppController{
     private PriorityRepository $priorityRepository;
     private ListRepository $listRepository;
     private ProductsRepository $productRepository;
+    private CurrencyRepository $currencyRepository;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class ListController extends AppController{
         $this->priorityRepository = new PriorityRepository();
         $this->listRepository = new ListRepository();
         $this->productRepository = new ProductsRepository();
+        $this->currencyRepository = new CurrencyRepository();
     }
 
     public function lists(){
@@ -34,7 +37,8 @@ class ListController extends AppController{
             'user' => $_SESSION['user'],
             'categories' => $this->categoryRepository->getAllCategories(),
             'types' => $this->typeRepository->getAllTypes(),
-            'priorities' => $this->priorityRepository->getAllPriority()
+            'priorities' => $this->priorityRepository->getAllPriority(),
+            'currencies' => $this->currencyRepository->getAllCurrencies()
         ]]);
     }
 

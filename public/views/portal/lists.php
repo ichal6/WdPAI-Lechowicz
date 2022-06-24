@@ -27,6 +27,8 @@
             $categories = $messages['categories'];
             $types = $messages['types'];
             $priorities = $messages['priorities'];
+            $currencies = $messages['currencies'];
+            $error = $messages['error'];
         } else{
             die('Problem with session.');
     } ?>
@@ -88,12 +90,20 @@
                     <input name="list-id" value="" type="text" id="add-form-list-id">
                     <input name="name" type="text" id="product-name" placeholder="Name">
                     <input name="price" type="text" id="product-price" placeholder="Price (optional)">
+                    <select name="currency_id" id="list-currency">
+                        <?php foreach ($currencies as $currency) {?>
+                            <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
+                        <?php }?>
+                    </select>
                     <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
                     <input name="unit" type="text" id="product-unit" placeholder="Unit">
                     <button type="submit">Add new</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
 
+            </div>
+            <div>
+                <p id="error-box"><?=$error?></p>
             </div>
         </section>
     </div>
