@@ -66,15 +66,14 @@ class ProductController extends AppController
         $name = $_POST['name'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-        $unitName = $_POST['unit'];
+        $unitId = $_POST['unit'];
         $id_list = $_POST['list-id'];
         $currency_id = $_POST['currency_id'];
 
-        $unit = $this->unitRepository->getUnit($unitName);
+        $unit = $this->unitRepository->getUnitbyId($unitId);
 
         if($unit == null){
-            $unit_id = $this->unitRepository->addUnit($unitName);
-            $unit = $this->unitRepository->getUnitById($unit_id);
+            throw new PDOException('Provide wrong unit!');
         }
 
         $status = $this->statusRepository->getToBuyStatus();

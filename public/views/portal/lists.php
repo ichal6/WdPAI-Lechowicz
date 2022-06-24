@@ -28,6 +28,7 @@
             $types = $messages['types'];
             $priorities = $messages['priorities'];
             $currencies = $messages['currencies'];
+            $units = $messages['units'];
             $error = $messages['error'];
         } else{
             die('Problem with session.');
@@ -96,7 +97,11 @@
                         <?php }?>
                     </select>
                     <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
-                    <input name="unit" type="text" id="product-unit" placeholder="Unit">
+                    <select name="unit" id="product-unit">
+                        <?php foreach ($units as $unit) {?>
+                            <option selected="selected" value="<?=$unit->getId()?>"><?=$unit->getName()?></option>
+                        <?php }?>
+                    </select>
                     <button type="submit">Add new</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>

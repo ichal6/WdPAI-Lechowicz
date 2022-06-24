@@ -2,13 +2,13 @@
 
 class Product
 {
-    private ?int $id;
+    private ?int $id = null;
     private string $name;
-    private ?string $available;
+    private ?string $available = null;
     private Status $status;
     private float $quantity;
     private Unit $unit;
-    private ?Price $price;
+    private ?Price $price = null;
 
     public function __construct(?int $id, string $name, ?string $available, Status $status, float $quantity, Unit $unit)
     {

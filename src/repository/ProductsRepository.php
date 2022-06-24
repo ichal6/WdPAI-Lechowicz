@@ -68,7 +68,7 @@ class ProductsRepository  extends Repository
         $stmt->execute([
             $id_list,
             $product->getName(),
-            $product->getPrice()->getId(),
+            $product?->getPrice()?->getId(),
             $product->getQuantity(),
             $product->getUnit()->getId(),
             $product->getStatus()->getId()

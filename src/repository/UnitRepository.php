@@ -23,7 +23,6 @@ class UnitRepository extends Repository
 
     public function addUnit(Unit $unit): int{
         $pdo = $this->database->connect();
-        $lastInsertId = null;
         try {
             $pdo->beginTransaction();
             $stmt = $this->database->connect()->prepare('
@@ -58,5 +57,22 @@ class UnitRepository extends Repository
         } else{
             return null;
         }
+    }
+
+    public function getAllUnits(): Array
+    {
+        $stmt = $this->database->connect()->prepare('
+          SELECT id, name FROM units  
+        ');
+
+        $stmt->execute();
+        $unitsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $units = [];
+        foreach ($unitsArray as $unitArray){
+            $units[] = new Unit(intval($unitArray['id']), $unitArray['name']);
+        }
+
+        return $units;
     }
 }
