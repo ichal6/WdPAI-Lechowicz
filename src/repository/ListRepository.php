@@ -9,9 +9,12 @@ class ListRepository extends Repository
         $searchString = '%' . strtolower($searchString) . '%';
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM get_lists WHERE LOWER(title) LIKE :search
+            SELECT * FROM get_lists WHERE user_id=:id AND LOWER(title) LIKE :search
         ');
+        $userId = $_SESSION['user']->getId();
+
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,9 +24,12 @@ class ListRepository extends Repository
     {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM get_lists
-            WHERE priority_id=:id
+             WHERE user_id=:id AND priority_id=:id_priority
         ');
-        $stmt->bindParam(':id', $priority_id, PDO::PARAM_STR);
+
+        $userId = $_SESSION['user']->getId();
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':id_priority', $priority_id, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,9 +38,13 @@ class ListRepository extends Repository
     public function getListsByType(int $type_id)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM get_lists WHERE type_id=:id
+            SELECT * FROM get_lists 
+                      WHERE user_id=:id AND type_id=:id_type
         ');
-        $stmt->bindParam(':id', $type_id, PDO::PARAM_STR);
+
+        $userId = $_SESSION['user']->getId();
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':id_type', $type_id, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -43,10 +53,12 @@ class ListRepository extends Repository
     public function getListsByCategory(int $category_id)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT id, title, type_name, category, priority, owner FROM get_lists
-                                                      WHERE category_id=:id
+            SELECT * FROM get_lists
+                   WHERE user_id=:id AND category_id=:id_category
         ');
-        $stmt->bindParam(':id', $category_id, PDO::PARAM_STR);
+        $userId = $_SESSION['user']->getId();
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':id_category', $category_id, PDO::PARAM_STR);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -56,6 +68,9 @@ class ListRepository extends Repository
         $stmt = $this->database->connect()->prepare('
           DELETE FROM lists WHERE id=:id   
         ');
+
+        $userId = $_SESSION['user']->getId();
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->bindParam(':id', $list_id, PDO::PARAM_INT);
         $stmt->execute();
 

@@ -8,11 +8,8 @@ class TypeRepository extends Repository
     public function getAllTypes(): ?array
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT t.id, t.name FROM types t JOIN users u ON t.user_id=u.id WHERE u.email = :email
+            SELECT id, name FROM types
         ');
-        $email = $_SESSION['user']->getEmail();
-
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         $typesList = [];

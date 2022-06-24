@@ -281,7 +281,7 @@ CREATE OR REPLACE TRIGGER delete_user_trigger AFTER DELETE ON users FOR EACH ROW
 EXECUTE PROCEDURE trigger_function_delete_user_details();
 
 CREATE OR REPLACE VIEW get_lists AS
-SELECT lists.id, category_id, type_id, priority_id, title, types.name as type_name, c.name as category, p.name as priority, ud.name as owner
+SELECT owner_id as user_id ,lists.id, category_id, type_id, priority_id, title, types.name as type_name, c.name as category, p.name as priority, ud.name as owner
 FROM lists
          JOIN types ON lists.type_id = types.id
          JOIN users u ON lists.owner_id = u.id
@@ -342,3 +342,5 @@ SELECT setval('public.currencies_id_seq', 4);
 alter table lists
     add created_at date;
 
+alter table types
+    drop column user_id;
