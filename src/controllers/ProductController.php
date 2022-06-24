@@ -78,7 +78,7 @@ class ProductController extends AppController
 
         $status = $this->statusRepository->getToBuyStatus();
 
-        $product = new Product(null, $name, null, $status, doubleval($quantity), $unit);
+        $product = new Product(null, trim($name), null, $status, doubleval($quantity), $unit);
 
         if($price != ''){
             $currency = $this->currencyRepository->getCurrencyById($currency_id);

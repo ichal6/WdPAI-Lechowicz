@@ -171,33 +171,17 @@ function createList(list) {
 
     const addProductToList = clone.querySelector('.add-product-to-list');
     addProductToList.id = 'add-product-to-list-' + list.id;
-    document.getElementById('add-form-list-id').style.display = 'none';
+    document.getElementById('add-product-to-list-form').style.display = 'none';
 
     addProductToList.addEventListener("click", function (event) {
-        displayAddForm('add-product');
+        displayAddForm('add-product-to-list-form');
         const listId = document.getElementById('add-form-list-id');
         listId.value = list.id;
     });
-    // addProductToList.addEventListener("click", function (event) {
-    //     event.preventDefault();
-    //     const id_list = this.id.slice(20);
-    //
-    //     const data = {list_id: id_list};
-    //
-    //     console.log(data);
-    //
-    //     fetch("/add_product_to_list", {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     }).then(function (response) {
-    //         return response.json();
-    //     }).then(function () {
-    //         firstLoadLists();
-    //     });
-    // });
+    const disableButton = document.getElementById('disable-add-product');
+    disableButton.addEventListener('click', function (event) {
+        displayAddForm('add-product-to-list-form');
+    });
 
     listContainer.appendChild(clone);
 }

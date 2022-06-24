@@ -146,10 +146,10 @@ class ListController extends AppController{
 
         $type = new Type($type, null);
 
-        $list = new ListShop($_SESSION['user']->getId(), $title, $type);
+        $list = new ListShop($_SESSION['user']->getId(), trim($title), $type);
 
         if($category != ''){
-            $category = new Category( 0 ,$category);
+            $category = new Category( 0, trim($category));
             $list->setCategory($category);
         }
 

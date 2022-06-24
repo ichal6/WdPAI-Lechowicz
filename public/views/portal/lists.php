@@ -86,7 +86,10 @@
 
                     <button type="submit">Add new</button>
                 </form>
+            </div>
+            <div id="add-product-to-list-form">
                 <form action="add_product_to_list" method="POST" id="add-product">
+                    <button id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
                     <h2>Add product to this list:</h2>
                     <input name="list-id" value="" type="text" id="add-form-list-id" required>
                     <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
@@ -105,7 +108,6 @@
                     <button id="add-product-button" type="submit">Add new product</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
-
             </div>
             <div>
                 <p id="error-box"><?=$error?></p>
