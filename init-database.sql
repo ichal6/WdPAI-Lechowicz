@@ -342,3 +342,5 @@ SELECT setval('public.currencies_id_seq', 4);
 alter table lists
     add created_at date;
 
+alter table types
+    drop column user_id;
