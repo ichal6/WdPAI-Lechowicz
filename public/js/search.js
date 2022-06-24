@@ -4,6 +4,15 @@ const prioritiesSelect = document.getElementsByName('priorities')[0];
 const categoriesSelect = document.getElementsByName('categories')[0];
 const typesSelect = document.getElementsByName('types')[0];
 
+function displayAddForm(id){
+    const targetDiv = document.getElementById(id);
+    if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+    } else {
+        targetDiv.style.display = "block";
+    }
+}
+
 prioritiesSelect.addEventListener("change", function (event) {
     event.preventDefault();
 
@@ -159,6 +168,36 @@ function createList(list) {
 
     const shareList = clone.querySelector('.share-list');
     shareList.id = 'share-list-' + list.id;
+
+    const addProductToList = clone.querySelector('.add-product-to-list');
+    addProductToList.id = 'add-product-to-list-' + list.id;
+    document.getElementById('add-form-list-id').style.display = 'none';
+
+    addProductToList.addEventListener("click", function (event) {
+        displayAddForm('add-product');
+        const listId = document.getElementById('add-form-list-id');
+        listId.value = list.id;
+    });
+    // addProductToList.addEventListener("click", function (event) {
+    //     event.preventDefault();
+    //     const id_list = this.id.slice(20);
+    //
+    //     const data = {list_id: id_list};
+    //
+    //     console.log(data);
+    //
+    //     fetch("/add_product_to_list", {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     }).then(function (response) {
+    //         return response.json();
+    //     }).then(function () {
+    //         firstLoadLists();
+    //     });
+    // });
 
     listContainer.appendChild(clone);
 }

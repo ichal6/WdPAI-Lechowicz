@@ -52,4 +52,21 @@ class ProductsRepository  extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function addProduct(int $id_list, Product $product)
+    {
+        $stmt = $this->database->connect()->prepare('
+          INSERT INTO products (list_id, name, last_price_id, quantity, unit_id, status_id) 
+          VALUES (?,?,?,?,?,?)   
+        ');
+
+        $stmt->execute([
+            $id_list,
+            $product->getName(),
+            $product->getPrice()->getId(),
+            $product->getQuantity(),
+            $product->getUnit()->getId(),
+            $product->getStatus()->getId()
+        ]);
+    }
 }

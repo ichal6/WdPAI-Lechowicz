@@ -83,8 +83,9 @@
 
                     <button type="submit">Add new</button>
                 </form>
-                <form action="add_product" method="POST">
+                <form action="add_product_to_list" method="POST" id="add-product">
                     <h2>Add product to this list:</h2>
+                    <input name="list-id" value="" type="text" id="add-form-list-id">
                     <input name="name" type="text" id="product-name" placeholder="Name">
                     <input name="price" type="text" id="product-price" placeholder="Price (optional)">
                     <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
@@ -107,6 +108,7 @@
                 <button class="edit-list" id="">Edit List</button>
                 <button class="remove-list" id="">Delete list</button>
                 <button class="share-list" id="">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
+                <button class="add-product-to-list" id="">Add product<img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
             </div>
         </div>
     </div>

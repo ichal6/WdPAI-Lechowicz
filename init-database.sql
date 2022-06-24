@@ -208,7 +208,7 @@ create table IF NOT EXISTS products
         constraint products___fk_status
             references statuses
             on update cascade on delete cascade,
-    quantity      int          not null,
+    quantity      numeric(10,2)          not null,
     last_price_id int
         constraint products___fk_last_price
             references last_prices
@@ -258,6 +258,9 @@ alter table products
 
 alter table products
     alter column available_on_market_id set not null;
+
+alter table products
+    alter column available_on_market_id drop not null;
 
 alter table products
     add constraint products___fk_available_market
