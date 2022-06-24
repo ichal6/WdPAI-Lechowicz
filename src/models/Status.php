@@ -1,9 +1,9 @@
 <?php
 
-class Priority
+class Status
 {
     private int $id;
-    private ?string $name;
+    private string $name;
 
     public function __construct(int $id, string $name)
     {
@@ -16,7 +16,7 @@ class Priority
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }

@@ -27,6 +27,9 @@
             $categories = $messages['categories'];
             $types = $messages['types'];
             $priorities = $messages['priorities'];
+            $currencies = $messages['currencies'];
+            $units = $messages['units'];
+            $error = in_array('error', $messages) ? $messages['error'] : null;
         } else{
             die('Problem with session.');
     } ?>
@@ -60,24 +63,54 @@
 
             </div>
             <div id="Create-list">
-                <form>
+                <form action="add_list" method="POST">
                     <h2>Add new List:</h2>
-                    <input name="name" id="list-name" placeholder="Name">
-                    <input name="type" id="type" placeholder="Type">
-                    <input name="category" type="text" id="category" placeholder="Category">
-                    <input name='priority' type="text" id="priority" placeholder="Priority">
+                    <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
+                    <select name="type" id="type-input">
+                        <?php foreach ($types as $type) {?>
+                            <option selected="selected" value="<?=$type->getId()?>"><?=$type->getName()?></option>
+                        <?php }?>
+                    </select>
+                    <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)" minlength="3" maxlength="255">
+                    <datalist id="list-category">
+                        <?php foreach ($categories as $category) {?>
+                            <option value="<?=$category->getName()?>"></option>
+                        <?php }?>
+                    </datalist>
+                    <select name="priority" id="list-priority">
+                        <option selected="selected" value="">Priority (optional)</option>
+                        <?php foreach ($priorities as $priority) {?>
+                            <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
+                        <?php }?>
+                    </select>
+
                     <button type="submit">Add new</button>
                 </form>
-                <form>
+            </div>
+            <div id="add-product-to-list-form">
+                <form action="add_product_to_list" method="POST" id="add-product">
+                    <button id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
                     <h2>Add product to this list:</h2>
-                    <input name="name" type="text" id="product-name" placeholder="Name">
-                    <input name="price" type="text" id="product-price" placeholder="Price (optional)">
-                    <input name="quantity" type="text" id="product-quantity" placeholder="Quantity">
-                    <input name="unit" type="text" id="product-unit" placeholder="Unit">
-                    <button type="submit">Add new</button>
+                    <input name="list-id" value="" type="text" id="add-form-list-id" required>
+                    <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
+                    <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
+                    <select name="currency_id" id="list-currency">
+                        <?php foreach ($currencies as $currency) {?>
+                            <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
+                        <?php }?>
+                    </select>
+                    <input name="quantity" type="number" id="product-quantity" placeholder="Quantity" required min="1" max='100000000'>
+                    <select name="unit" id="product-unit">
+                        <?php foreach ($units as $unit) {?>
+                            <option selected="selected" value="<?=$unit->getId()?>"><?=$unit->getName()?></option>
+                        <?php }?>
+                    </select>
+                    <button id="add-product-button" type="submit">Add new product</button>
                     <a href="/products" id="go-to-products">Go to products section</a>
                 </form>
-
+            </div>
+            <div>
+                <p id="error-box"><?=$error?></p>
             </div>
         </section>
     </div>
@@ -92,6 +125,7 @@
                 <button class="edit-list" id="">Edit List</button>
                 <button class="remove-list" id="">Delete list</button>
                 <button class="share-list" id="">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
+                <button class="add-product-to-list" id="">Add product<img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
             </div>
         </div>
     </div>
