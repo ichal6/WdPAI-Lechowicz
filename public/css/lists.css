@@ -63,3 +63,18 @@ input:invalid:required {
     background-image: linear-gradient(to right, pink, lightgreen);
 }
 
+#add-product-to-list-form{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7B7B7B;
+    opacity: 0.5;
+}
+
+#list-body{
+    overflow-y: scroll;
+    height: 78vh;
+}
+
