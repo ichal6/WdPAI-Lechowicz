@@ -93,7 +93,7 @@ nav img{
 
 @media (max-width: 700px) {
     header{
-        height: 7vh;
+        height: 60px;
     }
 
     #left-menu{
@@ -142,8 +142,8 @@ nav img{
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding-top: 7px;
-        height: 5vh;
+        padding-top: 0;
+        height: 60px;
         justify-content: center;
     }
 
