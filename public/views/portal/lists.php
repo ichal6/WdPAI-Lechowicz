@@ -43,26 +43,30 @@
                         <?php }?>
                     </select>
 
-                    <select name="categories" class="select">
+                    <select name="categories" class="select desktop">
                         <option selected="selected" value="all">All categories</option>
                         <?php foreach ($categories as $category) {?>
                             <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="types" class="select">
+                    <select name="types" class="select desktop">
                         <option selected="selected" value="all">All types</option>
                         <?php foreach ($types as $type) {?>
                             <option value="<?=$type->getId()?>"><?=$type->getName()?></option>
                         <?php }?>
                     </select>
+
+                    <button class="mobile" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
                 </div>
+
+
                 <div id="list-body">
 
                 </div>
 
             </div>
-            <div id="Create-list">
+            <div id="create-list">
                 <form action="add_list" method="POST">
                     <h2>Add new List:</h2>
                     <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
@@ -122,10 +126,10 @@
         <p class="label-list"></p>
         <div class="list-content" id="">
             <div class="modify-list" id="">
-                <button class="edit-list" id="">Edit List</button>
-                <button class="remove-list" id="">Delete list</button>
-                <button class="share-list" id="">Share<img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
-                <button class="add-product-to-list" id="">Add product<img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
+                <button class="edit-list" id=""><span class="desktop">Edit List</span><img class="mobile" src="public/assets/portal/lists/edit-list-icon.svg" alt="edit-icon"></button>
+                <button class="remove-list" id=""><span class="desktop">Delete list</span><img class="mobile" src="public/assets/portal/lists/remove-list-icon.svg" alt="remove-icon"></button>
+                <button class="share-list" id=""><span class="desktop">Share</span><img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
+                <button class="add-product-to-list" id=""><span class="desktop">Add product</span><img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
             </div>
         </div>
     </div>
