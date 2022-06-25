@@ -1,13 +1,14 @@
 function displayList(id){
     const targetDiv = document.getElementById(id);
+    const labelList = document.getElementById('label-' + id);
     if (targetDiv.style.display !== "none") {
         const modifyList = document.getElementById('modify-' + id);
         targetDiv.innerText = '';
         targetDiv.style.display = "none";
+        labelList.style.borderRadius = '0 0 30px 30px';
         targetDiv.appendChild(modifyList);
     } else {
         showProduct(id);
-        const labelList = document.getElementById('label-' + id);
         labelList.style.borderRadius = '0';
         targetDiv.style.display = "block";
     }
