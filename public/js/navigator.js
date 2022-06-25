@@ -3,7 +3,7 @@ function changeColorForCurrentPage(){
     switch (title){
         case 'Lists':
             document.getElementById('lists-menu-item').style.color = '#0bd1b8';
-            document.getElementById('lists-menu-item').innerHTML = '<img src="public/assets/lists-select.svg">' + title;
+            document.getElementById('lists-menu-item').innerHTML = '<img src="public/assets/lists-select.svg">' + '<span class="desktop">' + title + '</span>';
             break;
     }
 }

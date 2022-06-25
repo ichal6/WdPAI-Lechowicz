@@ -138,8 +138,16 @@ function createList(list) {
     div.style.display = 'none';
 
     const labelList = clone.querySelector('.label-list');
-    labelList.innerText = 'Type: ' + list.type_name +
-        ' | Category: ' + list.category + ' | Owner: ' + list.owner + ' | Priorytet: ' + list.priority;
+    let label = 'Type: ' + list.type_name;
+    if(list.category !== null){
+        label += ' | Category: ' + list.category;
+    }
+    label += ' | Owner: ' + list.owner;
+    if(list.priority !== null){
+        label += ' | Priorytet: ' + list.priority;
+    }
+    labelList.innerText = label;
+    labelList.id = 'label-list-' + list.id;
 
     const modifyList = clone.querySelector('.modify-list');
     modifyList.id = 'modify-list-' + list.id;
