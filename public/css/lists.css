@@ -136,6 +136,28 @@ input:invalid:required {
     font-size: 32px;
 }
 
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.product > *{
+    margin: 1px;
+}
+
+.list-content{
+    background: #F6F6F6 0% 0% no-repeat padding-box;
+    border-radius: 0 0 30px 30px;
+    margin: auto;
+}
+
+.list-info > *{
+    width: 95% !important;
+}
+
 @media (max-width: 700px) {
     #create-list{
       display: none;
