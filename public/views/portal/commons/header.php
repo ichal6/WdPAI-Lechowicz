@@ -1,22 +1,22 @@
 <?php
 echo    '<header>
-        <a href="/dashboard"><img src="public/assets/logo-full-portal.svg" alt="logo"></a>
+        <a id="logo" href="/dashboard"><img class="desktop" src="public/assets/logo-full-portal.svg" alt="logo"><img class="mobile" src="public/assets/logo-mobile-portal.svg" alt="logo"></a>
         <div id="search-bar">
             <img src="public/assets/search-icon.svg" alt="Search icon">
             <input placeholder="Type here for search">
         </div>
         <div id="name">
-            <a href="/account">';
+            <a href="/account"><span class="desktop">';
          if(isset($messages)){
                     echo $messages['user']->getUsername();
                 } else{
                     echo "Unknown user";
                 }
     
-echo    '<img src="public/assets/account-icon.svg" alt="account icon"></a>
+echo    '</span><img src="public/assets/account-icon.svg" alt="account icon"></a>
         </div>
         <div id="log-out">
-            <a href="/logout">Log out<img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
+            <a href="/logout"><span class="desktop">Log out</span><img src="public/assets/log-out-icon.svg" alt="logout icon"></a>
         </div>
     </header>';
 

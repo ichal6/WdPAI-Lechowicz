@@ -264,6 +264,14 @@ alter table products
         foreign key (available_on_market_id) references priorities
             on update cascade on delete cascade;
 
+alter table last_prices
+    drop constraint last_prices___fk_lasts_prices;
+
+alter table last_prices
+    add constraint last_prices___fk_lasts_prices
+        foreign key (currency_id) references currencies
+            on update cascade on delete cascade;
+
 INSERT INTO roles VALUES(1, 'user');
 
 CREATE OR REPLACE FUNCTION trigger_function_delete_user_details()

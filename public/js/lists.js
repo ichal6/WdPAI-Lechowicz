@@ -1,9 +1,14 @@
 function displayList(id){
     const targetDiv = document.getElementById(id);
     if (targetDiv.style.display !== "none") {
+        const modifyList = document.getElementById('modify-' + id);
+        targetDiv.innerText = '';
         targetDiv.style.display = "none";
+        targetDiv.appendChild(modifyList);
     } else {
         showProduct(id);
+        const labelList = document.getElementById('label-' + id);
+        labelList.style.borderRadius = '0';
         targetDiv.style.display = "block";
     }
 }
@@ -42,7 +47,7 @@ function showProduct(id_list){
 function loadProducts(products, id_list){
     const productsContainer = document.getElementById('list-' + id_list).cloneNode(true);
     const modifyList = document.getElementById('modify-list-'+id_list);
-    // const removeList = document.getElementById('');
+
     productsContainer.innerHTML = '';
     products.forEach(product => {
         console.log(product);
