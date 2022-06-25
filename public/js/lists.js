@@ -1,7 +1,10 @@
 function displayList(id){
     const targetDiv = document.getElementById(id);
     if (targetDiv.style.display !== "none") {
+        const modifyList = document.getElementById('modify-' + id);
+        targetDiv.innerText = '';
         targetDiv.style.display = "none";
+        targetDiv.appendChild(modifyList);
     } else {
         showProduct(id);
         const labelList = document.getElementById('label-' + id);
