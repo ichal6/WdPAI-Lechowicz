@@ -36,16 +36,16 @@
         <section>
             <div id="lists-container">
                 <div id="lists-container-header">
-                    <button class="mobile" type="button" id="show-add-list"><img alt="add-list" src="public/assets/portal/lists/add-list.svg"></button>
+                    <button class="mobile tablet" type="button" id="show-add-list"><img alt="add-list" src="public/assets/portal/lists/add-list.svg"></button>
 
-                    <select name="priorities" class="select" id="priorities-filter">
+                    <select name="priorities" class="select tablet" id="priorities-filter">
                         <option selected="selected" value="all">All priorities</option>
                         <?php foreach ($priorities as $priority) {?>
                             <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="categories" class="select desktop" id="categories-filter">
+                    <select name="categories" class="select desktop tablet" id="categories-filter">
                         <option selected="selected" value="all">All categories</option>
                         <?php foreach ($categories as $category) {?>
                             <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
@@ -61,7 +61,7 @@
 
 
                     <div id="list-filter">
-                        <button class="mobile" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+                        <button class="mobile tablet" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
                         <div id="select-filter">
                             <button id="select-priorities" type="button">Priorities</button>
                             <button id="select-types" type="button">Types</button>
@@ -77,9 +77,9 @@
                 </div>
 
             </div>
-            <div id="create-list">
+            <div class="desktop" id="create-list">
                 <form action="add_list" method="POST" id="add-list">
-                    <button class="mobile" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">X</button>
+                    <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">X</button>
                     <h2>Add new List:</h2>
                     <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
                     <select name="type" id="type-input">

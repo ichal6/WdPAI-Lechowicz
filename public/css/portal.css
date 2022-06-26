@@ -120,6 +120,10 @@ nav img{
     #logo > img{
         margin-top: 15px;
     }
+
+    nav{
+        width: 60px;
+    }
 }
 
 /*Mobile View*/
