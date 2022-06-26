@@ -36,6 +36,8 @@
         <section>
             <div id="lists-container">
                 <div id="lists-container-header">
+                    <button class="mobile" type="button" id="show-add-list"><img alt="add-list" src="public/assets/portal/lists/add-list.svg"></button>
+
                     <select name="priorities" class="select" id="priorities-filter">
                         <option selected="selected" value="all">All priorities</option>
                         <?php foreach ($priorities as $priority) {?>
@@ -76,7 +78,8 @@
 
             </div>
             <div id="create-list">
-                <form action="add_list" method="POST">
+                <form action="add_list" method="POST" id="add-list">
+                    <button class="mobile" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">X</button>
                     <h2>Add new List:</h2>
                     <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
                     <select name="type" id="type-input">
@@ -97,7 +100,7 @@
                         <?php }?>
                     </select>
 
-                    <button type="submit">Add new</button>
+                    <button id="submit-add-list" type="submit">Add new</button>
                 </form>
             </div>
             <div id="add-product-to-list-form">
@@ -158,7 +161,7 @@
             <p class="location">Location: <strong class="location-content"></strong> </p>
             <div class="option-buttons">
                 <button class="remove" id=""><span class="desktop">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
-                <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+<!--                <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>-->
                 <button class="bought" id=""><span class="desktop">Set as bought</span><img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
                 <button class="less" id=''><span class="desktop">Less options</span><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
             </div>

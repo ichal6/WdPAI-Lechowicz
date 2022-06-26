@@ -48,6 +48,11 @@ document.getElementById('select-priorities').addEventListener('click', function 
     typesFilter.style.display = 'none';
 });
 
+document.getElementById('show-add-list').addEventListener('click', function (event){
+    const addListForm = document.getElementById('create-list');
+    addListForm.style.display = 'block';
+});
+
 function displayList(id){
     const targetDiv = document.getElementById(id);
     const labelList = document.getElementById('label-' + id);

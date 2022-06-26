@@ -84,12 +84,11 @@ input:invalid:required {
     align-items: center;
 }
 
-#add-product > *{
+#add-product > *, #add-list > *{
     width: 100px;
     margin: 5px;
     border-radius: 10px;
     padding: 5px;
-
 }
 
 #add-product > h2{
@@ -102,7 +101,7 @@ input:invalid:required {
     height: 78vh;
 }
 
-#disable-add-product{
+#disable-add-product, #disable-add-list {
     color: #ff253e;
     border: none;
     border-radius: 50%;
@@ -251,6 +250,14 @@ input:invalid:required {
     right: 5vw;
 }
 
+#show-add-list{
+    position: absolute;
+    left: 5px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 @media (max-width: 700px) {
     #create-list{
       display: none;
@@ -314,6 +321,59 @@ input:invalid:required {
     .share-list{
         border: none;
         background-color: transparent;
+    }
+
+    #add-product{
+        width: 100vw;
+    }
+
+    #create-list{
+        display: none;
+        position: fixed;
+        z-index: 10;
+        height: 100vh;
+        width: 100vw;
+        background-color: #F4F3F9;
+    }
+
+    #add-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #add-list > *{
+        width: 90vw;
+        text-align: left;
+        font: normal normal normal 32px/48px Poppins;
+        letter-spacing: 0px;
+        color: #CAC9CE;
+    }
+
+    #add-list > h2{
+        width: auto;
+        text-align: left;
+        font: normal normal medium 30px/46px Poppins;
+        letter-spacing: 0px;
+        color: #404040;
+    }
+
+    #disable-add-list{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        color: #ff253e;
+        font-size: 64px;
+        font-family: "Poppins Bold", sans-serif;
+    }
+
+    #submit-add-list{
+        border: none;
+        text-align: center;
+        font: normal normal 600 20px/30px Poppins;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        background-color: #0BD1B8;
     }
 }
 
