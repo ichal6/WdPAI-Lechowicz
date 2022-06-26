@@ -147,10 +147,12 @@
             <p class="available"></p>
             <p class="priority"></p>
             <p class="location"></p>
-            <button class="remove" id="">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
-            <button class="edit" id="">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
-            <button class="bought" id="">Set as bought<img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
-            <button class="less" id=''>Less options<img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+            <div class="option-buttons">
+                <button class="remove" id=""><span class="desktop">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
+                <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
+                <button class="bought" id=""><span class="desktop">Set as bought</span><img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
+                <button class="less" id=''><span class="desktop">Less options</span><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+            </div>
         </div>
     </div>
 </template>

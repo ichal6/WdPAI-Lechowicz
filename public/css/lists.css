@@ -144,7 +144,7 @@ input:invalid:required {
     margin-right: 10px;
 }
 
-.product > *{
+.product > *, .more-content> p{
     margin: 1px;
 }
 
@@ -160,7 +160,7 @@ input:invalid:required {
     color: #404040;
 }
 
-.product >p{
+.product >p, .more-content > p{
     text-align: left;
     font: normal normal normal 16px/25px Poppins;
     letter-spacing: 0;
@@ -199,6 +199,20 @@ input:invalid:required {
 
 .more > img{
     margin-left: 5px;
+}
+
+.option-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.option-buttons > button{
+    border: none;
+    background-color: transparent;
 }
 
 @media (max-width: 700px) {
