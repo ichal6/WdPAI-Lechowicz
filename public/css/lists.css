@@ -84,12 +84,11 @@ input:invalid:required {
     align-items: center;
 }
 
-#add-product > *{
+#add-product > *, #add-list > *{
     width: 100px;
     margin: 5px;
     border-radius: 10px;
     padding: 5px;
-
 }
 
 #add-product > h2{
@@ -102,7 +101,7 @@ input:invalid:required {
     height: 78vh;
 }
 
-#disable-add-product{
+#disable-add-product, #disable-add-list {
     color: #ff253e;
     border: none;
     border-radius: 50%;
@@ -144,9 +143,36 @@ input:invalid:required {
     margin-right: 10px;
 }
 
-.product > *{
+.product > *, .more-content> p{
     margin: 1px;
 }
+
+.product:nth-child(even){
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.product-name{
+    text-align: left;
+    font: normal normal 600 20px/30px Poppins;
+    letter-spacing: 0;
+    color: #404040;
+}
+
+.product >p, .more-content > p{
+    text-align: left;
+    font: normal normal normal 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #404040;
+}
+
+.price{
+    text-align: left;
+    font: normal normal normal 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #F31259;
+}
+
 
 .list-content{
     background: #F6F6F6 0% 0% no-repeat padding-box;
@@ -158,6 +184,129 @@ input:invalid:required {
     width: 95% !important;
 }
 
+.more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    background-color: #F4F3F9;
+    font-family:  "Poppins Regular", sans-serif;
+    font-size: 20px;
+    color: #7B7B7B;
+}
+
+.more > img{
+    margin-left: 5px;
+}
+
+.option-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.option-buttons > button{
+    border: none;
+    background-color: transparent;
+}
+
+#select-filter{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #CAC9CE;
+    border-radius: 30px 0 30px 30px;
+}
+
+#select-filter > button{
+    border: none;
+    background-color: #FFFFFF;
+    font-family:  "Poppins Regular", sans-serif;
+    font-size: 20px;
+    text-align: end;
+}
+
+#select-filter > button:nth-child(even){
+    background-color: #E9E9E9 ;
+}
+
+#select-filter > button:first-child{
+    border-radius: 30px 0 0 0;
+}
+
+#select-filter > button:last-child{
+    border-radius: 0 0 30px 30px;
+}
+
+#list-filter{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    right: 5vw;
+}
+
+#show-add-list{
+    position: absolute;
+    left: 5px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Tablet view */
+
+@media (max-width: 1050px){
+    #add-list > * {
+        width: 90vw;
+    }
+
+    #show-add-list{
+        position: initial;
+    }
+
+    #lists-container{
+        width: 100%;
+    }
+
+    #list-filter{
+        right: initial;
+        left: 140px;
+    }
+
+    #show-more-filter{
+        background-color: #F31259;
+        width: 52px;
+        height: 40px;
+        border: none;
+        border-radius: 26px 26px 0px 0px;
+    }
+
+    #create-list{
+        display: none;
+        position: fixed;
+        z-index: 10;
+        height: 87vh;
+        width: calc(100vw - 61px);
+        background-color: #F4F3F9;
+    }
+
+    #disable-add-list{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        color: #ff253e;
+        font-size: 64px;
+        font-family: "Poppins Bold", sans-serif;
+    }
+
+}
+
+/*Mobile View*/
 @media (max-width: 700px) {
     #create-list{
       display: none;
@@ -221,6 +370,60 @@ input:invalid:required {
     .share-list{
         border: none;
         background-color: transparent;
+    }
+
+    #add-product{
+        width: 100vw;
+    }
+
+    #create-list{
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #add-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #add-list > *{
+        width: 90vw;
+        text-align: left;
+        font: normal normal normal 32px/48px Poppins;
+        letter-spacing: 0px;
+        color: #CAC9CE;
+    }
+
+    #add-list > h2{
+        width: auto;
+        text-align: left;
+        font: normal normal medium 30px/46px Poppins;
+        letter-spacing: 0px;
+        color: #404040;
+    }
+
+    #disable-add-list{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        color: #ff253e;
+        font-size: 64px;
+        font-family: "Poppins Bold", sans-serif;
+    }
+
+    #submit-add-list{
+        border: none;
+        text-align: center;
+        font: normal normal 600 20px/30px Poppins;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        background-color: #0BD1B8;
+    }
+
+    #list-filter{
+        right: 5px;
+        left: initial;
     }
 }
 

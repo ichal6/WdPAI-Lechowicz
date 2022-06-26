@@ -1,6 +1,6 @@
 <?php
 echo    '<header>
-        <a id="logo" href="/dashboard"><img class="desktop" src="public/assets/logo-full-portal.svg" alt="logo"><img class="mobile" src="public/assets/logo-mobile-portal.svg" alt="logo"></a>
+        <a id="logo" href="/dashboard"><img class="desktop" src="public/assets/logo-full-portal.svg" alt="logo"><img class="mobile tablet" src="public/assets/logo-mobile-portal.svg" alt="logo"></a>
         <div id="search-bar">
             <img src="public/assets/search-icon.svg" alt="Search icon">
             <input placeholder="Type here for search">

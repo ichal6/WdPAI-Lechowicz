@@ -35,6 +35,7 @@ header{
 }
 
 #search-bar input{
+    display: block;
     font-family: Poppins, sans-serif;
     border:none;
     border-radius: 22px;
@@ -91,9 +92,61 @@ nav img{
     margin-right: 15px;
 }
 
+/* Desktop view */
+@media (max-width: 1550px){
+    #search-bar{
+        display: flex;
+    }
+}
+
+/* Tablet view */
+@media (max-width: 1050px) {
+    #search-bar{
+        display: flex;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: none;
+    }
+
+    .tablet{
+        display: block;
+    }
+
+    #logo > img{
+        margin-top: 15px;
+    }
+
+    nav{
+        width: 60px;
+    }
+}
+
+/*Mobile View*/
 @media (max-width: 700px) {
     header{
-        height: 7vh;
+        height: 60px;
+    }
+
+    #search-bar > img{
+        display: none;
+    }
+
+    #search-bar{
+        position: absolute;
+        left: 0;
+        top: 60px;
+        background-color: #F4F3F9;
+        opacity: 1;
+        height: auto;
+    }
+
+    #search-bar > input{
+        width: 80vw;
     }
 
     #left-menu{
@@ -142,8 +195,8 @@ nav img{
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding-top: 7px;
-        height: 5vh;
+        padding-top: 0;
+        height: 60px;
         justify-content: center;
     }
 

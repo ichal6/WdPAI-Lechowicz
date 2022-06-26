@@ -36,28 +36,39 @@
         <section>
             <div id="lists-container">
                 <div id="lists-container-header">
-                    <select name="priorities" class="select">
+                    <button class="mobile tablet" type="button" id="show-add-list"><img alt="add-list" src="public/assets/portal/lists/add-list.svg"></button>
+
+                    <select name="priorities" class="select tablet" id="priorities-filter">
                         <option selected="selected" value="all">All priorities</option>
                         <?php foreach ($priorities as $priority) {?>
                             <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="categories" class="select desktop">
+                    <select name="categories" class="select desktop tablet" id="categories-filter">
                         <option selected="selected" value="all">All categories</option>
                         <?php foreach ($categories as $category) {?>
                             <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <select name="types" class="select desktop">
+                    <select name="types" class="select desktop" id="types-filter">
                         <option selected="selected" value="all">All types</option>
                         <?php foreach ($types as $type) {?>
                             <option value="<?=$type->getId()?>"><?=$type->getName()?></option>
                         <?php }?>
                     </select>
 
-                    <button class="mobile" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+
+                    <div id="list-filter">
+                        <button class="mobile tablet" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+                        <div id="select-filter">
+                            <button id="select-priorities" type="button">Priorities</button>
+                            <button id="select-types" type="button">Types</button>
+                            <button id="select-categories" type="button">Categories</button>
+                        </div>
+
+                    </div>
                 </div>
 
 
@@ -66,8 +77,9 @@
                 </div>
 
             </div>
-            <div id="create-list">
-                <form action="add_list" method="POST">
+            <div class="desktop" id="create-list">
+                <form action="add_list" method="POST" id="add-list">
+                    <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">X</button>
                     <h2>Add new List:</h2>
                     <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
                     <select name="type" id="type-input">
@@ -88,7 +100,7 @@
                         <?php }?>
                     </select>
 
-                    <button type="submit">Add new</button>
+                    <button id="submit-add-list" type="submit">Add new</button>
                 </form>
             </div>
             <div id="add-product-to-list-form">
@@ -139,18 +151,20 @@
     <div class="product">
         <strong class="product-name"></strong>
         <p class="last-price">Last price: <strong class="price"></strong></p>
-        <p class="status"></p>
-        <p class="quantity"></p>
+        <p>Status: <strong class="status"></strong></p>
+        <p>Quantity for buy: <strong class="quantity"></strong></p>
         <button class="more" id=''>More options<img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></button>
         <div class="more-content" id="">
-            <p class="category"></p>
-            <p class="available"></p>
-            <p class="priority"></p>
-            <p class="location"></p>
-            <button class="remove" id="">Remove product<img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
-            <button class="edit" id="">Edit product<img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
-            <button class="bought" id="">Set as bought<img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
-            <button class="less" id=''>Less options<img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+            <p class="category">Category: <strong class="category-content"></strong></p>
+            <p class="available">Available on market: <strong class="available-content"></strong></p>
+            <p class="priority">Priority: <strong class="priority-content"></strong> </p>
+            <p class="location">Location: <strong class="location-content"></strong> </p>
+            <div class="option-buttons">
+                <button class="remove" id=""><span class="desktop">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
+<!--                <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>-->
+                <button class="bought" id=""><span class="desktop">Set as bought</span><img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
+                <button class="less" id=''><span class="desktop">Less options</span><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+            </div>
         </div>
     </div>
 </template>
