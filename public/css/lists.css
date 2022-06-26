@@ -148,6 +148,18 @@ input:invalid:required {
     margin: 1px;
 }
 
+.product:nth-child(even){
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.product-name{
+    text-align: left;
+    font: normal normal 600 20px/30px Poppins;
+    letter-spacing: 0;
+    color: #404040;
+}
+
 .list-content{
     background: #F6F6F6 0% 0% no-repeat padding-box;
     border-radius: 0 0 30px 30px;
