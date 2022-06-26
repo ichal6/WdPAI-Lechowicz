@@ -8,10 +8,15 @@ class ProductsRepository  extends Repository
     {
         $stmt = $this->database->connect()->prepare('
             SELECT p.id, p.name as name, p.quantity, s.name as status_name, u.name as unit_name,
-                   lp.value as price, c.name as currency
+                   lp.value as price, c.name as currency, cat.name as category, pri.name as priority,
+                   loc.name as location, available.name as available
             FROM products as p 
                 JOIN statuses s ON p.status_id = s.id 
                 JOIN units u ON p.unit_id = u.id
+                LEFT OUTER JOIN categories cat on cat.id = p.category_id
+                LEFT OUTER JOIN priorities pri on pri.id = p.priority_id
+                LEFT OUTER JOIN priorities available on p.available_on_market_id = available.id
+                LEFT OUTER JOIN locations loc on loc.id = p.location_id
                 LEFT OUTER JOIN last_prices lp on lp.id = p.last_price_id
                 LEFT OUTER JOIN currencies c on lp.currency_id = c.id
                                                                            WHERE list_id=:list_id

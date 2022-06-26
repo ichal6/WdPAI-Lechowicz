@@ -1,9 +1,70 @@
+function displayFilter(){
+    const listDiv = document.getElementById('select-filter');
+    if(listDiv.style.display !== "none"){
+        listDiv.style.display = "none";
+    } else{
+        listDiv.style.display = "flex";
+    }
+}
+
+const moreFilterBtn = document.getElementById('show-more-filter');
+const listDiv = document.getElementById('select-filter');
+listDiv.style.display = "none";
+moreFilterBtn.addEventListener('click', function (event){
+    displayFilter();
+} );
+
+document.getElementById('select-types').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+});
+
+document.getElementById('select-categories').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'block';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'none';
+});
+
+
+document.getElementById('select-priorities').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'none';
+});
+
+document.getElementById('show-add-list').addEventListener('click', function (event){
+    const addListForm = document.getElementById('create-list');
+    addListForm.style.display = 'block';
+});
+
 function displayList(id){
     const targetDiv = document.getElementById(id);
+    const labelList = document.getElementById('label-' + id);
     if (targetDiv.style.display !== "none") {
+        const modifyList = document.getElementById('modify-' + id);
+        targetDiv.innerText = '';
         targetDiv.style.display = "none";
+        labelList.style.borderRadius = '0 0 30px 30px';
+        targetDiv.appendChild(modifyList);
     } else {
         showProduct(id);
+        labelList.style.borderRadius = '0';
         targetDiv.style.display = "block";
     }
 }
@@ -13,7 +74,7 @@ function displayMoreContent(contentId, buttonId){
     const button = document.getElementById(buttonId);
     if (targetDiv.style.display !== "none") {
         targetDiv.style.display = "none";
-        button.style.display = 'block';
+        button.style.display = 'flex';
     } else {
         targetDiv.style.display = "block";
         button.style.display = 'none';
@@ -42,7 +103,7 @@ function showProduct(id_list){
 function loadProducts(products, id_list){
     const productsContainer = document.getElementById('list-' + id_list).cloneNode(true);
     const modifyList = document.getElementById('modify-list-'+id_list);
-    // const removeList = document.getElementById('');
+
     productsContainer.innerHTML = '';
     products.forEach(product => {
         console.log(product);
@@ -67,25 +128,46 @@ function createProduct(product, id_list) {
         lastPrice.innerText = '';
     }
 
-
-
     const status = clone.querySelector('.status');
-    status.innerText = 'Status: ' + product.status_name;
+    status.innerText = product.status_name;
 
     const quantity = clone.querySelector('.quantity');
-    quantity.innerText = 'Quantity for buy: ' + product.quantity + " " + product.unit_name;
+    quantity.innerText = product.quantity + " " + product.unit_name;
+
 
     const category = clone.querySelector('.category');
-    category.innerText = 'Category: ' + product.category;
+    if(product.category){
+        const categoryContent = clone.querySelector('.category-content')
+        categoryContent.innerText = product.category;
+    } else{
+        category.remove();
+    }
 
     const available = clone.querySelector('.available');
-    available.innerText = 'Available on market: ' + product.available;
+    if(product.available){
+        const availableContent = clone.querySelector('.available-content');
+        availableContent.innerText = product.available;
+    } else{
+        available.remove();
+    }
+
 
     const priority = clone.querySelector('.priority');
-    priority.innerText = 'Priority: ' + product.priority;
+    if(product.priority){
+        const priorityContent = clone.querySelector('.priority-content');
+        priorityContent.innerText = product.priority;
+    } else{
+        priority.remove();
+    }
 
     const location = clone.querySelector('.location');
-    location.innerText = 'Location: ' + product.location;
+    if(product.location){
+        const locationContent = clone.querySelector('.location-content');
+        locationContent.innerText = product.location;
+    } else{
+        location.remove();
+    }
+
 
 
     const moreContent = clone.querySelector('.more-content');
