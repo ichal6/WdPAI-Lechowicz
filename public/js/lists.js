@@ -19,7 +19,7 @@ function displayMoreContent(contentId, buttonId){
     const button = document.getElementById(buttonId);
     if (targetDiv.style.display !== "none") {
         targetDiv.style.display = "none";
-        button.style.display = 'block';
+        button.style.display = 'flex';
     } else {
         targetDiv.style.display = "block";
         button.style.display = 'none';

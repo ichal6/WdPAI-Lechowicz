@@ -185,6 +185,22 @@ input:invalid:required {
     width: 95% !important;
 }
 
+.more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    background-color: #F4F3F9;
+    font-family:  "Poppins Regular", sans-serif;
+    font-size: 20px;
+    color: #7B7B7B;
+}
+
+.more > img{
+    margin-left: 5px;
+}
+
 @media (max-width: 700px) {
     #create-list{
       display: none;
