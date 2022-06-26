@@ -73,25 +73,43 @@ function createProduct(product, id_list) {
         lastPrice.innerText = '';
     }
 
-
-
     const status = clone.querySelector('.status');
     status.innerText = product.status_name;
 
     const quantity = clone.querySelector('.quantity');
     quantity.innerText = product.quantity + " " + product.unit_name;
 
+
     const category = clone.querySelector('.category');
-    category.innerText = 'Category: ' + product.category;
+    if(product.category){
+        category.innerText = 'Category: ' + product.category;
+    } else{
+        category.remove();
+    }
 
     const available = clone.querySelector('.available');
-    available.innerText = 'Available on market: ' + product.available;
+    if(product.available){
+        available.innerText = 'Available on market: ' + product.available;
+    } else{
+        available.remove();
+    }
+
 
     const priority = clone.querySelector('.priority');
-    priority.innerText = 'Priority: ' + product.priority;
+    if(product.priority){
+        priority.innerText = 'Priority: ' + product.priority;
+    } else{
+        priority.remove();
+    }
 
     const location = clone.querySelector('.location');
-    location.innerText = 'Location: ' + product.location;
+
+    if(product.location){
+        location.innerText = 'Location: ' + product.location;
+    } else{
+        location.remove();
+    }
+
 
 
     const moreContent = clone.querySelector('.more-content');
