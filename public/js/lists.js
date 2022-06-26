@@ -14,6 +14,40 @@ moreFilterBtn.addEventListener('click', function (event){
     displayFilter();
 } );
 
+document.getElementById('select-types').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+});
+
+document.getElementById('select-categories').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'block';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'none';
+});
+
+
+document.getElementById('select-priorities').addEventListener('click', function (event){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'none';
+});
+
 function displayList(id){
     const targetDiv = document.getElementById(id);
     const labelList = document.getElementById('label-' + id);
