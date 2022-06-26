@@ -82,14 +82,16 @@ function createProduct(product, id_list) {
 
     const category = clone.querySelector('.category');
     if(product.category){
-        category.innerText = 'Category: ' + product.category;
+        const categoryContent = clone.querySelector('.category-content')
+        categoryContent.innerText = product.category;
     } else{
         category.remove();
     }
 
     const available = clone.querySelector('.available');
     if(product.available){
-        available.innerText = 'Available on market: ' + product.available;
+        const availableContent = clone.querySelector('.available-content');
+        availableContent.innerText = product.available;
     } else{
         available.remove();
     }
@@ -97,15 +99,16 @@ function createProduct(product, id_list) {
 
     const priority = clone.querySelector('.priority');
     if(product.priority){
-        priority.innerText = 'Priority: ' + product.priority;
+        const priorityContent = clone.querySelector('.priority-content');
+        priorityContent.innerText = product.priority;
     } else{
         priority.remove();
     }
 
     const location = clone.querySelector('.location');
-
     if(product.location){
-        location.innerText = 'Location: ' + product.location;
+        const locationContent = clone.querySelector('.location-content');
+        locationContent.innerText = product.location;
     } else{
         location.remove();
     }

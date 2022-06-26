@@ -143,10 +143,10 @@
         <p>Quantity for buy: <strong class="quantity"></strong></p>
         <button class="more" id=''>More options<img src="public/assets/portal/lists/more-icon.svg" alt="more-icon"></button>
         <div class="more-content" id="">
-            <p class="category"></p>
-            <p class="available"></p>
-            <p class="priority"></p>
-            <p class="location"></p>
+            <p class="category">Category: <strong class="category-content"></strong></p>
+            <p class="available">Available on market: <strong class="available-content"></strong></p>
+            <p class="priority">Priority: <strong class="priority-content"></strong> </p>
+            <p class="location">Location: <strong class="location-content"></strong> </p>
             <div class="option-buttons">
                 <button class="remove" id=""><span class="desktop">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
                 <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>
