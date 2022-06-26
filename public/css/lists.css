@@ -160,6 +160,21 @@ input:invalid:required {
     color: #404040;
 }
 
+.product >p{
+    text-align: left;
+    font: normal normal normal 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #404040;
+}
+
+.price{
+    text-align: left;
+    font: normal normal normal 16px/25px Poppins;
+    letter-spacing: 0;
+    color: #F31259;
+}
+
+
 .list-content{
     background: #F6F6F6 0% 0% no-repeat padding-box;
     border-radius: 0 0 30px 30px;
