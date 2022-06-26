@@ -1,3 +1,19 @@
+function displayFilter(){
+    const listDiv = document.getElementById('list-filter');
+    if(listDiv.style.display !== "none"){
+        listDiv.style.display = "none";
+    } else{
+        listDiv.style.display = "block";
+    }
+}
+
+const moreFilterBtn = document.getElementById('show-more-filter');
+const listDiv = document.getElementById('list-filter');
+listDiv.style.display = "none";
+moreFilterBtn.addEventListener('click', function (event){
+    displayFilter();
+} );
+
 function displayList(id){
     const targetDiv = document.getElementById(id);
     const labelList = document.getElementById('label-' + id);

@@ -215,6 +215,10 @@ input:invalid:required {
     background-color: transparent;
 }
 
+#select-priorities, #list-filter{
+    display: none;
+}
+
 @media (max-width: 700px) {
     #create-list{
       display: none;
