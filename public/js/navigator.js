@@ -8,4 +8,14 @@ function changeColorForCurrentPage(){
     }
 }
 
+document.getElementById('search-menu-item').addEventListener('click', function (event){
+    const searchButton = document.getElementById('search-bar');
+    if(searchButton.style.display !== 'none'){
+        searchButton.style.display = 'none';
+    } else{
+        searchButton.style.display = 'flex';
+    }
+});
+
+
 changeColorForCurrentPage();
