@@ -57,11 +57,15 @@
                         <?php }?>
                     </select>
 
-                    <button class="mobile" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+
                     <div id="list-filter">
-                        <button id="select-priorities" type="button">Priorities</button>
-                        <button id="select-types" type="button">Types</button>
-                        <button id="select-categories" type="button">Categories</button>
+                        <button class="mobile" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+                        <div id="select-filter">
+                            <button id="select-priorities" type="button">Priorities</button>
+                            <button id="select-types" type="button">Types</button>
+                            <button id="select-categories" type="button">Categories</button>
+                        </div>
+
                     </div>
                 </div>
 

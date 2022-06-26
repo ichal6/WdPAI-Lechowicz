@@ -215,8 +215,40 @@ input:invalid:required {
     background-color: transparent;
 }
 
-#select-priorities, #list-filter{
-    display: none;
+#select-filter{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #CAC9CE;
+    border-radius: 30px 0 30px 30px;
+}
+
+#select-filter > button{
+    border: none;
+    background-color: #FFFFFF;
+    font-family:  "Poppins Regular", sans-serif;
+    font-size: 20px;
+    text-align: end;
+}
+
+#select-filter > button:nth-child(even){
+    background-color: #E9E9E9 ;
+}
+
+#select-filter > button:first-child{
+    border-radius: 30px 0 0 0;
+}
+
+#select-filter > button:last-child{
+    border-radius: 0 0 30px 30px;
+}
+
+#list-filter{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    right: 5vw;
 }
 
 @media (max-width: 700px) {

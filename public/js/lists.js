@@ -1,14 +1,14 @@
 function displayFilter(){
-    const listDiv = document.getElementById('list-filter');
+    const listDiv = document.getElementById('select-filter');
     if(listDiv.style.display !== "none"){
         listDiv.style.display = "none";
     } else{
-        listDiv.style.display = "block";
+        listDiv.style.display = "flex";
     }
 }
 
 const moreFilterBtn = document.getElementById('show-more-filter');
-const listDiv = document.getElementById('list-filter');
+const listDiv = document.getElementById('select-filter');
 listDiv.style.display = "none";
 moreFilterBtn.addEventListener('click', function (event){
     displayFilter();
