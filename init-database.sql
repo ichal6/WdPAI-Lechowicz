@@ -272,6 +272,12 @@ alter table last_prices
         foreign key (currency_id) references currencies
             on update cascade on delete cascade;
 
+alter table lists
+    add created_at date;
+
+alter table types
+    drop column user_id;
+
 INSERT INTO roles VALUES(1, 'user');
 
 CREATE OR REPLACE FUNCTION trigger_function_delete_user_details()
@@ -309,8 +315,8 @@ INSERT INTO categories (id, user_id, name) VALUES (5, 1, 'Vegetables');
 INSERT INTO categories (id, user_id, name) VALUES (6, 1, 'Meat');
 SELECT setval('public.categories_id_seq', 7);
 
-INSERT INTO types (id, user_id, name) VALUES (1, 1, 'Cyclic');
-INSERT INTO types (id, user_id, name) VALUES (2, 1, 'Normal');
+INSERT INTO types (id, name) VALUES (1, 'Cyclic');
+INSERT INTO types (id, name) VALUES (2, 'Normal');
 SELECT setval('public.types_id_seq', 3);
 
 INSERT INTO priorities (id, name) VALUES (1, 'Low');
@@ -328,6 +334,14 @@ INSERT INTO units (id, name) VALUES (3, 'g');
 INSERT INTO units (id, name) VALUES (4, 'cube');
 SELECT setval('public.units_id_seq', 5);
 
+INSERT INTO currencies(id, name) VALUES (1, 'PLN');
+INSERT INTO currencies(id, name) VALUES (2, 'USD');
+INSERT INTO currencies(id, name) VALUES (3, 'EUR');
+SELECT setval('public.currencies_id_seq', 4);
+
+INSERT INTO last_prices(id, currency_id, value) VALUES (1, 1, 2499.99);
+SELECT setval('public.last_prices_id_seq', 2);
+
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (1, 'Chemist', 1, 2);
 INSERT INTO lists (id, title, owner_id, type_id) VALUES (2, 'Foods', 1, 1);
 INSERT INTO lists (id, title, owner_id, type_id, priority_id, category_id) VALUES (3, 'New RTV', 1, 1, 1, 2);
@@ -340,15 +354,6 @@ INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status
 
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
-SELECT setval('public.products_id_seq', 5);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id) VALUES (5, 'Samsung Smart TV', 1, 1, 3, 1, 2, 1);
+SELECT setval('public.products_id_seq', 6);
 
-INSERT INTO currencies(id, name) VALUES (1, 'PLN');
-INSERT INTO currencies(id, name) VALUES (2, 'USD');
-INSERT INTO currencies(id, name) VALUES (3, 'EUR');
-SELECT setval('public.currencies_id_seq', 4);
-
-alter table lists
-    add created_at date;
-
-alter table types
-    drop column user_id;
