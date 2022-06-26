@@ -92,21 +92,37 @@ nav img{
     margin-right: 15px;
 }
 
-/*For Desktop*/
-@media (max-width: 1600px) {
+/* Desktop view */
+@media (max-width: 1550px){
     #search-bar{
         display: flex;
     }
 }
 
-/*For Tablet*/
-@media (max-width: 1100px) {
+/* Tablet view */
+@media (max-width: 1050px) {
     #search-bar{
         display: flex;
     }
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: none;
+    }
+
+    .tablet{
+        display: block;
+    }
+
+    #logo > img{
+        margin-top: 15px;
+    }
 }
 
-/*For Mobile*/
+/*Mobile View*/
 @media (max-width: 700px) {
     header{
         height: 60px;
