@@ -79,7 +79,9 @@
             </div>
             <div class="desktop" id="create-list">
                 <form action="add_list" method="POST" id="add-list">
-                    <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">X</button>
+                    <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">
+                        <img alt="disable add list" id="disable-add-list-icon" src="public/assets/portal/lists/add-list.svg">
+                    </button>
                     <h2>Add new List:</h2>
                     <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
                     <select name="type" id="type-input">

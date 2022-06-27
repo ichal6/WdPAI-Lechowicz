@@ -447,6 +447,11 @@ input:invalid:required {
         color: #ff253e;
         font-size: 64px;
         font-family: "Poppins Bold", sans-serif;
+        border: none;
+    }
+
+    #disable-add-list-icon{
+        transform: rotate(45deg);
     }
 
     .more{
@@ -563,6 +568,7 @@ input:invalid:required {
         letter-spacing: 0px;
         color: #FFFFFF;
         background-color: #0BD1B8;
+        align-self: center;
     }
 
     #list-filter{
