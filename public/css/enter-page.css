@@ -18,6 +18,13 @@
     src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 
+#error-message{
+    color: #ff253e;
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 body {
     background-image: url("../assets/login-page/background-image-WEB.svg");
     background-repeat: no-repeat;
