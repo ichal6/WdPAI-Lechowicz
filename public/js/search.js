@@ -12,7 +12,10 @@ function displayAddProductForm(id){
 }
 
 function hideAddProduct(id){
-    displayAddListForm();
+    const tabletSize = 1050;
+    if(window.innerWidth >= tabletSize){
+        displayAddListForm();
+    }
     const targetDiv = document.getElementById(id);
     targetDiv.style.display = "none";
 }
