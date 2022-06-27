@@ -71,6 +71,7 @@
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon" class="repeat-password">
                 <input name="confirm-password" type="password" id="password-input" class="repeat-password-input" placeholder="Repeat password" required>
             </dev>
+            <div id="error-message">
             <?php
             if(isset($messages)){
                 foreach($messages as $message) {
@@ -78,6 +79,7 @@
                 }
             }
             ?>
+            </div>
             <button type="submit" id="ready-button">Ready to go!</button>
         </form>
     </section>
