@@ -11,6 +11,10 @@ header{
     height: 13vh;
 }
 
+button, .title-list-btn{
+    cursor: pointer;
+}
+
 .desktop{
     display: block;
 }
