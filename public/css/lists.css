@@ -345,7 +345,17 @@ input:invalid:required {
     text-align: left;
     font: normal normal normal 32px/48px Poppins;
     letter-spacing: 0px;
+    color: #404040;
+    border: none;
+    background-color: transparent;
+}
+
+#title-input::placeholder, input#category-input::placeholder, #list-priority  {
     color: #CAC9CE;
+}
+
+#title-input, #categories-input {
+    color: #404040;
 }
 
 #add-list > h2{

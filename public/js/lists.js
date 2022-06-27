@@ -253,7 +253,14 @@ function createProduct(product, id_list) {
     productsContainer.appendChild(clone);
 }
 
-
+const priorityAddForm = document.getElementById('list-priority');
+priorityAddForm.addEventListener('change' , function (event){
+    if(event.target.value == 0){
+        priorityAddForm.style.color = '#CAC9CE';
+    } else{
+        priorityAddForm.style.color = '#404040';
+    }
+});
 
 window.addEventListener("resize", resizeListener);
 
