@@ -132,9 +132,9 @@ nav{
     color: #FFFFFF;
     opacity: 1;
     margin: 0;
-    position:relative;
-    top: 8px;
-    bottom: 16px;
+    /*position:relative;*/
+    /*top: 8px;*/
+    /*bottom: 16px;*/
 }
 
 .menu-item:nth-child(2){
