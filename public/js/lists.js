@@ -18,6 +18,53 @@ moreFilterBtn.addEventListener('click', function (event){
     displayFilter();
 } );
 
+
+function resizeListener(){
+    if(window.innerWidth <= mobileSize){
+        mobileViewFilter();
+    } else if(window.innerWidth <= tabletSize){
+        tabletViewFilter();
+    } else if(window.innerWidth <= desktopSize){
+        desktopViewFilter();
+    }
+}
+
+window.addEventListener("resize", resizeListener);
+
+
+function mobileViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
+function tabletViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
+function desktopViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'block';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
 document.getElementById('select-types').addEventListener('click', function (event){
     if(window.innerWidth >= mobileSize){
         const prioritiesFilter = document.getElementById('priorities-filter');
