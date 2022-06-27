@@ -623,5 +623,11 @@ input:invalid:required {
         right: 5px;
         left: initial;
     }
+
+    #add-product-to-list-form {
+        height: 85vh;
+        width: 100vw;
+        left: 0;
+    }
 }
 
