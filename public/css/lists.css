@@ -437,7 +437,7 @@ input:invalid:required {
         height: 75px;
     }
 
-    #add-list > * {
+    #add-list > * , #add-product > *{
         width: 85vw;
         margin-right: 10px;
     }
@@ -469,7 +469,7 @@ input:invalid:required {
         transform: rotate(180deg);
     }
 
-    #create-list{
+    #create-list, #add-product-to-list-form {
         display: none;
         position: fixed;
         z-index: 10;
@@ -479,7 +479,7 @@ input:invalid:required {
         left: 71px;
     }
 
-    #disable-add-list{
+    #disable-add-list, #disable-add-product {
         width: 100px;
         height: 100px;
         text-align: center;
@@ -489,8 +489,15 @@ input:invalid:required {
         border: none;
     }
 
-    #disable-add-list-icon{
+    #disable-add-list-icon, #disable-add-product-icon {
         transform: rotate(45deg);
+        position: absolute;
+        right: 40px;
+        top: 10px;
+    }
+
+    #disable-add-product{
+        background-color: transparent;
     }
 
     .more{
