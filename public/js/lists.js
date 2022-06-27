@@ -1,3 +1,7 @@
+const tabletSize = 1050;
+const mobileSize = 700;
+const desktopSize = 1550;
+
 function displayFilter(){
     const listDiv = document.getElementById('select-filter');
     if(listDiv.style.display !== "none"){
@@ -15,8 +19,13 @@ moreFilterBtn.addEventListener('click', function (event){
 } );
 
 document.getElementById('select-types').addEventListener('click', function (event){
-    const prioritiesFilter = document.getElementById('priorities-filter');
-    prioritiesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'block';
+    } else{
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'none';
+    }
 
     const categoriesFilter = document.getElementById('categories-filter');
     categoriesFilter.style.display = 'none';
@@ -26,8 +35,13 @@ document.getElementById('select-types').addEventListener('click', function (even
 });
 
 document.getElementById('select-categories').addEventListener('click', function (event){
-    const prioritiesFilter = document.getElementById('priorities-filter');
-    prioritiesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'block';
+    } else{
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'none';
+    }
 
     const categoriesFilter = document.getElementById('categories-filter');
     categoriesFilter.style.display = 'block';
@@ -41,8 +55,13 @@ document.getElementById('select-priorities').addEventListener('click', function 
     const prioritiesFilter = document.getElementById('priorities-filter');
     prioritiesFilter.style.display = 'block';
 
-    const categoriesFilter = document.getElementById('categories-filter');
-    categoriesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const categoriesFilter = document.getElementById('categories-filter');
+        categoriesFilter.style.display = 'block';
+    } else{
+        const categoriesFilter = document.getElementById('categories-filter');
+        categoriesFilter.style.display = 'none';
+    }
 
     const typesFilter = document.getElementById('types-filter');
     typesFilter.style.display = 'none';
