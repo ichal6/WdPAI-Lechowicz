@@ -61,7 +61,7 @@
 
 
                     <div id="list-filter">
-                        <button class="mobile tablet" id="show-more-filter" type="button"><img src="public/assets/portal/lists/more-content.svg"></button>
+                        <button class="mobile tablet" id="show-more-filter" type="button"><img id='more-filter-icon' src="public/assets/portal/lists/more-content.svg"></button>
                         <div id="select-filter">
                             <button id="select-priorities" type="button">Priorities</button>
                             <button id="select-types" type="button">Types</button>

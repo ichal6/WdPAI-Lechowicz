@@ -4,10 +4,13 @@ const desktopSize = 1550;
 
 function displayFilter(){
     const listDiv = document.getElementById('select-filter');
+    const moreFilterIcon = document.getElementById('more-filter-icon');
     if(listDiv.style.display !== "none"){
         listDiv.style.display = "none";
+        moreFilterIcon.style.transform = 'rotate(180deg)';
     } else{
         listDiv.style.display = "flex";
+        moreFilterIcon.style.transform = 'rotate(0deg)';
     }
 }
 

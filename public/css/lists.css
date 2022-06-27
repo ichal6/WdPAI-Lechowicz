@@ -357,6 +357,7 @@ input:invalid:required {
     #list-filter{
         right: initial;
         left: 140px;
+        width: 55px;
     }
 
     #show-more-filter{
@@ -365,6 +366,11 @@ input:invalid:required {
         height: 40px;
         border: none;
         border-radius: 26px 26px 0px 0px;
+    }
+
+    #more-filter-icon{
+        margin-top: 5px;
+        transform: rotate(180deg);
     }
 
     #create-list{
