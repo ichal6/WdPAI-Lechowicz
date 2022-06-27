@@ -300,16 +300,30 @@ function desktopViewFilter(){
     typesFilter.style.display = 'block';
 }
 
+function displayAddNewList(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'block';
+}
+
+function hideAddNewList(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'none';
+}
+
 function resizeListener(){
     if(window.innerWidth <= mobileSize){
         mobileViewFilter();
         hideSearchBar();
+        hideAddNewList();
     } else if(window.innerWidth <= tabletSize){
         tabletViewFilter();
-        displaySearchBar()
+        displaySearchBar();
+        hideAddNewList();
     } else if(window.innerWidth <= desktopSize){
         desktopViewFilter();
         displaySearchBar()
+        displayAddNewList();
+        displayAddNewList();
     }
 }
 
