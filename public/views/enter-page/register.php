@@ -25,7 +25,7 @@
             <img id="main-icon" src="public/assets/logo-full-login-page.svg" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
             <img id="mobile-icon" src="public/assets/logo-mobile-login-page.png" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
             <dev id="menu-items">
-                <a onclick="alert('Not implemented yet.')" class="menu-item">about</a>
+                <a onclick="alert('With this application you can create shopping lists and add product to this list.')" class="menu-item">about</a>
                 <a onclick="alert('Not implemented yet.')" class="menu-item">blog</a>
                 <a onclick="alert('Not implemented yet.')" class="menu-item">FAQ</a>
             </dev>
