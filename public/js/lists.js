@@ -317,20 +317,38 @@ function hideAddNewList(){
     addNewList.style.display = 'none';
 }
 
+function displayAddForm(id){
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "block";
+}
+
+function displayAddProduct(id){
+    hideAddForm();
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "none";
+}
+
+function hideAddProductForm(){
+    const addNewList = document.getElementById('add-product-to-list-form');
+    addNewList.style.display = 'none';
+}
+
 function resizeListener(){
     if(window.innerWidth <= mobileSize){
         mobileViewFilter();
         hideSearchBar();
         hideAddNewList();
+        hideAddProductForm();
     } else if(window.innerWidth <= tabletSize){
         tabletViewFilter();
         displaySearchBar();
         hideAddNewList();
+        hideAddProductForm();
     } else if(window.innerWidth <= desktopSize){
         desktopViewFilter();
         displaySearchBar()
         displayAddNewList();
-        displayAddNewList();
+        hideAddProductForm();
     }
 }
 

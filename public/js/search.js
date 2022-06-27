@@ -5,9 +5,25 @@ const categoriesSelect = document.getElementsByName('categories')[0];
 const typesSelect = document.getElementsByName('types')[0];
 const disableButton = document.getElementById('disable-add-product');
 
-function displayAddForm(id){
+function displayAddProductForm(id){
     const targetDiv = document.getElementById(id);
     targetDiv.style.display = "block";
+}
+
+function hideAddProduct(id){
+    displayAddListForm();
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "none";
+}
+
+function hideAddListForm(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'none';
+}
+
+function displayAddListForm(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'block';
 }
 
 disableButton.addEventListener('click', function (event) {
@@ -190,7 +206,7 @@ function createList(list) {
     });
     const disableButton = document.getElementById('disable-add-product');
     disableButton.addEventListener('click', function (event) {
-        displayAddForm('add-product-to-list-form');
+        hideAddProduct('add-product-to-list-form');
     });
 
     listContainer.appendChild(clone);

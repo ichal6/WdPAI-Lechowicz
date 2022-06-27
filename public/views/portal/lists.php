@@ -108,7 +108,10 @@
                 </div>
                 <div id="add-product-to-list-form" class="desktop">
                     <form action="add_product_to_list" method="POST" id="add-product">
-                        <button class="tablet mobile" id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
+                        <button id="disable-add-product" type="button">
+                            <span class="desktop label">Discard changes</span>
+                            <img class="tablet mobile" alt="disable add product" id="disable-add-product-icon" src="public/assets/portal/lists/add-list.svg">
+                        </button>
                         <h2>Add product to this list:</h2>
                         <input name="list-id" value="" type="text" id="add-form-list-id" required>
                         <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
