@@ -25,9 +25,9 @@
             <img id="main-icon" src="public/assets/logo-full-login-page.svg" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
             <img id="mobile-icon" src="public/assets/logo-mobile-login-page.png" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
             <dev id="menu-items">
-                <p class="menu-item">about</p>
-                <p class="menu-item">blog</p>
-                <p class="menu-item">FAQ</p>
+                <a onclick="alert('Not implemented yet.')" class="menu-item">about</a>
+                <a onclick="alert('Not implemented yet.')" class="menu-item">blog</a>
+                <a onclick="alert('Not implemented yet.')" class="menu-item">FAQ</a>
             </dev>
         </dev>
 
@@ -60,14 +60,15 @@
                 <img src="public/assets/login-page/password-icon.svg" alt="password icon">
                 <input name="password" type="password" id="password-input" placeholder="Your password" required>
             </dev>
+            <div id="error-message">
             <?php
             if(isset($messages)){
                 foreach($messages as $message) {
                     echo $message;
                 }
             }
-            ?>
-            <p class="forgot">forgot your password?</p>
+            ?></div>
+            <a onclick="alert('Please contact with administrator!')" class="forgot">forgot your password?</a>
             <button type="submit" id="ready-button">Ready to go!</button>
         </form>
     </section>
