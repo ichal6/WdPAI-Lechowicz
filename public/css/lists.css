@@ -258,9 +258,65 @@ input:invalid:required {
     cursor: pointer;
 }
 
+
+.modify-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.edit-list, .remove-list, .add-product-to-list{
+    background: 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 12px;
+}
+
+.remove-list{
+    background-color: #FF0A57;
+}
+
+.edit-list{
+    background-color: #0BD1B8;
+}
+
+.add-product-to-list{
+    border: none !important;
+}
+
+.modify-list > button > img{
+    margin: auto;
+}
+
+.share-list{
+    border: none;
+    background-color: transparent;
+}
+
+.label{
+    font-family: "Poppins Medium", sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.modify-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-list, .remove-list{
+    height: 49px;
+    width: auto;
+}
+
 /* Tablet view */
 
 @media (max-width: 1050px){
+    .modify-list > button{
+        width: 75px;
+        height: 75px;
+    }
+
     #add-list > * {
         width: 90vw;
     }
@@ -338,11 +394,6 @@ input:invalid:required {
         display: flex;
         align-items: center;
         justify-content: space-around;
-    }
-
-    .modify-list > button{
-        width: 75px;
-        height: 75px;
     }
 
     .edit-list, .remove-list, .add-product-to-list{

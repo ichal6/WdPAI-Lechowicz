@@ -138,10 +138,10 @@
         <p class="label-list"></p>
         <div class="list-content" id="">
             <div class="modify-list" id="">
-                <button class="edit-list" id=""><span class="desktop">Edit List</span><img class="mobile" src="public/assets/portal/lists/edit-list-icon.svg" alt="edit-icon"></button>
-                <button class="remove-list" id=""><span class="desktop">Delete list</span><img class="mobile" src="public/assets/portal/lists/remove-list-icon.svg" alt="remove-icon"></button>
-                <button class="share-list" id=""><span class="desktop">Share</span><img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
-                <button class="add-product-to-list" id=""><span class="desktop">Add product</span><img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
+                <button class="modify-buttons edit-list" id=""><span class="label desktop">Edit List</span><img class="tablet mobile" src="public/assets/portal/lists/edit-list-icon.svg" alt="edit-icon"></button>
+                <button class="modify-buttons remove-list" id=""><span class="label desktop">Delete list</span><img class="tablet mobile" src="public/assets/portal/lists/remove-list-icon.svg" alt="remove-icon"></button>
+                <button class="modify-buttons share-list" id=""><span class="label" style="display: none">Share</span><img src="public/assets/portal/lists/share-icon.svg" alt="share-icon"></button>
+                <button class="modify-buttons add-product-to-list" id=""><span class="label" style="display: none">Add product</span><img src="public/assets/portal/lists/add-product.svg" alt="add-product-icon"></button>
             </div>
         </div>
     </div>
