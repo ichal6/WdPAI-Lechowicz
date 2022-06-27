@@ -208,6 +208,8 @@ function createList(list) {
 
     addProductToList.addEventListener("click", function (event) {
         const listId = document.getElementById('add-form-list-id');
+        const listTitle = document.getElementById('list-title');
+        listTitle.innerText = list.title;
         listId.value = list.id;
         hideAddNewList();
         displayAddForm('add-product-to-list-form');

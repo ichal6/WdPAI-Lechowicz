@@ -112,7 +112,7 @@
                             <span class="desktop label">Discard changes</span>
                             <img class="tablet mobile" alt="disable add product" id="disable-add-product-icon" src="public/assets/portal/lists/add-list.svg">
                         </button>
-                        <h2>Add product to this list:</h2>
+                        <h2>Add product to <span id="list-title"></span>:</h2>
                         <input name="list-id" value="" type="text" id="add-form-list-id" required>
                         <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
                         <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
