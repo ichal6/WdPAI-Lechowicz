@@ -4,6 +4,7 @@ const prioritiesSelect = document.getElementsByName('priorities')[0];
 const categoriesSelect = document.getElementsByName('categories')[0];
 const typesSelect = document.getElementsByName('types')[0];
 const disableButton = document.getElementById('disable-add-product');
+const disableAddNewListButton = document.getElementById('disable-add-list');
 
 function displayAddProductForm(id){
     const targetDiv = document.getElementById(id);
@@ -28,6 +29,10 @@ function displayAddListForm(){
 
 disableButton.addEventListener('click', function (event) {
     displayAddForm('add-product-to-list-form')
+});
+
+disableAddNewListButton.addEventListener('click', function (event) {
+    hideAddListForm();
 });
 
 prioritiesSelect.addEventListener("change", function (event) {

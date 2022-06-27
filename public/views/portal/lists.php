@@ -80,7 +80,7 @@
             <div id="right-panel">
                 <div class="desktop" id="create-list">
                     <form action="add_list" method="POST" id="add-list">
-                        <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">
+                        <button class="mobile tablet" id="disable-add-list" type="button" >
                             <img alt="disable add list" id="disable-add-list-icon" src="public/assets/portal/lists/add-list.svg">
                         </button>
                         <h2>Add new List:</h2>

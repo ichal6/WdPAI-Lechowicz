@@ -438,7 +438,8 @@ input:invalid:required {
     }
 
     #add-list > * {
-        width: 90vw;
+        width: 85vw;
+        margin-right: 10px;
     }
 
     #show-add-list{
@@ -475,6 +476,7 @@ input:invalid:required {
         height: 87vh;
         width: calc(100vw - 61px);
         background-color: #F4F3F9;
+        left: 77px;
     }
 
     #disable-add-list{
@@ -495,12 +497,20 @@ input:invalid:required {
         width: 97%;
     }
 
+    #submit-add-list{
+        align-self: center;
+    }
+
 }
 
 /*Mobile View*/
 @media (max-width: 700px) {
     #create-list{
-      display: none;
+        display: none;
+        position: fixed;
+        left: 0;
+        height: calc(100vh - 130px);
+        width: 100vw;
     }
 
     #lists-container{
@@ -562,11 +572,6 @@ input:invalid:required {
         width: 100vw;
     }
 
-    #create-list{
-        height: 100vh;
-        width: 100vw;
-    }
-
     #add-list{
         display: flex;
         flex-direction: column;
@@ -578,7 +583,6 @@ input:invalid:required {
         text-align: left;
         font: normal normal normal 32px/48px Poppins;
         letter-spacing: 0px;
-        color: #CAC9CE;
     }
 
     #add-list > h2{
