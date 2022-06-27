@@ -11,6 +11,10 @@ header{
     height: 13vh;
 }
 
+button, .title-list-btn{
+    cursor: pointer;
+}
+
 .desktop{
     display: block;
 }
@@ -71,7 +75,7 @@ header{
 
 nav{
     float: left;
-    width: 15vw;
+    width: 150px;
     height: calc(87vh - 41px);
     padding-top: 40px;
     padding-left: 10px;

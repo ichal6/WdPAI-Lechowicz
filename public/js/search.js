@@ -4,18 +4,38 @@ const prioritiesSelect = document.getElementsByName('priorities')[0];
 const categoriesSelect = document.getElementsByName('categories')[0];
 const typesSelect = document.getElementsByName('types')[0];
 const disableButton = document.getElementById('disable-add-product');
+const disableAddNewListButton = document.getElementById('disable-add-list');
 
-function displayAddForm(id){
+function displayAddProductForm(id){
     const targetDiv = document.getElementById(id);
-    if (targetDiv.style.display !== "none") {
-        targetDiv.style.display = "none";
-    } else {
-        targetDiv.style.display = "block";
+    targetDiv.style.display = "block";
+}
+
+function hideAddProduct(id){
+    const tabletSize = 1050;
+    if(window.innerWidth >= tabletSize){
+        displayAddListForm();
     }
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "none";
+}
+
+function hideAddListForm(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'none';
+}
+
+function displayAddListForm(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'block';
 }
 
 disableButton.addEventListener('click', function (event) {
     displayAddForm('add-product-to-list-form')
+});
+
+disableAddNewListButton.addEventListener('click', function (event) {
+    hideAddListForm();
 });
 
 prioritiesSelect.addEventListener("change", function (event) {
@@ -187,13 +207,16 @@ function createList(list) {
     document.getElementById('add-product-to-list-form').style.display = 'none';
 
     addProductToList.addEventListener("click", function (event) {
-        displayAddForm('add-product-to-list-form');
         const listId = document.getElementById('add-form-list-id');
+        const listTitle = document.getElementById('list-title');
+        listTitle.innerText = list.title;
         listId.value = list.id;
+        hideAddNewList();
+        displayAddForm('add-product-to-list-form');
     });
     const disableButton = document.getElementById('disable-add-product');
     disableButton.addEventListener('click', function (event) {
-        displayAddForm('add-product-to-list-form');
+        hideAddProduct('add-product-to-list-form');
     });
 
     listContainer.appendChild(clone);

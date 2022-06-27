@@ -1,9 +1,16 @@
+const tabletSize = 1050;
+const mobileSize = 700;
+const desktopSize = 1550;
+
 function displayFilter(){
     const listDiv = document.getElementById('select-filter');
+    const moreFilterIcon = document.getElementById('more-filter-icon');
     if(listDiv.style.display !== "none"){
         listDiv.style.display = "none";
+        moreFilterIcon.style.transform = 'rotate(180deg)';
     } else{
         listDiv.style.display = "flex";
+        moreFilterIcon.style.transform = 'rotate(0deg)';
     }
 }
 
@@ -15,8 +22,13 @@ moreFilterBtn.addEventListener('click', function (event){
 } );
 
 document.getElementById('select-types').addEventListener('click', function (event){
-    const prioritiesFilter = document.getElementById('priorities-filter');
-    prioritiesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'block';
+    } else{
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'none';
+    }
 
     const categoriesFilter = document.getElementById('categories-filter');
     categoriesFilter.style.display = 'none';
@@ -26,8 +38,13 @@ document.getElementById('select-types').addEventListener('click', function (even
 });
 
 document.getElementById('select-categories').addEventListener('click', function (event){
-    const prioritiesFilter = document.getElementById('priorities-filter');
-    prioritiesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'block';
+    } else{
+        const prioritiesFilter = document.getElementById('priorities-filter');
+        prioritiesFilter.style.display = 'none';
+    }
 
     const categoriesFilter = document.getElementById('categories-filter');
     categoriesFilter.style.display = 'block';
@@ -41,8 +58,13 @@ document.getElementById('select-priorities').addEventListener('click', function 
     const prioritiesFilter = document.getElementById('priorities-filter');
     prioritiesFilter.style.display = 'block';
 
-    const categoriesFilter = document.getElementById('categories-filter');
-    categoriesFilter.style.display = 'none';
+    if(window.innerWidth >= mobileSize){
+        const categoriesFilter = document.getElementById('categories-filter');
+        categoriesFilter.style.display = 'block';
+    } else{
+        const categoriesFilter = document.getElementById('categories-filter');
+        categoriesFilter.style.display = 'none';
+    }
 
     const typesFilter = document.getElementById('types-filter');
     typesFilter.style.display = 'none';
@@ -230,5 +252,106 @@ function createProduct(product, id_list) {
 
     productsContainer.appendChild(clone);
 }
+
+const priorityAddForm = document.getElementById('list-priority');
+priorityAddForm.addEventListener('change' , function (event){
+    if(event.target.value == 0){
+        priorityAddForm.style.color = '#CAC9CE';
+    } else{
+        priorityAddForm.style.color = '#404040';
+    }
+});
+
+window.addEventListener("resize", resizeListener);
+
+function hideSearchBar(){
+    const searchBar = document.getElementById('search-bar');
+    searchBar.style.display = 'none';
+}
+
+function displaySearchBar(){
+    const searchBar = document.getElementById('search-bar');
+    searchBar.style.display = 'flex';
+}
+
+function mobileViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'none';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
+function tabletViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'none';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
+function desktopViewFilter(){
+    const prioritiesFilter = document.getElementById('priorities-filter');
+    prioritiesFilter.style.display = 'block';
+
+    const categoriesFilter = document.getElementById('categories-filter');
+    categoriesFilter.style.display = 'block';
+
+    const typesFilter = document.getElementById('types-filter');
+    typesFilter.style.display = 'block';
+}
+
+function displayAddNewList(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'block';
+}
+
+function hideAddNewList(){
+    const addNewList = document.getElementById('create-list');
+    addNewList.style.display = 'none';
+}
+
+function displayAddForm(id){
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "block";
+}
+
+function displayAddProduct(id){
+    hideAddForm();
+    const targetDiv = document.getElementById(id);
+    targetDiv.style.display = "none";
+}
+
+function hideAddProductForm(){
+    const addNewList = document.getElementById('add-product-to-list-form');
+    addNewList.style.display = 'none';
+}
+
+function resizeListener(){
+    if(window.innerWidth <= mobileSize){
+        mobileViewFilter();
+        hideSearchBar();
+        hideAddNewList();
+        hideAddProductForm();
+    } else if(window.innerWidth <= tabletSize){
+        tabletViewFilter();
+        displaySearchBar();
+        hideAddNewList();
+        hideAddProductForm();
+    } else if(window.innerWidth <= desktopSize){
+        desktopViewFilter();
+        displaySearchBar()
+        displayAddNewList();
+        hideAddProductForm();
+    }
+}
+
+resizeListener();
 
 

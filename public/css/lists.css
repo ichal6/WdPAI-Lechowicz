@@ -69,12 +69,14 @@ input:invalid:required {
 
 #add-product-to-list-form{
     display: none;
-    position: fixed;
-    z-index: 10;
-    width: calc(85vw - 10px);
-    height: 100vh;
-    background-color: #7B7B7B;
-    /*opacity: 0.5;*/
+    align-self: end;
+    /*display: none;*/
+    /*position: fixed;*/
+    /*z-index: 10;*/
+    /*width: calc(85vw - 10px);*/
+    /*height: 100vh;*/
+    /*background-color: #7B7B7B;*/
+    /*!*opacity: 0.5;*!*/
 }
 
 #add-product{
@@ -194,6 +196,8 @@ input:invalid:required {
     font-family:  "Poppins Regular", sans-serif;
     font-size: 20px;
     color: #7B7B7B;
+    width: auto;
+    align-self: center;
 }
 
 .more > img{
@@ -258,11 +262,184 @@ input:invalid:required {
     cursor: pointer;
 }
 
+
+.modify-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.edit-list, .remove-list, .add-product-to-list{
+    background: 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 12px;
+}
+
+.remove-list{
+    background-color: #FF0A57;
+}
+
+.edit-list{
+    background-color: #0BD1B8;
+}
+
+.add-product-to-list{
+    border: none !important;
+}
+
+.modify-list > button > img{
+    margin: auto;
+}
+
+.share-list{
+    border: none;
+    background-color: transparent;
+}
+
+.label{
+    font-family: "Poppins Medium", sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.modify-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-list, .remove-list{
+    height: 49px;
+    width: auto;
+}
+
+.labels{
+    font: normal normal 600 20px Poppins;
+    letter-spacing: 0px;
+    width: min-content;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.label-bought, .label-less{
+    color: #0BD1B8;
+}
+
+.label-remove{
+    color: #FF0A57;
+}
+
+.option-buttons > button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#add-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-list > *, #add-product > * {
+    width: calc(40vw - 181px);
+    text-align: left;
+    font: normal normal normal 32px/48px Poppins;
+    letter-spacing: 0px;
+    color: #404040;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px #707070;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+#title-input::placeholder, input#category-input::placeholder, #list-priority  {
+    color: #CAC9CE;
+}
+
+#title-input, #categories-input {
+    color: #404040;
+}
+
+#add-list > h2, #add-product > h2{
+    width: auto;
+    text-align: left;
+    font: normal normal medium 30px/46px Poppins;
+    letter-spacing: 0px;
+    color: #404040;
+    border: none;
+    text-align: center;
+}
+
+#disable-add-list{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    color: #ff253e;
+    font-size: 64px;
+    font-family: "Poppins Bold", sans-serif;
+}
+
+#submit-add-list, #add-product-button, #go-to-products{
+    border: none;
+    text-align: center;
+    font: normal normal 600 20px/30px Poppins;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    background-color: #0BD1B8;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 200px;
+    align-self: flex-start;
+}
+
+#go-to-products{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    text-align: center;
+    font: normal normal 600 20px/30px Poppins;
+    letter-spacing: 0px;
+    color: #0BD1B8;
+    align-self: flex-end;
+}
+
+#add-product-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: none;
+}
+
+#add-product-buttons > *{
+    margin: 5px;
+}
+
+#disable-add-product{
+    order: 10;
+    background-color: #FF0A57;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: auto;
+    align-self: flex-start;
+    margin-left: 35px;
+}
+
 /* Tablet view */
 
 @media (max-width: 1050px){
-    #add-list > * {
-        width: 90vw;
+    .modify-list > button{
+        width: 75px;
+        height: 75px;
+    }
+
+    #add-list > * , #add-product > *{
+        width: 85vw;
+        margin-right: 10px;
     }
 
     #show-add-list{
@@ -276,6 +453,7 @@ input:invalid:required {
     #list-filter{
         right: initial;
         left: 140px;
+        width: 55px;
     }
 
     #show-more-filter{
@@ -286,22 +464,48 @@ input:invalid:required {
         border-radius: 26px 26px 0px 0px;
     }
 
-    #create-list{
+    #more-filter-icon{
+        margin-top: 5px;
+        transform: rotate(180deg);
+    }
+
+    #create-list, #add-product-to-list-form {
         display: none;
         position: fixed;
         z-index: 10;
         height: 87vh;
         width: calc(100vw - 61px);
         background-color: #F4F3F9;
+        left: 71px;
     }
 
-    #disable-add-list{
+    #disable-add-list, #disable-add-product {
         width: 100px;
         height: 100px;
         text-align: center;
         color: #ff253e;
         font-size: 64px;
         font-family: "Poppins Bold", sans-serif;
+        border: none;
+    }
+
+    #disable-add-list-icon, #disable-add-product-icon {
+        transform: rotate(45deg);
+        position: absolute;
+        right: 40px;
+        top: 10px;
+    }
+
+    #disable-add-product{
+        background-color: transparent;
+    }
+
+    .more{
+        width: 97%;
+    }
+
+    #submit-add-list{
+        align-self: center;
     }
 
 }
@@ -309,7 +513,11 @@ input:invalid:required {
 /*Mobile View*/
 @media (max-width: 700px) {
     #create-list{
-      display: none;
+        display: none;
+        position: fixed;
+        left: 0;
+        height: calc(100vh - 130px);
+        width: 100vw;
     }
 
     #lists-container{
@@ -338,11 +546,6 @@ input:invalid:required {
         display: flex;
         align-items: center;
         justify-content: space-around;
-    }
-
-    .modify-list > button{
-        width: 75px;
-        height: 75px;
     }
 
     .edit-list, .remove-list, .add-product-to-list{
@@ -376,11 +579,6 @@ input:invalid:required {
         width: 100vw;
     }
 
-    #create-list{
-        height: 100vh;
-        width: 100vw;
-    }
-
     #add-list{
         display: flex;
         flex-direction: column;
@@ -392,7 +590,6 @@ input:invalid:required {
         text-align: left;
         font: normal normal normal 32px/48px Poppins;
         letter-spacing: 0px;
-        color: #CAC9CE;
     }
 
     #add-list > h2{
@@ -419,11 +616,18 @@ input:invalid:required {
         letter-spacing: 0px;
         color: #FFFFFF;
         background-color: #0BD1B8;
+        align-self: center;
     }
 
     #list-filter{
         right: 5px;
         left: initial;
+    }
+
+    #add-product-to-list-form {
+        height: 85vh;
+        width: 100vw;
+        left: 0;
     }
 }
 
