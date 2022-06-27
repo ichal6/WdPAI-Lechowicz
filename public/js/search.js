@@ -7,11 +7,7 @@ const disableButton = document.getElementById('disable-add-product');
 
 function displayAddForm(id){
     const targetDiv = document.getElementById(id);
-    if (targetDiv.style.display !== "none") {
-        targetDiv.style.display = "none";
-    } else {
-        targetDiv.style.display = "block";
-    }
+    targetDiv.style.display = "block";
 }
 
 disableButton.addEventListener('click', function (event) {
@@ -187,9 +183,10 @@ function createList(list) {
     document.getElementById('add-product-to-list-form').style.display = 'none';
 
     addProductToList.addEventListener("click", function (event) {
-        displayAddForm('add-product-to-list-form');
         const listId = document.getElementById('add-form-list-id');
         listId.value = list.id;
+        hideAddNewList();
+        displayAddForm('add-product-to-list-form');
     });
     const disableButton = document.getElementById('disable-add-product');
     disableButton.addEventListener('click', function (event) {
