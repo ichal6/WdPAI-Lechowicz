@@ -39,11 +39,18 @@ List the ready features here:
 - Login work
 - Database attach
 - Session work
+- Create and remove lists
+- Create and remove products
+- Display Lists
+- Display Products
 
 
 ## Screenshots
 ![Login page](./img/login-page.png)
 ![Login page mobile](./img/login-page-mobile.png)
+![Lists page mobile](./img/lists-page-mobile.png)
+![Lists page Tablet](./img/lists-page-tablet.png)
+![Lists page Desktop](./img/lists-page-desktop.png)
 
 
 ## Setup
