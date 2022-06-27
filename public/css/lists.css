@@ -194,6 +194,8 @@ input:invalid:required {
     font-family:  "Poppins Regular", sans-serif;
     font-size: 20px;
     color: #7B7B7B;
+    width: auto;
+    align-self: center;
 }
 
 .more > img{
@@ -381,6 +383,10 @@ input:invalid:required {
         color: #ff253e;
         font-size: 64px;
         font-family: "Poppins Bold", sans-serif;
+    }
+
+    .more{
+        width: 97%;
     }
 
 }
