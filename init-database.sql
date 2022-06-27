@@ -368,6 +368,6 @@ INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id) VALUES (5, 'Samsung Smart TV', 1, 1, 3, 1, 2, 1);
-INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id, category_id, priority_id, location_id) VALUES (6, 'Monitors to PC', 2, 2, 3, 1, 2, 1, 7, 3, 1);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id, category_id, priority_id, location_id) VALUES (6, 'Monitors to PC', 2, 2, 3, 1, 2, 2, 7, 3, 1);
 SELECT setval('public.products_id_seq', 7);
 
