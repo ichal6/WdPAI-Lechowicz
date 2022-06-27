@@ -160,10 +160,10 @@
             <p class="priority">Priority: <strong class="priority-content"></strong> </p>
             <p class="location">Location: <strong class="location-content"></strong> </p>
             <div class="option-buttons">
-                <button class="remove" id=""><span class="desktop">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
-<!--                <button class="edit" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>-->
-                <button class="bought" id=""><span class="desktop">Set as bought</span><img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
-                <button class="less" id=''><span class="desktop">Less options</span><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
+                <button class="remove" id=""><span class="desktop label-remove labels">Remove product</span><img src="public/assets/portal/lists/remove-icon.svg" alt="remove-icon"></button>
+<!--                <button class="edit label" id=""><span class="desktop">Edit product</span><img src="public/assets/portal/lists/edit-product-icon.svg" alt="edit-icon"></button>-->
+                <button class="bought" id=""><span class="desktop label-bought labels">Set as bought</span><img src="public/assets/portal/lists/bought.svg" alt="bought-icon"></button>
+                <button class="less" id=''><span class="desktop label-less labels">Less options</span><img src="public/assets/portal/lists/less-icon.svg" alt="less-icon"></button>
             </div>
         </div>
     </div>
