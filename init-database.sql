@@ -311,9 +311,23 @@ FROM lists
          LEFT OUTER JOIN categories c on lists.category_id = c.id
          LEFT OUTER JOIN priorities p on lists.priority_id = p.id;
 
+CREATE OR REPLACE VIEW get_products AS
+SELECT prod.list_id, prod.name, prod.quantity, c.name as category_name, p.name as priority_name, s.name as status,
+       available.name as available, l.name as location_name, lp.value, u.name as unit
+FROM products as prod
+         INNER JOIN priorities available on available.id=prod.available_on_market_id
+         INNER JOIN statuses s on s.id = prod.status_id
+         LEFT OUTER JOIN categories c on prod.category_id = c.id
+         LEFT OUTER JOIN priorities p on prod.priority_id = p.id
+         LEFT OUTER JOIN priorities pri on pri.id=prod.priority_id
+         LEFT OUTER JOIN locations l on l.id = prod.location_id
+         LEFT OUTER JOIN units u on prod.unit_id = u.id
+         LEFT OUTER JOIN last_prices lp on lp.id = prod.last_price_id;
+
 INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
 SELECT setval('public.user_details_id_seq', 2);
 INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
+SELECT setval('public.users_id_seq', 2);
 
 INSERT INTO categories (id, user_id, name) VALUES (1, 1, 'Grosery');
 INSERT INTO categories (id, user_id, name) VALUES (2, 1, 'Chemists');
@@ -368,6 +382,6 @@ INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (3, 'bread', 3, 500, 2, 2, 3);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id) VALUES (4, 'butter', 2, 1, 2, 1, 4);
 INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id) VALUES (5, 'Samsung Smart TV', 1, 1, 3, 1, 2, 1);
-INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id, category_id, priority_id, location_id) VALUES (6, 'Monitors to PC', 2, 2, 3, 1, 2, 1, 7, 3, 1);
+INSERT INTO products(id, name, available_on_market_id, quantity, list_id, status_id, unit_id, last_price_id, category_id, priority_id, location_id) VALUES (6, 'Monitors to PC', 2, 2, 3, 1, 2, 2, 7, 3, 1);
 SELECT setval('public.products_id_seq', 7);
 
