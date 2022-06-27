@@ -314,6 +314,7 @@ FROM lists
 INSERT INTO user_details (id, name, surname) VALUES (1, 'John', 'Snow');
 SELECT setval('public.user_details_id_seq', 2);
 INSERT INTO users (id_user_details, email, password, created_at) VALUES (1, 'user@user.pl', '$2y$10$Z0nnQx/k9c7seMEsn/gPiOHbXXvhtGh9hOAEt2b/cZThjrl8WRreG', '2022-06-17');
+SELECT setval('public.users_id_seq', 2);
 
 INSERT INTO categories (id, user_id, name) VALUES (1, 1, 'Grosery');
 INSERT INTO categories (id, user_id, name) VALUES (2, 1, 'Chemists');
