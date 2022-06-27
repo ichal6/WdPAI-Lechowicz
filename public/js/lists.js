@@ -1,6 +1,7 @@
 const tabletSize = 1050;
 const mobileSize = 700;
 const desktopSize = 1550;
+let lastWidth;
 
 function displayFilter(){
     const listDiv = document.getElementById('select-filter');
@@ -334,6 +335,10 @@ function hideAddProductForm(){
 }
 
 function resizeListener(){
+    if(window.innerWidth === lastWidth){
+        return;
+    }
+
     if(window.innerWidth <= mobileSize){
         mobileViewFilter();
         hideSearchBar();
@@ -350,6 +355,7 @@ function resizeListener(){
         displayAddNewList();
         hideAddProductForm();
     }
+    lastWidth = window.innerWidth;
 }
 
 resizeListener();
