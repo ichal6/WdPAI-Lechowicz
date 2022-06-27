@@ -77,55 +77,59 @@
                 </div>
 
             </div>
-            <div class="desktop" id="create-list">
-                <form action="add_list" method="POST" id="add-list">
-                    <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">
-                        <img alt="disable add list" id="disable-add-list-icon" src="public/assets/portal/lists/add-list.svg">
-                    </button>
-                    <h2>Add new List:</h2>
-                    <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
-                    <select name="type" id="type-input">
-                        <?php foreach ($types as $type) {?>
-                            <option selected="selected" value="<?=$type->getId()?>"><?=$type->getName()?></option>
-                        <?php }?>
-                    </select>
-                    <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)" minlength="3" maxlength="255">
-                    <datalist id="list-category">
-                        <?php foreach ($categories as $category) {?>
-                            <option value="<?=$category->getName()?>"></option>
-                        <?php }?>
-                    </datalist>
-                    <select name="priority" id="list-priority">
-                        <option selected="selected" value="">Priority (optional)</option>
-                        <?php foreach ($priorities as $priority) {?>
-                            <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
-                        <?php }?>
-                    </select>
+            <div id="right-panel">
+                <div class="desktop" id="create-list">
+                    <form action="add_list" method="POST" id="add-list">
+                        <button class="mobile tablet" id="disable-add-list" type="button" onclick="displayAddForm('create-list')">
+                            <img alt="disable add list" id="disable-add-list-icon" src="public/assets/portal/lists/add-list.svg">
+                        </button>
+                        <h2>Add new List:</h2>
+                        <input name="title" id="title-input" placeholder="Title" required minlength="3" maxlength="255">
+                        <select name="type" id="type-input">
+                            <?php foreach ($types as $type) {?>
+                                <option selected="selected" value="<?=$type->getId()?>"><?=$type->getName()?></option>
+                            <?php }?>
+                        </select>
+                        <input list="list-category" name="category" type="text" id="category-input" placeholder="Category (optional)" minlength="3" maxlength="255">
+                        <datalist id="list-category">
+                            <?php foreach ($categories as $category) {?>
+                                <option value="<?=$category->getName()?>"></option>
+                            <?php }?>
+                        </datalist>
+                        <select name="priority" id="list-priority">
+                            <option selected="selected" value="">Priority (optional)</option>
+                            <?php foreach ($priorities as $priority) {?>
+                                <option value="<?=$priority->getId()?>"><?=$priority->getName()?></option>
+                            <?php }?>
+                        </select>
 
-                    <button id="submit-add-list" type="submit">Add new</button>
-                </form>
-            </div>
-            <div id="add-product-to-list-form">
-                <form action="add_product_to_list" method="POST" id="add-product">
-                    <button id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
-                    <h2>Add product to this list:</h2>
-                    <input name="list-id" value="" type="text" id="add-form-list-id" required>
-                    <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
-                    <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
-                    <select name="currency_id" id="list-currency">
-                        <?php foreach ($currencies as $currency) {?>
-                            <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
-                        <?php }?>
-                    </select>
-                    <input name="quantity" type="number" id="product-quantity" placeholder="Quantity" required min="1" max='100000000'>
-                    <select name="unit" id="product-unit">
-                        <?php foreach ($units as $unit) {?>
-                            <option selected="selected" value="<?=$unit->getId()?>"><?=$unit->getName()?></option>
-                        <?php }?>
-                    </select>
-                    <button id="add-product-button" type="submit">Add new product</button>
-                    <a href="/products" id="go-to-products">Go to products section</a>
-                </form>
+                        <button id="submit-add-list" type="submit">Add new</button>
+                    </form>
+                </div>
+                <div id="add-product-to-list-form" class="desktop">
+                    <form action="add_product_to_list" method="POST" id="add-product">
+                        <button class="tablet mobile" id="disable-add-product" type="button" onclick="displayAddForm('add-product-to-list-form')">X</button>
+                        <h2>Add product to this list:</h2>
+                        <input name="list-id" value="" type="text" id="add-form-list-id" required>
+                        <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
+                        <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
+                        <select name="currency_id" id="list-currency">
+                            <?php foreach ($currencies as $currency) {?>
+                                <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
+                            <?php }?>
+                        </select>
+                        <input name="quantity" type="number" id="product-quantity" placeholder="Quantity" required min="1" max='100000000'>
+                        <select name="unit" id="product-unit">
+                            <?php foreach ($units as $unit) {?>
+                                <option selected="selected" value="<?=$unit->getId()?>"><?=$unit->getName()?></option>
+                            <?php }?>
+                        </select>
+                        <div id="add-product-buttons">
+                            <button id="add-product-button" type="submit">Add new product</button>
+                            <a href="/products" id="go-to-products">Go to products section</a>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div>
                 <p id="error-box"><?=$error?></p>
