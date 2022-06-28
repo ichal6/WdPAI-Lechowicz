@@ -4,8 +4,8 @@
         <img id="mobile-icon" src="public/assets/logo-mobile-login-page.png" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
         <dev id="menu-items">
             <a id="about-item" class="menu-item">about</a>
-            <a onclick="alert('Not implemented yet.')" class="menu-item">blog</a>
-            <a onclick="alert('Not implemented yet.')" class="menu-item">FAQ</a>
+            <a id="blog-item" class="menu-item">blog</a>
+            <a id="FAQ-item" class="menu-item">FAQ</a>
         </dev>
     </dev>
 
