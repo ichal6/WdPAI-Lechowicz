@@ -10,7 +10,7 @@
     </dev>
 
     <dev id="right-menu">
-        <button id="nav-sign-up" onclick="window.location.href='register';">Sign up</button>
-        <button id="nav-log-in" onclick="window.location.href='login';">Log in</button>
+        <button id="nav-sign-up">Sign up</button>
+        <button id="nav-log-in">Log in</button>
     </dev>
 </nav>
