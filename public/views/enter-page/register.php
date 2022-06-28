@@ -24,7 +24,7 @@
         <p>You are just about to make a first step to orderly future.</p>
         <p>You don’t have an account?</p>
 
-        <button onclick="window.location.href='login';" id="aside-button">Log in</button>
+        <button id="aside-button">Log in</button>
     </aside>
 
     <section>

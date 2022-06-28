@@ -5,8 +5,7 @@ const navToRegister = document.getElementById('nav-sign-up');
 const navToLogin = document.getElementById('nav-log-in');
 const mainIcon = document.getElementById('main-icon');
 const mobileIcon = document.getElementById('mobile-icon');
-const asideSignUpButton = document.getElementById('aside-sign-up');
-const asideLogInButton = document.getElementById('aside-log-in');
+const asideButton = document.getElementById('aside-button');
 
 aboutItem.addEventListener('click', function (event){
     alert('With this application you can create shopping lists and add product to this list.');
@@ -28,6 +27,14 @@ function redirectToIndex(){
     window.location.href='index';
 }
 
+function redirect(){
+    if(window.location.href.indexOf('register') > -1) {
+        redirectToLoginPage();
+    } else{
+        redirectToRegisterPage();
+    }
+}
+
 blogItem.addEventListener('click', notImplementedInfo);
 FAQItem.addEventListener('click', notImplementedInfo);
 
@@ -36,3 +43,5 @@ navToRegister.addEventListener('click', redirectToRegisterPage);
 
 mainIcon.addEventListener('click', redirectToIndex);
 mobileIcon.addEventListener('click', redirectToIndex);
+
+asideButton.addEventListener('click', redirect);
