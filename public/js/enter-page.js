@@ -5,6 +5,8 @@ const navToRegister = document.getElementById('nav-sign-up');
 const navToLogin = document.getElementById('nav-log-in');
 const mainIcon = document.getElementById('main-icon');
 const mobileIcon = document.getElementById('mobile-icon');
+const asideSignUpButton = document.getElementById('aside-sign-up');
+const asideLogInButton = document.getElementById('aside-log-in');
 
 aboutItem.addEventListener('click', function (event){
     alert('With this application you can create shopping lists and add product to this list.');

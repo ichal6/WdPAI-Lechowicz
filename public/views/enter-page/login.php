@@ -25,8 +25,7 @@
         <p>You are just about to make a first step to orderly future.</p>
         <p>You don’t have an account?</p>
 
-        <button onclick="window.location.href='register';" id="aside-sign-up">Sign up. It'free</button>
-<!--        <button onclick="window.location.href='login';" id="log-in-mobile">Login</button>-->
+        <button onclick="window.location.href='register';" id="aside-button">Sign up. It'free</button>
     </aside>
 
     <section>
