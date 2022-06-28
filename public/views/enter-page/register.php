@@ -19,7 +19,6 @@
 
     <aside>
         <h1>We’re glad to see you here!</h1>
-        <h2 onclick="window.location.href='login';">Log in</h2>
         <p>Making a list of shopping, bilans  from month, day and of course control your money!</p>
         <p>You are just about to make a first step to orderly future.</p>
         <p>You don’t have an account?</p>
