@@ -233,7 +233,7 @@ aside button{
     transition: all 0.5s;
 }
 
-#aside-sign-up:hover, #aside-log-in:hover{
+#aside-button:hover, #aside-log-in:hover{
     background-color: #12dcc3;
     transition: all 0.5s;
     font-size: 17px;
@@ -513,7 +513,7 @@ form button {
         display: none;
     }
 
-    #aside-sign-up{
+    #aside-button{
         border: 3px solid #4B486E;
         background-color: #FFFFFF;
         color: #4B486E;

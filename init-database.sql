@@ -287,6 +287,8 @@ alter table locations
             on update cascade on delete cascade;
 
 INSERT INTO roles VALUES(1, 'user');
+INSERT INTO roles VALUES(2, 'admin');
+SELECT setval('public.roles_id_seq', 3);
 
 CREATE OR REPLACE FUNCTION trigger_function_delete_user_details()
     RETURNS TRIGGER

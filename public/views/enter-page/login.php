@@ -5,37 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/css/enter-page.css">
+    <script defer src="public/js/enter-page.js"></script>
     <title>ShopTherapy-Login</title>
 </head>
 <body>
-    <dev class="background-component">
-        <img class="green-point" src="public/assets/login-page/green-point.svg">
-        <img class="green-point" src="public/assets/login-page/green-point.svg">
-        <img class="orange-x" src="public/assets/login-page/orange-x.svg">
-        <img class="orange-x" src="public/assets/login-page/orange-x.svg">
-        <img class="red-cross" src="public/assets/login-page/red-cross.svg">
-        <img class="red-cross" src="public/assets/login-page/red-cross.svg">
-        <img id="small-brackets" src="public/assets/login-page/white-brackets.svg">
-        <img id="medium-brackets" src="public/assets/login-page/white-brackets.svg">
-        <img id="vertical-brackets" src="public/assets/login-page/white-brackets.svg">
-    </dev>
-    
-    <nav>
-        <dev id="left-menu">
-            <img id="main-icon" src="public/assets/logo-full-login-page.svg" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
-            <img id="mobile-icon" src="public/assets/logo-mobile-login-page.png" alt="ShopTherapyy icon" onclick="window.location.href='index';"></img>
-            <dev id="menu-items">
-                <a onclick="alert('With this application you can create shopping lists and add product to this list.')" class="menu-item">about</a>
-                <a onclick="alert('Not implemented yet.')" class="menu-item">blog</a>
-                <a onclick="alert('Not implemented yet.')" class="menu-item">FAQ</a>
-            </dev>
-        </dev>
+    <?php
+        include_once('commons/background.php');
+    ?>
 
-        <dev id="right-menu">
-            <button id="nav-sign-up" onclick="window.location.href='register';">Sign up</button>
-            <button id="nav-log-in" onclick="window.location.href='login';">Log in</button>
-        </dev>
-    </nav>
+    <?php
+        include_once('commons/nav.php');
+    ?>
 
     <aside>
         <h1>We’re glad to see you back!</h1>
@@ -45,8 +25,7 @@
         <p>You are just about to make a first step to orderly future.</p>
         <p>You don’t have an account?</p>
 
-        <button onclick="window.location.href='register';" id="aside-sign-up">Sign up. It'free</button>
-<!--        <button onclick="window.location.href='login';" id="log-in-mobile">Login</button>-->
+        <button id="aside-button">Sign up. It'free</button>
     </aside>
 
     <section>
