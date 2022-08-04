@@ -74,6 +74,8 @@ document.getElementById('select-priorities').addEventListener('click', function 
 document.getElementById('show-add-list').addEventListener('click', function (event){
     const addListForm = document.getElementById('create-list');
     addListForm.style.display = 'block';
+    const menu = document.getElementById('left-menu');
+    menu.style.display = 'none';
 });
 
 function displayList(id){
