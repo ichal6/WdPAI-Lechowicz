@@ -23,6 +23,8 @@ function hideAddProduct(id){
 function hideAddListForm(){
     const addNewList = document.getElementById('create-list');
     addNewList.style.display = 'none';
+    const menu = document.getElementById('left-menu');
+    menu.style.display = 'flex';
 }
 
 function displayAddListForm(){

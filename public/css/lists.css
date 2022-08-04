@@ -375,6 +375,7 @@ input:invalid:required {
 #disable-add-list{
     width: 100px;
     height: 100px;
+    position: absolute;
     text-align: center;
     color: #ff253e;
     font-size: 64px;
@@ -514,9 +515,10 @@ input:invalid:required {
 @media (max-width: 700px) {
     #create-list{
         display: none;
-        position: fixed;
+        position: absolute;
+        top: 0;
         left: 0;
-        height: calc(100vh - 130px);
+        height: 100vmax;
         width: 100vw;
     }
 
@@ -601,12 +603,14 @@ input:invalid:required {
     }
 
     #disable-add-list{
-        width: 100px;
-        height: 100px;
+        /*width: 100px;*/
+        /*height: 100px;*/
         text-align: center;
         color: #ff253e;
         font-size: 64px;
         font-family: "Poppins Bold", sans-serif;
+        position: absolute;
+        right: -35px;
     }
 
     #submit-add-list{
@@ -617,6 +621,8 @@ input:invalid:required {
         color: #FFFFFF;
         background-color: #0BD1B8;
         align-self: center;
+        /*position: fixed;*/
+        /*bottom: 5px;*/
     }
 
     #list-filter{
