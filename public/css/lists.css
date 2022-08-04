@@ -375,6 +375,7 @@ input:invalid:required {
 #disable-add-list{
     width: 100px;
     height: 100px;
+    position: absolute;
     text-align: center;
     color: #ff253e;
     font-size: 64px;
