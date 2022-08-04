@@ -579,6 +579,7 @@ input:invalid:required {
 
     #add-product{
         width: 100vw;
+        height: 100vh;
     }
 
     #add-list{
@@ -631,9 +632,16 @@ input:invalid:required {
     }
 
     #add-product-to-list-form {
-        height: 85vh;
+        height: 100vmax;
         width: 100vw;
+        position: absolute;
+        top: 0;
         left: 0;
+    }
+
+    .list-title{
+        width: 80% !important;
+        align-self: flex-start;
     }
 }
 
