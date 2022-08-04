@@ -115,7 +115,7 @@
                         <h2 class="list-title">Add product to <span id="list-title"></span>:</h2>
                         <input name="list-id" value="" type="text" id="add-form-list-id" required>
                         <input name="name" type="text" id="product-name" placeholder="Name" required minlength="3" maxlength="255">
-                        <input name="price" type="number" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
+                        <input name="price" type="number" step="0.01" id="product-price" placeholder="Price (optional)" min="0" max="1000000">
                         <select name="currency_id" id="list-currency">
                             <?php foreach ($currencies as $currency) {?>
                                 <option selected="selected" value="<?=$currency->getId()?>"><?=$currency->getName()?></option>
