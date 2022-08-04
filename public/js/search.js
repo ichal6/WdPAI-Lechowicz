@@ -18,6 +18,8 @@ function hideAddProduct(id){
     }
     const targetDiv = document.getElementById(id);
     targetDiv.style.display = "none";
+    const menu = document.getElementById('left-menu');
+    menu.style.display = 'flex';
 }
 
 function hideAddListForm(){

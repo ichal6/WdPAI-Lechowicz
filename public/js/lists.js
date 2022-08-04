@@ -323,6 +323,8 @@ function hideAddNewList(){
 function displayAddForm(id){
     const targetDiv = document.getElementById(id);
     targetDiv.style.display = "block";
+    const menu = document.getElementById('left-menu');
+    menu.style.display = 'none';
 }
 
 function displayAddProduct(id){
