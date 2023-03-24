@@ -32,5 +32,3 @@ RUN apk add --no-cache --virtual .run-deps $RUN_DEPS
 
 # Copy the application code
 COPY . /app
-
-VOLUME ["/app"]
