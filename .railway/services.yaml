@@ -1,0 +1,8 @@
+services:
+  web:
+    image: <nazwa twojego kontenera>
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env:
+      PORT: 8080
