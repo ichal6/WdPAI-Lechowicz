@@ -15,9 +15,6 @@ RUN docker-php-ext-install pdo_mysql intl zip && \
     pecl install xdebug && \
     docker-php-ext-enable xdebug
 
-# Skopiuj plik konfiguracyjny PHP
-COPY php.ini /usr/local/etc/php/
-
 # Ustaw katalog roboczy na /var/www/html
 WORKDIR /var/www/html
 
