@@ -1,5 +1,5 @@
 # Use the official Railway base image.
-FROM railwayapp/base:v1.1.3
+FROM railwayapp/base:latest
 
 # Install nginx and PHP-FPM.
 RUN apt-get update && \
