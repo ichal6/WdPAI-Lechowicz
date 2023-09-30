@@ -90,8 +90,8 @@ Provide various use cases and code examples here.
 
 
 ## Project Status
-Project is: _in progress_. <!-- If you are no longer working on it, provide reasons why. -->
-
+Project is: _suspended_. <!-- If you are no longer working on it, provide reasons why. -->
+I current focus on the Java/JVM technology. I don't have a lot of time for improve PHP. Addition this project work without any frameworks and there is inefficient solution.
 
 <!-- ## Room for Improvement
 Include areas you believe need improvement / could be improved. Also add TODOs for future development.
